@@ -11,10 +11,10 @@ export function ContactTeam() {
       <Image src={GreenDotsLeft} alt="GreenDotsLeft" className="absolute max-sm:hidden top-0 left-0 pointer-events-none"/>
       <Image src={GreenDotsRight} alt="GreenDotsRight" className="absolute max-sm:hidden bottom-0 right-0 pointer-events-none"/>
       <div className="container flex flex-col items-center">
-        <H3 className="text-white text-center leading-[40px] lg:leading-[50px] mb-[30px]">Our Local Team Of Licensed Insurance Agents<br className="hidden sm:block"/> Has 50+ Years Of Combined Experience.<br className="hidden sm:block"/> We’re Here To Help At No Cost To You.<br className="hidden sm:block"/>
+        <H3 className="text-white text-center text-[30px] md:text-[40px] mb-[30px]">Our Local Team Of Licensed Insurance Agents<br className="hidden sm:block"/> Has 50+ Years Of Combined Experience.<br className="hidden sm:block"/> We’re Here To Help At No Cost To You.<br className="hidden sm:block"/>
         </H3>
         <a href="tel:+16232238884">
-          <Button className="text-[20px] py-[20px] lg:py-[30px]">
+          <Button type="fill" className="text-[20px] py-[20px] lg:py-[30px]">
             <Image src={PhoneBlackIcon} alt="PhoneBlackIcon"/>
             <span>&nbsp;(623) 223-8884</span>
           </Button>

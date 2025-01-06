@@ -1,5 +1,5 @@
 import Image from "next/image";
-import clsx from "clsx";
+import { cn } from '@/utils/commonUtils';
 import Graphic1 from "public/assets/images/set-apart-graphic-1.jpg";
 import Graphic2 from "public/assets/images/set-apart-graphic-2.jpg";
 import Graphic3 from "public/assets/images/set-apart-graphic-3.jpg";
@@ -16,17 +16,17 @@ export function SetApart() {
     <section className="flex relative bg-white items-center justify-center pb-[30px] sm:pb-[60px] lg:pb-[120px]">
       <div className="container">
         <div className="max-w-[1300px] flex items-center justify-center xl:justify-between flex-col">
-          <H2 className="leading-[50px] lg:leading-[60px] !text-[30px] sm:!text-[60px] max-sm:leading-[30px] mb-[10px] sm:mb-[20px] w-full text-center">What Sets Us Apart</H2>
-          <p className="font-medium mb-[30px] sm:mb-[50px] text-center leading-[30px] max-w-[1080px]">This Presentation Contains Confidential And Proprietary Information Intended Solely For The Recipient. By Accepting This
+          <H2 className="text-[30px] md:text-[60px] mb-[10px] md:mb-[20px] w-full text-center">What Sets Us Apart</H2>
+          <p className="font-medium mb-[30px] sm:mb-[50px] text-center max-w-[1080px]">This Presentation Contains Confidential And Proprietary Information Intended Solely For The Recipient. By Accepting This
           <br/>Document, You Agree To Keep All Information Contained Within It Confidential.</p>
           <div className="flex flex-col xl:flex-row gap-x-[20px]">
             {graphicData.map((item, i) => (
               <div className="flex flex-col xl:flex-1 sm:items-center xl:items-start" key={item.title}>
-                <div className={clsx("rounded-[20px] flex items-center justify-center w-full sm:w-fit p-[20px] sm:p-[30px] mb-[30px]", i === 0 ? "bg-[#F8F1F4]" : "bg-[#E4F8F0]")}>
+                <div className={cn("rounded-[20px] flex items-center justify-center w-full sm:w-fit p-[20px] sm:p-[30px] mb-[30px]", i === 0 ? "bg-[#F8F1F4]" : "bg-[#E4F8F0]")}>
                   <Image className="rounded-[15px] w-full sm:w-[360px]" src={item.image} alt={item.title}/>
                 </div>
-                <H6 className="!text-[20px] !leading-[20px] font-semibold !font-sans mb-[10px]">{item.title}</H6>
-                <p className="text-[16px] leading-[30px] text-center max-w-[600px] xl:max-w-auto xl:text-left font-medium max-xl:mb-[30px]">{item.text}</p>
+                <H6 className="text-[20px] font-semibold font-sans mb-[10px]">{item.title}</H6>
+                <p className="text-center max-w-[600px] xl:max-w-auto xl:text-left font-medium max-xl:mb-[30px]">{item.text}</p>
               </div>
             ))}
           </div>

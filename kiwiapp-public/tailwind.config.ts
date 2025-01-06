@@ -13,11 +13,13 @@ const config: Config = {
         center: true,
         padding: {
           DEFAULT: "20px",
-          sm: "0px"
         },
         screens: {
-          sm: "1300px"
+          sm: "1340px"
         }
+      },
+      screens: {
+        xl: "1340px"
       },
       backgroundImage: {
         "footer-bg": "url('../../public/assets/images/footer-bg.png')",

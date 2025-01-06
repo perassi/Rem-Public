@@ -2,7 +2,7 @@ import { ContactTeam, HomeBanner, TripleLink, TeamSlider, SetApart, CustomerSati
 
 export default function Home() {
   return (
-    <div>
+    <>
       <HomeBanner />
       <TripleLink />
       <ContactTeam />
@@ -11,6 +11,6 @@ export default function Home() {
       <CustomerSatisfaction />
       <ExpertSupport />
       <ContactAgent />
-    </div>
+    </>
   );
 }

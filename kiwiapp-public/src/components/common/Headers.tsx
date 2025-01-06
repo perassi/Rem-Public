@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import { cn } from "@/utils/commonUtils";
 import { ReactNode } from "react";
 
 interface HeadersPropsInterface {
@@ -8,7 +8,7 @@ interface HeadersPropsInterface {
 
 export const H1 = ({ children, className }: HeadersPropsInterface) => {
   return (
-    <h1 className={clsx(className, "text-[45px] lg:text-[60px] font-header")}>
+    <h1 className={cn("text-[45px] md:text-[60px] font-header font-normal !leading-[1]", className)}>
       {children}
     </h1>
   )
@@ -16,7 +16,7 @@ export const H1 = ({ children, className }: HeadersPropsInterface) => {
 
 export const H2 = ({ children, className }: HeadersPropsInterface) => {
   return (
-    <h2 className={clsx(className, "font-header text-[45px] lg:text-[55px]")}>
+    <h2 className={cn("font-header text-[55px] font-normal !leading-[1]", className)}>
       {children}
     </h2>
   )
@@ -24,7 +24,7 @@ export const H2 = ({ children, className }: HeadersPropsInterface) => {
 
 export const H3 = ({ children, className }: HeadersPropsInterface) => {
   return (
-    <h3 className={clsx(className, "font-header text-[30px] lg:text-[40px] text-center font-normal")}>
+    <h3 className={cn("font-header text-[40px] text-center font-normal !leading-[1]", className)}>
       {children}
     </h3>
   )
@@ -32,7 +32,7 @@ export const H3 = ({ children, className }: HeadersPropsInterface) => {
 
 export const H4 = ({ children, className }: HeadersPropsInterface) => {
   return (
-    <h4 className={clsx(className, "font-header text-[24px] lg:text-[33px] text-center font-normal")}>
+    <h4 className={cn("font-header text-[33px] text-center font-normal !leading-[1]", className)}>
       {children}
     </h4>
   )
@@ -40,7 +40,7 @@ export const H4 = ({ children, className }: HeadersPropsInterface) => {
 
 export const H5 = ({ children, className }: HeadersPropsInterface) => {
   return (
-    <h5 className={clsx(className, "font-header text-[20px] lg:text-[30px] text-center font-normal")}>
+    <h5 className={cn("font-header text-[30px] text-center font-normal !leading-[1]", className)}>
       {children}
     </h5>
   )
@@ -48,7 +48,7 @@ export const H5 = ({ children, className }: HeadersPropsInterface) => {
 
 export const H6 = ({ children, className }: HeadersPropsInterface) => {
   return (
-    <h6 className={clsx(className, "font-header text-[30px] lg:text-[40px] text-center font-normal")}>
+    <h6 className={cn("font-header text-[40px] text-center font-normal !leading-[1]", className)}>
       {children}
     </h6>
   )

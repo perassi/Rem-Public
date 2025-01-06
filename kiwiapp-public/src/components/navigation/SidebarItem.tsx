@@ -2,7 +2,7 @@
 
 import NextLink from "next/link";
 import React, { useEffect } from "react";
-import clsx from "clsx";
+import { cn } from '@/utils/commonUtils';
 import { useSidebarContext } from "./SidebarContext";
 
 interface Props {
@@ -27,7 +27,7 @@ export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
       className="max-w-full text-xl tracking-wide active:bg-none"
     >
       <div
-        className={clsx(
+        className={cn(
           isActive
             ? "bg-evergreen-600 [&_svg_path]:stroke-green-400"
             : "group hover:bg-mintly hover:text-evergreen-800",
@@ -37,7 +37,7 @@ export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
       >
         {icon}
         <span
-          className={clsx(
+          className={cn(
             isActive ? "text-beige-400" : "text-gray-300 group-hover:text-evergreen-800"
           )}
         >

@@ -8,7 +8,7 @@ import {
   ComboboxOptions,
 } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-import clsx from "clsx";
+import { cn } from '@/utils/commonUtils';
 import { useState } from "react";
 
 export type SelectDropdownOption<T> = {
@@ -59,7 +59,7 @@ const SelectDropdown = <T,>({
       <div className="relative">
         <ComboboxInput
           autoComplete="off"
-          className={clsx(
+          className={cn(
             "w-full rounded-lg border border-gray-300 py-1.5 pl-3 pr-8 text-lg",
             "focus:border-evergreen-800 focus:outline-none focus:ring-0",
             query !== "" || selectedValue !== undefined
@@ -82,7 +82,7 @@ const SelectDropdown = <T,>({
       <ComboboxOptions
         anchor="bottom"
         transition
-        className={clsx(
+        className={cn(
           `z-50 w-[var(--input-width)] rounded-xl border border-evergreen-800 bg-white p-1 [--anchor-gap:var(--spacing-1)]
           empty:invisible`,
           "transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0"

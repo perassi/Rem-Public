@@ -6,7 +6,7 @@ import HappyCouple from "public/assets/images/happy-couple.png";
 import HappyCoupleMobile from "public/assets/images/happy-couple-mobile.png";
 import ChevronUp from "public/assets/icons/chevron-black-up.svg";
 import ChevronDown from "public/assets/icons/chevron-black-down.svg";
-import clsx from "clsx";
+import { cn } from '@/utils/commonUtils';
 import { Button } from "@/components/common/Button";
 import { H2 } from "@/components/common/Headers";
 
@@ -35,7 +35,7 @@ const DropdownItem = ({item}: DropdownItemProps) => {
         <p className="text-[20px] leading-[20px] font-medium">{item.title}</p>
         {open ? <Image src={ChevronUp} alt="ChevronUp"/> : <Image src={ChevronDown} alt="ChevronDown"/>}
       </div>
-      <p className={clsx("leading-[30px] text-[#7F8785] transition-opacity", open ? "visible opacity-100 h-auto" : "collapse opacity-0 h-0")}>{item.content}</p>
+      <p className={cn("text-[#7F8785] transition-opacity", open ? "visible opacity-100 h-auto" : "collapse opacity-0 h-0")}>{item.content}</p>
     </div>
   )
 }
@@ -44,18 +44,20 @@ export function ExpertSupport() {
   return (
     <section className="pb-[60px] sm:pb-[120px] bg-white">
       <div className="container">
-        <div className="flex xl:flex-row flex-col items-center rounded-[30px] gap-x-[50px] relative">
-          <Image src={HappyCouple} alt="PersonOnPc" className="w-auto lg:h-[640px] rounded-[20px] mb-[30px] xl:mb-0 hidden sm:block"/>
-          <Image src={HappyCoupleMobile} alt="PersonOnPc" className="w-full lg:h-[640px] rounded-[20px] mb-[30px] xl:mb-0 block sm:hidden"/>
-          <div>
-            <div className="sm:pb-[10px] flex flex-col sm:items-center xl:items-start">
-              <H2 className="leading-[50px] lg:leading-[70px] max-sm:!text-[30px] !text-[60px] sm:text-center xl:text-left max-sm:leading-[30px] mb-[10px]">Get Medicare Guidance<br className="md:block hidden"/> That’s Simple & Clear.</H2>
-              <p className="font-medium text-[16px] leading-[30px] mb-[20px] sm:mb-[30px]">We’re Here To Make Medicare Easy And Work For You</p>
-              <Button className="py-[20px] !text-[16px] max-sm:w-fit">
+        <div className="flex flex-wrap justify-between items-center rounded-[30px] relative">
+          <div className="w-full md:w-[40%]  flex justify-center">
+            <Image src={HappyCouple} alt="PersonOnPc" className="w-full max-w-[520px] rounded-[20px] mb-[30px] md:mb-0 hidden sm:block"/>
+            <Image src={HappyCoupleMobile} alt="PersonOnPc" className="w-full md:h-[640px] rounded-[20px] mb-[30px] md:mb-0 block sm:hidden"/>
+          </div>
+          <div className="w-full md:w-[56%]">
+            <div className="sm:pb-[10px] flex flex-col sm:items-center md:items-start">
+              <H2 className="text-[30px] md:text-[60px] sm:text-center md:text-left mb-[10px]">Get Medicare Guidance<br className="md:block hidden"/> That’s Simple & Clear.</H2>
+              <p className="font-medium mb-[20px] sm:mb-[30px]">We’re Here To Make Medicare Easy And Work For You</p>
+              <Button type="fill" className="text-[16px]">
                 Get Answers
               </Button>
             </div>
-            <div className="flex min-[1400px]:flex-row flex-col items-center xl:items-start gap-x-[20px]">
+            <div className="flex min-[1400px]:flex-row flex-col items-center md:items-start gap-x-[20px]">
               <div className="flex flex-col min-[1400px]:items-center gap-x-[30px]">
                 {dropdownItems.slice(0,3).map((item) => (
                   <DropdownItem key={item.title} item={item}/>

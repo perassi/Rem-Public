@@ -9,17 +9,17 @@ export function ContactAgent() {
     <section className="bg-beige-400 relative py-[60px] sm:py-[100px]">
       <Image src={DashedCircles} alt="DashedCircles" className="absolute bottom-0 right-0"/>
       <div className="container flex flex-col items-center justify-between">
-        <H3 className="text-center max-sm:text-[30px] !leading-[30px] sm:!leading-[50px] mb-[10px] z-10">Have A Question? Talk To A Medicare Expert Now</H3>
-        <p className="text-[20px] leading-[30px] mb-[30px] font-medium text-center z-10 max-w-[1000px]">Get Expert Help With Your Medicare Questions—Completely Free. Whether You’re Exploring Plans Or Ready
+        <H3 className="text-center max-md:text-[30px] mb-[10px] z-10">Have A Question?<br className="block sm:hidden"/> Talk To A Medicare<br className="block sm:hidden"/> Expert Now</H3>
+        <p className="text-[20px] mb-[30px] font-medium text-center z-10 max-w-[1000px]">Get Expert Help With Your Medicare Questions—Completely Free. Whether You’re Exploring Plans Or Ready
         To Enroll, We’re Here To Guide You Every Step Of The Way. Hablamos Español.</p>
         <a href="tel:+16232238884">
-          <Button className="text-[20px] mb-[30px] py-[20px] z-10">
+          <Button type="fill" className="mb-[30px] py-[20px] z-10">
             <Image src={PhoneBlackIcon} alt="PhoneBlackIcon"/>
             <span>&nbsp;(623) 223-8884</span>
           </Button>
         </a>
-        <p className="text-[20px] leading-[20px] text-center font-medium z-10">Mon - Fri 9am-5pm</p>
+        <p className="text-[20px] text-center font-medium z-10">Mon - Fri 9am-5pm</p>
       </div>
-    </section >
+    </section>
   );
 }

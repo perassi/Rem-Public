@@ -17,6 +17,11 @@
   }
 }
 
-html {
-  color: #172A25
+body {
+  color: #172A25;
+}
+
+p {
+  font-weight: 500;
+  line-height: 1.875;
 }

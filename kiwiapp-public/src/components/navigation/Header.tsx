@@ -22,16 +22,16 @@ export const Header = () => {
                 <Link className="cursor-pointer hover:opacity-70 transition-opacity" href={routes.about}>About REM</Link>
                 <Link className="cursor-pointer hover:opacity-70 transition-opacity" href={routes.espanol}>Español</Link>
               </div>
-              <Button className="sm:px-[30px] !px-[20px] !py-[10px] sm:!py-[20px] align-middle leading-[20px] max-[400px]:!text-[14px] !text-[16px]">Get Covered Now</Button>
+              <Button type="fill" className="sm:px-[30px] px-[20px] py-[10px] sm:py-[20px] align-middle max-[400px]:text-[14px] text-[16px]">Get Covered Now</Button>
               <button className="h-[40px] w-[40px] max-[400px]:ml-[10px] ml-[20px] lg:hidden bg-textDark flex items-center justify-center rounded-full cursor-pointer hover:opacity-90 transition-opacity">
                 <Image src={MenuIcon} alt="MenuIcon" />
               </button>
             </div>
             <div className="flex-col hidden lg:flex pl-[20px] gap-y-[15px]">
-              <p className="text-[20px] leading-[20px]">Speak to a licensed agent (M-F 9am - 5pm)</p>
+              <p className="text-[20px] leading-[1]">Speak to a licensed agent (M-F 9am - 5pm)</p>
               <div className="flex gap-x-[2px]">
                 <Image src={PhoneIcon} alt="PhoneIcon"/>
-                <a href="tel:+16232238884" className="font-semibold text-[20px] leading-[20px] hover:opacity-70 transition-opacity cursor-pointer">(623) 223-8884 | TTY: 711</a>
+                <a href="tel:+16232238884" className="font-semibold text-[20px] leading-[1] hover:opacity-70 transition-opacity cursor-pointer">(623) 223-8884 | TTY: 711</a>
               </div>
             </div>
           </div>
