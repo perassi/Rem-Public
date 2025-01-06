@@ -33,7 +33,7 @@ export const Sidebar = () => {
       ) : null}
       <div className="mx-4 mb-4 mt-0 flex items-center justify-between">
         <Image
-          src="/assets/images/logo-no-rem.svg"
+          src="/assets/icons/logo-no-rem.svg"
           alt="Logo"
           width={48}
           height={48}

@@ -1,3 +1,16 @@
+import { ContactTeam, HomeBanner, TripleLink, TeamSlider, SetApart, CustomerSatisfaction, ExpertSupport, ContactAgent } from "@/components/home";
+
 export default function Home() {
-  return <div>Home</div>;
+  return (
+    <div>
+      <HomeBanner />
+      <TripleLink />
+      <ContactTeam />
+      <TeamSlider />
+      <SetApart />
+      <CustomerSatisfaction />
+      <ExpertSupport />
+      <ContactAgent />
+    </div>
+  );
 }

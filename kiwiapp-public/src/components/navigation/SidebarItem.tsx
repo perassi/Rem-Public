@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
-  const { collapsed, setCollapsed, setCurrentSection } = useSidebarContext();
+  const { setCurrentSection } = useSidebarContext();
 
   useEffect(() => {
     if (isActive) {
@@ -38,7 +38,7 @@ export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
         {icon}
         <span
           className={clsx(
-            isActive ? "text-beige" : "text-gray group-hover:text-evergreen-800"
+            isActive ? "text-beige-400" : "text-gray-300 group-hover:text-evergreen-800"
           )}
         >
           {title}
