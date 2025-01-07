@@ -10,7 +10,7 @@ interface ButtonPropsInterface {
 }
 
 export const Button = ({ children, className = "", type = "fill" }: ButtonPropsInterface) => {
-  const baseStyles = "flex items-center justify-center w-fit text-[20px] leading-[1.25] rounded-[10px] px-[40px] py-[20px] cursor-pointer transition-colors";
+  const baseStyles = "flex items-center justify-center w-fit text-xl leading-[1.25] rounded-lg px-10 py-5 cursor-pointer transition-colors";
 
   const typeStyles = {
     outline: "bg-transparent border-remGreen-400 border-[1px] hover:bg-remGreen-500 hover:text-evergreen-800",

@@ -19,20 +19,20 @@ const items = [
 
 export function TripleLink() {
   return (
-    <section className="flex bg-white justify-center pt-[200px] lg:pt-[155px] pb-[60px] lg:pb-[120px]">
+    <section className="flex bg-white justify-center pt-48 lg:pt-40 pb-14 lg:pb-32">
       <Container>
         <div className="items-center justify-between flex-col">
-          <div className="flex flex-col-reverse lg:flex-row gap-x-[20px] items-center pt-[60px]">
-            <Image src={ClientMeeting} alt="ClientMeeting" className="rounded-[20px] h-auto lg:min-w-[530px] mt-[20px] lg:mt-0 lg:mb-0 max-lg:max-w-full hidden sm:block" />
-            <Image src={ClientMeetingMobile} alt="ClientMeeting" className="rounded-[20px] h-auto lg:min-w-[530px] mt-[20px] lg:mb-0 max-lg:max-w-full sm:hidden block" />
-            <div className="flex flex-col gap-y-[20px]">
+          <div className="flex flex-col-reverse lg:flex-row gap-x-5 items-center pt-16">
+            <Image src={ClientMeeting} alt="ClientMeeting" className="rounded-2xl h-auto lg:min-w-[530px] mt-5 lg:mt-0 lg:mb-0 max-lg:max-w-full hidden sm:block" />
+            <Image src={ClientMeetingMobile} alt="ClientMeeting" className="rounded-2xl h-auto lg:min-w-[530px] mt-5 lg:mb-0 max-lg:max-w-full sm:hidden block" />
+            <div className="flex flex-col gap-y-5">
               {items.map((item, i) => (
-                <Link href="/" className={cn("py-[40px] px-[20px] lg:py-[45px] lg:px-[40px] lg:items-center justify-between rounded-[20px] cursor-pointer hover:opacity-80 transition-opacity bg-beige-400 flex-col flex lg:flex-row gap-x-[30px]", i === 0 && "lg:py-[60px]")} key={item.title}>
+                <Link href="/" className={cn("py-10 px-5 lg:py-12 lg:px-10 lg:items-center justify-between rounded-2xl cursor-pointer hover:opacity-80 transition-opacity bg-beige-400 flex-col flex lg:flex-row gap-x-8", i === 0 && "lg:py-16")} key={item.title}>
                   <div>
-                    <H3 className="text-[30px] mb-[10px] text-left">{item.title}</H3>
+                    <H3 className="text-3xl mb-3 text-left">{item.title}</H3>
                     <p className="font-medium">{item.content}</p>
                   </div>
-                  <div className="flex items-center rounded-full cursor-pointer hover:opacity-70 transition-opacity bg-beige-500 max-lg:mt-[20px] max-lg:w-[60px] lg:min-w-[60px] h-[60px] justify-center">
+                  <div className="flex items-center rounded-full cursor-pointer hover:opacity-70 transition-opacity bg-beige-500 max-lg:mt-5 max-lg:w-[60px] lg:min-w-[60px] h-[60px] justify-center">
                     <Image src={ArrowRightIcon} alt="ArrowRightIcon"/>
                   </div>
                 </Link>

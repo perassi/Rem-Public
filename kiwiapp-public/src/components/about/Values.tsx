@@ -34,16 +34,16 @@ const valuesItems = [
 
 export function Values() {
   return (
-    <section className="bg-beige-400 relative pt-[60px] pb-[60px] lg:pt-[120px] lg:pb-[120px]">
+    <section className="bg-beige-400 relative pt-16 pb-14 lg:pt-32 lg:pb-32">
       <Container>
-        <H2 className="text-center text-[30px] md:text-[60px] mb-[30px] md:mb-[50px] z-10">Our Values</H2>
-        <div className="flex flex-wrap items-center lg:items-start justify-evenly gap-y-[30px] gap-x-[20px]">
+        <H2 className="text-center text-3xl md:text-6xl mb-8 md:mb-12 z-10">Our Values</H2>
+        <div className="flex flex-wrap items-center lg:items-start justify-evenly gap-y-8 gap-x-5">
           {valuesItems.map((item, i) => (
             <div className="flex flex-col items-center min-[770px]:h-[290px] w-full xl:w-[23.5%] md:w-[48%] z-10" key={item.title}>
-              <div className={cn("h-[80px] w-[80px] rounded-[15px] mb-[30px] flex items-center justify-center", i % 2 === 0 ? "bg-[#932159]" : "bg-[#F8894B]")}>
+              <div className={cn("h-20 w-20 rounded-2xl mb-8 flex items-center justify-center", i % 2 === 0 ? "bg-[#932159]" : "bg-[#F8894B]")}>
                 <Image src={item.icon} alt={item.title}/>
               </div>
-              <H6 className="font-sans font-semibold text-[20px] mb-[10px]">{item.title}</H6>
+              <H6 className="font-sans font-semibold text-xl mb-3">{item.title}</H6>
               <p className="max-lg:max-w-[640px] font-medium text-center sm:w-[310px]">{item.text}</p>
             </div>
           ))}

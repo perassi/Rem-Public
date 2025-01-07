@@ -46,13 +46,13 @@ export const ProcessSlider = () => {
   };
 
   return (
-    <section className="relative pb-[60px] lg:pb-[120px] flex flex-col bg-white">
+    <section className="relative pb-14 lg:pb-32 flex flex-col bg-white">
       <div className="absolute w-full h-full pointer-events-none z-10 from-white bg-gradient-to-l to-0% min-[850px]:to-[50px] [1350px]:to-[100px] to-transparent" />
       <div className="absolute w-full h-full pointer-events-none z-10 from-white bg-gradient-to-r to-0% min-[850px]:to-[50px] [1350px]:to-[100px] to-transparent" />
-      <div className="absolute border-t-2 p-1 rounded-[20px] border-dashed border-evergreen-800 w-full top-[280px] sm:top-[310px]"/>
+      <div className="absolute border-t-2 p-1 rounded-2xl border-dashed border-evergreen-800 w-full top-[280px] sm:top-[310px]"/>
       <Container className="max-sm:w-screen max-sm:p-0">
         <div className="relative flex flex-col">
-          <H2 className="text-[30px] md:text-[60px] mb-[30px] md:mb-[20px] w-full text-center">Our Process</H2>
+          <H2 className="text-3xl md:text-6xl mb-8 md:mb-5 w-full text-center">Our Process</H2>
             <Slider
               ref={(slider) => {
                 // @ts-expect-error react-slick's types don't like react refs
@@ -62,13 +62,13 @@ export const ProcessSlider = () => {
             >
               {processSliderData.map((slide, i) => (
                 <div className={cn("w-full !flex justify-center transition-opacity duration-300", i !== slideIndex && "max-sm:!opacity-0", i !== slideIndex && i !== slideIndex + 1 && "max-xl:!opacity-0", i !== slideIndex && i !== slideIndex + 1 && i !== slideIndex + 2 && "xl:!opacity-0")} key={slide.description}>
-                  <div className="relative flex flex-col pt-[30px] max-w-[340px] xl:max-w-[374px]">
-                    <div className="absolute top-0 left-0 -translate-x-[50%] rounded-full flex items-center justify-center border-2 border-evergreen-800 text-[30px] leading-[1] font-bold w-[60px] h-[60px] box-border bg-remGreen-400">{i + 1}</div>
-                    <div className="p-[20px] border-2 border-evergreen-800 border-dashed bg-beige-400 rounded-[20px] max-h-[400px] w-[310px] min-[400px]:w-[340px] sm:max-w-[380px] xl:w-[400px]">
-                      <Image src={slide.image} alt={slide.description} className={'min-sm:w-auto bg-beige-400 rounded-[15px] object-cover w-[270px] min-[400px]:w-[300px] xl:w-full h-[320px] sm:h-[360px]'} />
+                  <div className="relative flex flex-col pt-8 max-w-[340px] xl:max-w-[374px]">
+                    <div className="absolute top-0 left-0 -translate-x-[50%] rounded-full flex items-center justify-center border-2 border-evergreen-800 text-3xl leading-[1] font-bold w-[60px] h-[60px] box-border bg-remGreen-400">{i + 1}</div>
+                    <div className="p-5 border-2 border-evergreen-800 border-dashed bg-beige-400 rounded-2xl max-h-[400px] w-[310px] min-[400px]:w-[340px] sm:max-w-[380px] xl:w-[400px]">
+                      <Image src={slide.image} alt={slide.description} className={'min-sm:w-auto bg-beige-400 rounded-2xl object-cover w-[270px] min-[400px]:w-[300px] xl:w-full h-[320px] sm:h-[360px]'} />
                     </div>
-                    <div className="mt-[30px] xl:ml-[6px] sm:mt-[18px] flex flex-col w-full justify-center md:mt-[30px]">
-                      <H6 className="mb-[10px] font-semibold font-sans text-[20px] text-center">{slide.title}</H6>
+                    <div className="mt-8 xl:ml-[6px] sm:mt-4 flex flex-col w-full justify-center md:mt-8">
+                      <H6 className="mb-3 font-semibold font-sans text-xl text-center">{slide.title}</H6>
                       <p className="mb-0 text-center">{slide.description}</p>
                     </div>
                   </div>
@@ -76,7 +76,7 @@ export const ProcessSlider = () => {
               ))}
             </Slider>
           <div className="flex-1 flex justify-center">
-            <div className="mt-[10px] sm:mt-[50px] items-center gap-[20px] flex">
+            <div className="mt-3 sm:mt-12 items-center gap-5 flex">
               {/* @ts-expect-error react-slick */}
               <button disabled={!smallScreen && !mediumScreen && slideIndex === 0} onClick={() => sliderRef.slickGoTo(slideIndex - 1)} className={cn("w-[60px] h-[60px] flex justify-center items-center rounded-full z-10", !smallScreen && slideIndex === 0 ? "bg-beige-400 cursor-default" : "bg-remGreen-400 hover:bg-remGreen-500 transition-colors cursor-pointer")}>
                 <Image src={ChevronLeftIcon} alt='ChevronLeftIcon'/>
