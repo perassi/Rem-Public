@@ -22,24 +22,6 @@ export function CustomerSatisfaction() {
                 <p className="text-white font-semibold text-[20px] leading-[1] mb-[10px]">Rebeca, King County, WA</p>
                 <p className="text-white font-medium">King County, WA</p>
               </div>
-              {/* <div className="py-[40px]">
-                <div className="flex gap-x-[50px]">
-                  <div className="flex flex-col gap-[20px]">
-                    <H1 className="text-white leading-[45px] lg:leading-[60px]">99%</H1>
-                    <p className="text-white text-[16px] lg:text-[20px] font-medium leading-[20px]">Customer Satisfaction</p>
-                  </div>
-                  <div className="flex flex-col gap-[20px]">
-                    <H1 className="text-white leading-[45px] lg:leading-[60px]">1m</H1>
-                    <p className="text-white text-[16px] lg:text-[20px] font-medium leading-[20px]">Yearly Revenue</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center gap-x-[30px] cursor-pointer">
-                <p className="text-white text-[20px] font-semibold">Read Full Story</p>
-                <div className="flex items-center rounded-full cursor-pointer bg-remGreen-400 hover:bg-remGreen-500 transition-colors w-[60px] h-[60px] justify-center">
-                  <Image src={ArrowRightIcon} alt="ArrowRightIcon"/>
-                </div>
-              </div> */}
             </div>
           </div>
         </div>
