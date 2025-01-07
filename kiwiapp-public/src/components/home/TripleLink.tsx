@@ -26,7 +26,7 @@ export function TripleLink() {
             <Image src={ClientMeetingMobile} alt="ClientMeeting" className="rounded-[20px] h-auto lg:min-w-[530px] mt-[20px] lg:mb-0 max-lg:max-w-full sm:hidden block" />
             <div className="flex flex-col gap-y-[20px]">
               {items.map((item, i) => (
-                <Link href="/" className={cn("py-[40px] px-[20px] lg:py-[45px] lg:px-[40px] lg:items-center justify-between rounded-[20px] cursor-pointer hover:opacity-80 transition-opacity bg-beige-400 flex-col flex lg:flex-row gap-x-[30px]", i === 0 && "lg:!py-[60px]")} key={item.title}>
+                <Link href="/" className={cn("py-[40px] px-[20px] lg:py-[45px] lg:px-[40px] lg:items-center justify-between rounded-[20px] cursor-pointer hover:opacity-80 transition-opacity bg-beige-400 flex-col flex lg:flex-row gap-x-[30px]", i === 0 && "lg:py-[60px]")} key={item.title}>
                   <div>
                     <H3 className="text-[30px] mb-[10px] text-left">{item.title}</H3>
                     <p className="font-medium">{item.content}</p>

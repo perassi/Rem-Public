@@ -52,7 +52,7 @@ export const TeamSlider = () => {
               {...settings}
             >
               {teamSliderData.map((slide) => (
-                <div key={slide.location} className="max-sm:!mx-[10px] sm:!mr-[20px]  flex flex-row max-w-[310px]">
+                <div key={slide.location} className="max-sm:mx-[10px] sm:mr-[20px] flex flex-row max-w-[310px]">
                   <div className="relative">
                     <Image src={slide.image} alt={slide.name} className={'w-full bg-beige-400 rounded-lg object-cover h-[310px]'} />
                     <div className="absolute bottom-[20px] w-max -translate-x-[50%] rounded-full left-[50%] bg-white z-10 flex gap-[5px] py-[10px] px-[20px]">

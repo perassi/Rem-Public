@@ -9,7 +9,7 @@ export function CustomerSatisfaction() {
     <section className="pb-[100px] bg-white flex justify-center">
       <div className="container">
         <div className="flex items-center justify-between flex-col">
-          <div className="flex flex-col lg:flex-row bg-remGreen-700 max-sm:bg-green-dots-bottom-mobile bg-no-repeat bg-right-bottom items-center rounded-[30px] gap-x-[50px] relative justify-between p-[20px] lg:p-[50px]">
+          <div className="flex flex-col lg:flex-row bg-evergreen-800 max-sm:bg-green-dots-bottom-mobile bg-no-repeat bg-right-bottom items-center rounded-[30px] gap-x-[50px] relative justify-between p-[20px] lg:p-[50px]">
             <Image src={GreenDotsRight} alt="GreenDotsRight" className="absolute bottom-0 right-0 pointer-events-none max-sm:hidden"/>
             <div className="w-full lg:w-[40%] flex justify-center">
               <Image src={PersonOnPc} alt="PersonOnPc" className="w-full max-w-[480px] rounded-[20px] mb-[30px] lg:mb-0 hidden sm:block"/>

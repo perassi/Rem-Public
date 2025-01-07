@@ -30,9 +30,7 @@ const config: Config = {
         remGreen: {
           "400": "#18F1A1",
           "500": "#0ee898",
-          "700": "#172A25"
         },
-        textDark: "#172A25",
         green: {
           "100": "#E9FBF5",
           "200": "#93ECCB",

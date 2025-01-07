@@ -22,7 +22,7 @@ const companyData = [
 
 export function HomeBanner() {
   return (
-    <section className="flex relative bg-remGreen-700 max-sm:bg-gradient-to-b from-[rgba(14,232,152,0.3)] to-remGreen-700 justify-center pt-[60px] lg:pb-[160px] pb-[140px]">
+    <section className="flex relative bg-evergreen-800 max-sm:bg-gradient-to-b from-[rgba(14,232,152,0.3)] to-evergreen-800 justify-center pt-[60px] lg:pb-[160px] pb-[140px]">
       <div className="container">
         <div className="w-full flex flex-wrap items-center justify-between xl:gap-x-[20px] gap-y-[60px]">
           <Image src={GreenShade} alt="GreenShade" className="absolute top-0 left-0 sm:block hidden pointer-events-none" />

@@ -7,7 +7,7 @@ import { H3 } from "@/components/common/Headers";
 
 export function ContactTeam() {
   return (
-    <section className="max-sm:bg-green-dots-bg bg-cover bg-no-repeat bg-center bg-remGreen-700 items-center relative justify-between py-[60px] sm:py-[100px]">
+    <section className="max-sm:bg-green-dots-bg bg-cover bg-no-repeat bg-center bg-evergreen-800 items-center relative justify-between py-[60px] sm:py-[100px]">
       <Image src={GreenDotsLeft} alt="GreenDotsLeft" className="absolute max-sm:hidden top-0 left-0 pointer-events-none"/>
       <Image src={GreenDotsRight} alt="GreenDotsRight" className="absolute max-sm:hidden bottom-0 right-0 pointer-events-none"/>
       <div className="container flex flex-col items-center">

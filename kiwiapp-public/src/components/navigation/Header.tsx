@@ -23,7 +23,7 @@ export const Header = () => {
                 <Link className="cursor-pointer hover:opacity-70 transition-opacity" href={routes.espanol}>Español</Link>
               </div>
               <Button type="fill" className="sm:px-[30px] px-[20px] py-[10px] sm:py-[20px] align-middle max-[400px]:text-[14px] text-[16px]">Get Covered Now</Button>
-              <button className="h-[40px] w-[40px] max-[400px]:ml-[10px] ml-[20px] lg:hidden bg-textDark flex items-center justify-center rounded-full cursor-pointer hover:opacity-90 transition-opacity">
+              <button className="h-[40px] w-[40px] max-[400px]:ml-[10px] ml-[20px] lg:hidden bg-evergreen-800 flex items-center justify-center rounded-full cursor-pointer hover:opacity-90 transition-opacity">
                 <Image src={MenuIcon} alt="MenuIcon" />
               </button>
             </div>

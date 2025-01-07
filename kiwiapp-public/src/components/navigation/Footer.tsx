@@ -8,7 +8,7 @@ export const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-remGreen-700 max-sm:bg-gradient-to-b from-[rgba(14,232,152,0.3)] via-remGreen-700 to-remGreen-700 sm:bg-footer-bg bg-cover">
+    <footer className="bg-evergreen-800 max-sm:bg-gradient-to-b from-[rgba(14,232,152,0.3)] via-evergreen-800 to-evergreen-800 sm:bg-footer-bg bg-cover">
       <div className="container">
         <div className="flex lg:flex-row flex-col pb-[30px] pt-[60px] lg:py-[55px] w-full justify-between border-b-[1px] border-white border-opacity-20 items-center">
           <div className="flex justify-between items-center w-full">
