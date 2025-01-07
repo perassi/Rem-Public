@@ -3,13 +3,14 @@ import Link from "next/link";
 import RemLogoWhite from "public/assets/images/rem-logo-white.png";
 import FacebookWhiteIcon from "public/assets/icons/facebook-white.svg";
 import LinkedInWhiteIcon from "public/assets/icons/linkedin-white.svg";
+import { Container } from "@/components/common/Container";
 
 export const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
     <footer className="bg-evergreen-800 max-sm:bg-gradient-to-b from-[rgba(14,232,152,0.3)] via-evergreen-800 to-evergreen-800 sm:bg-footer-bg bg-cover">
-      <div className="container">
+      <Container>
         <div className="flex lg:flex-row flex-col pb-[30px] pt-[60px] lg:py-[55px] w-full justify-between border-b-[1px] border-white border-opacity-20 items-center">
           <div className="flex justify-between items-center w-full">
             <Link href="/">
@@ -46,7 +47,7 @@ export const Footer = () => {
         <div className="flex w-full justify-center py-[30px]">
           <p className="font-medium leading-[20px] lg:leading-[30px] text-center text-white opacity-60">All Contents ©Copyright Connie Health {year}. All Rights Reserved.</p>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

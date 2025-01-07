@@ -6,6 +6,7 @@ import CheckmarkIcon from "public/assets/icons/checkmark.svg";
 import PersonIcon from "public/assets/icons/person.svg";
 import ConnectionsIcon from "public/assets/icons/connections.svg";
 import { H2, H6 } from "@/components/common/Headers";
+import { Container } from "@/components/common/Container";
 import { cn } from '@/utils/commonUtils';
 
 const valuesItems = [
@@ -34,7 +35,7 @@ const valuesItems = [
 export function Values() {
   return (
     <section className="bg-beige-400 relative pt-[60px] pb-[60px] lg:pt-[120px] lg:pb-[120px]">
-      <div className="container">
+      <Container>
         <H2 className="text-center text-[30px] md:text-[60px] mb-[30px] md:mb-[50px] z-10">Our Values</H2>
         <div className="flex flex-wrap items-center lg:items-start justify-evenly gap-y-[30px] gap-x-[20px]">
           {valuesItems.map((item, i) => (
@@ -47,7 +48,7 @@ export function Values() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
       <Image src={DashedCircles} alt="DashedCircles" className="absolute top-0 right-0 hidden sm:block"/>
       <Image src={DashedCirclesMobile} alt="DashedCirclesMobile" className="absolute top-0 right-0 block sm:hidden"/>
     </section >

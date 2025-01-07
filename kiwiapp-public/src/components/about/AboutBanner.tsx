@@ -2,11 +2,12 @@ import Image from "next/image";
 import AboutHero from "public/assets/images/about-hero.jpg";
 import { Button } from "@/components/common/Button";
 import { H1, H2 } from "@/components/common/Headers";
+import { Container } from "@/components/common/Container";
 
 export function AboutBanner() {
   return (
     <section className="flex relative bg-white justify-center pt-[60px] lg:pb-[120px] pb-[60px]">
-      <div className="container">
+      <Container>
         <div className="w-full flex flex-wrap items-center justify-between lg:gap-x-[20px] gap-y-[60px]">
           <div className="lg:mb-0 w-full lg:w-[56%]">
             <H1 className="text-[30px] md:text-[60px] mb-[10px] md:mb-[20px]">About Us</H1>
@@ -34,7 +35,7 @@ export function AboutBanner() {
             <Image src={AboutHero} alt="AboutHero" className="rounded-[20px] lg:mb-0 block"/>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

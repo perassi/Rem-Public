@@ -9,11 +9,12 @@ import 'slick-carousel/slick/slick-theme.css';
 import { leadershipData } from '@/utils/sliderData';
 import LinkedinIcon from "public/assets/icons/linkedin-dark.svg";
 import { H2 } from '@/components/common/Headers';
+import { Container } from "@/components/common/Container";
 
 export const Leadership = () => {
   return (
     <section className="py-[60px] lg:py-[120px] flex flex-col bg-white">
-      <div className="container">
+      <Container>
         <div className="relative">
           <H2 className="text-[30px] md:text-[60px] mb-[30px] md:mb-[50px] w-full text-center">Leadership</H2>
           <div className="flex flex-wrap justify-center gap-x-[20px] gap-y-[30px] sm:gap-y-[50px]">
@@ -37,7 +38,7 @@ export const Leadership = () => {
               ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

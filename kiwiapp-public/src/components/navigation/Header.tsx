@@ -6,11 +6,12 @@ import PhoneIcon from "public/assets/icons/phone.svg"
 import MenuIcon from "public/assets/icons/hamburger-menu-white.svg"
 import { routes } from "@/utils/routes"
 import { Button } from "@/components/common/Button"
+import { Container } from "@/components/common/Container"
 
 export const Header = () => {
   return (
     <nav className="h-[130px] sm:h-[120px] bg-beige-400 z-50 w-screen fixed pb-[30px] pt-[60px] sm:py-[30px]">
-      <div className="container">
+      <Container>
         <div className="flex justify-between items-center">
           <Link href={routes.home}>
             <Image src={RemLogo} alt="RemLogo" className="h-[30px] w-auto sm:w-[154px] sm:h-[50px] cursor-pointer"/>
@@ -36,7 +37,7 @@ export const Header = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </nav>
   )
 }

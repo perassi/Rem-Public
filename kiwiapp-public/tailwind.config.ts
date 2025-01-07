@@ -9,18 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: "20px",
-        },
-        screens: {
-          sm: "1340px"
-        }
-      },
-      screens: {
-        xl: "1340px"
-      },
       backgroundImage: {
         "footer-bg": "url('../../public/assets/images/footer-bg.png')",
         "green-dots-bg": "url('../../public/assets/images/green-dots-mobile.png')",

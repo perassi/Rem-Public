@@ -12,6 +12,7 @@ import { processSliderData } from '@/utils/sliderData';
 import ChevronLeftIcon from "public/assets/icons/chevron-left.svg";
 import ChevronRightIcon from "public/assets/icons/chevron-right.svg";
 import { H2, H6 } from '@/components/common/Headers';
+import { Container } from "@/components/common/Container";
 
 export const ProcessSlider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -49,7 +50,7 @@ export const ProcessSlider = () => {
       <div className="absolute w-full h-full pointer-events-none z-10 from-white bg-gradient-to-l to-0% min-[850px]:to-[50px] [1350px]:to-[100px] to-transparent" />
       <div className="absolute w-full h-full pointer-events-none z-10 from-white bg-gradient-to-r to-0% min-[850px]:to-[50px] [1350px]:to-[100px] to-transparent" />
       <div className="absolute border-t-2 p-1 rounded-[20px] border-dashed border-evergreen-800 w-full top-[280px] sm:top-[310px]"/>
-      <div className="sm:container">
+      <Container className="max-sm:w-screen max-sm:p-0">
         <div className="relative flex flex-col">
           <H2 className="text-[30px] md:text-[60px] mb-[30px] md:mb-[20px] w-full text-center">Our Process</H2>
             <Slider
@@ -87,7 +88,7 @@ export const ProcessSlider = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

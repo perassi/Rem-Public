@@ -3,11 +3,12 @@ import GreenDotsRight from "public/assets/images/green-dots-2.png";
 import PersonOnPc from "public/assets/images/person-on-pc.jpg";
 import PersonOnPcMobile from "public/assets/images/person-on-pc-mobile.jpg";
 import { H4 } from "@/components/common/Headers";
+import { Container } from "@/components/common/Container";
 
 export function CustomerSatisfaction() {
   return (
     <section className="pb-[100px] bg-white flex justify-center">
-      <div className="container">
+      <Container>
         <div className="flex items-center justify-between flex-col">
           <div className="flex flex-col lg:flex-row bg-evergreen-800 max-sm:bg-green-dots-bottom-mobile bg-no-repeat bg-right-bottom items-center rounded-[30px] gap-x-[50px] relative justify-between p-[20px] lg:p-[50px]">
             <Image src={GreenDotsRight} alt="GreenDotsRight" className="absolute bottom-0 right-0 pointer-events-none max-sm:hidden"/>
@@ -42,7 +43,7 @@ export function CustomerSatisfaction() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

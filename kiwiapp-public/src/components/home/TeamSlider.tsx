@@ -13,6 +13,7 @@ import ChevronLeftIcon from "public/assets/icons/chevron-left.svg";
 import ChevronRightIcon from "public/assets/icons/chevron-right.svg";
 import LocationIcon from "public/assets/icons/location.svg";
 import { H2, H6 } from '@/components/common/Headers';
+import { Container } from "@/components/common/Container";
 
 export const TeamSlider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
@@ -40,7 +41,7 @@ export const TeamSlider = () => {
 
   return (
     <section className="py-[60px] lg:py-[120px] flex flex-col bg-white">
-      <div className="sm:container">
+      <Container className="max-sm:w-screen max-sm:p-0">
         <div className="relative flex flex-col">
           <H2 className="text-[30px] md:text-[60px] mb-[30px] md:mb-[50px] w-full text-center">Meet Our Licensed<br className='block sm:hidden'/> Insurance Agents</H2>
           <div className="md:w-full max-h-[390px]">
@@ -81,7 +82,7 @@ export const TeamSlider = () => {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

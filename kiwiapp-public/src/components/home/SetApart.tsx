@@ -4,6 +4,7 @@ import Graphic1 from "public/assets/images/set-apart-graphic-1.jpg";
 import Graphic2 from "public/assets/images/set-apart-graphic-2.jpg";
 import Graphic3 from "public/assets/images/set-apart-graphic-3.jpg";
 import { H2, H6 } from "@/components/common/Headers";
+import { Container } from "@/components/common/Container";
 
 const graphicData = [
   { image: Graphic1, title: "No Call Centers, Only Local Experts", text: "Work With Agents Who Know Your Community, Culture, And Needs. Our Agents Compare Plans To Help Lower Your Premiums, Co-Pays, And Out-Of-Pocket Costs" },
@@ -14,7 +15,7 @@ const graphicData = [
 export function SetApart() {
   return (
     <section className="flex relative bg-white items-center justify-center pb-[30px] sm:pb-[60px] lg:pb-[120px]">
-      <div className="container">
+      <Container>
         <div className="max-w-[1300px] flex items-center justify-center xl:justify-between flex-col">
           <H2 className="text-[30px] md:text-[60px] mb-[10px] md:mb-[20px] w-full text-center">What Sets Us Apart</H2>
           <p className="font-medium mb-[30px] sm:mb-[50px] text-center max-w-[1080px]">This Presentation Contains Confidential And Proprietary Information Intended Solely For The Recipient. By Accepting This
@@ -31,7 +32,7 @@ export function SetApart() {
             ))}
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

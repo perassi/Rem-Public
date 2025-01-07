@@ -6,6 +6,7 @@ import ClientMeetingMobile from "public/assets/images/client-meeting-mobile.jpg"
 import { routes } from "@/utils/routes";
 import { H3 } from "@/components/common/Headers";
 import Link from "next/link";
+import { Container } from "@/components/common/Container";
 
 const items = [
   { title: "Find The Right Coverage For You", 
@@ -19,7 +20,7 @@ const items = [
 export function TripleLink() {
   return (
     <section className="flex bg-white justify-center pt-[200px] lg:pt-[155px] pb-[60px] lg:pb-[120px]">
-      <div className="container">
+      <Container>
         <div className="items-center justify-between flex-col">
           <div className="flex flex-col-reverse lg:flex-row gap-x-[20px] items-center pt-[60px]">
             <Image src={ClientMeeting} alt="ClientMeeting" className="rounded-[20px] h-auto lg:min-w-[530px] mt-[20px] lg:mt-0 lg:mb-0 max-lg:max-w-full hidden sm:block" />
@@ -39,7 +40,7 @@ export function TripleLink() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

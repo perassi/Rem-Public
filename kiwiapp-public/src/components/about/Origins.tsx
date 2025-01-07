@@ -3,11 +3,12 @@ import ClientMeeting from "public/assets/images/client-meeting-dashed.png";
 import ClientMeetingMobile from "public/assets/images/client-meeting-dashed-mobile.png";
 import { H2 } from "@/components/common/Headers";
 import { Button } from "@/components/common/Button";
+import { Container } from "@/components/common/Container";
 
 export function Origins() {
   return (
     <section className="flex bg-white justify-center pt-[60px] lg:pt-[120px] pb-[60px] lg:pb-[120px]">
-      <div className="container">
+      <Container>
         <div className="items-center justify-between flex-col">
           <div className="flex flex-wrap justify-between items-center gap-y-[30px] md:gap-y-[60px]">
             <div className="w-full lg:w-[40%] flex justify-center">
@@ -35,7 +36,7 @@ export function Origins() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

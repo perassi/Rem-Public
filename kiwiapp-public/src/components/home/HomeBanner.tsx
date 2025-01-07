@@ -10,6 +10,7 @@ import DevotedHealthCompany from "public/assets/images/devotedhealth-company.png
 import HumanaCompany from "public/assets/images/humana-company.png";
 import { Button } from "@/components/common/Button";
 import { H1, H5 } from "@/components/common/Headers";
+import { Container } from "@/components/common/Container";
 
 const companyData = [
   { image: AetnaCompany, alt: "AetnaCompany" },
@@ -23,7 +24,7 @@ const companyData = [
 export function HomeBanner() {
   return (
     <section className="flex relative bg-evergreen-800 max-sm:bg-gradient-to-b from-[rgba(14,232,152,0.3)] to-evergreen-800 justify-center pt-[60px] lg:pb-[160px] pb-[140px]">
-      <div className="container">
+      <Container>
         <div className="w-full flex flex-wrap items-center justify-between xl:gap-x-[20px] gap-y-[60px]">
           <Image src={GreenShade} alt="GreenShade" className="absolute top-0 left-0 sm:block hidden pointer-events-none" />
           <div className="xl:mb-0 w-full lg:w-[56%]">
@@ -47,7 +48,7 @@ export function HomeBanner() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

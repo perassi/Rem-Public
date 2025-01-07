@@ -9,6 +9,7 @@ import ChevronDown from "public/assets/icons/chevron-black-down.svg";
 import { cn } from '@/utils/commonUtils';
 import { Button } from "@/components/common/Button";
 import { H2 } from "@/components/common/Headers";
+import { Container } from "@/components/common/Container";
 
 interface DropdownItem {
   title: string;
@@ -43,7 +44,7 @@ const DropdownItem = ({item}: DropdownItemProps) => {
 export function ExpertSupport() {
   return (
     <section className="pb-[60px] sm:pb-[120px] bg-white">
-      <div className="container">
+      <Container>
         <div className="flex flex-wrap justify-between items-center rounded-[30px] relative">
           <div className="w-full md:w-[40%]  flex justify-center">
             <Image src={HappyCouple} alt="PersonOnPc" className="w-full max-w-[520px] rounded-[20px] mb-[30px] md:mb-0 hidden sm:block"/>
@@ -71,8 +72,7 @@ export function ExpertSupport() {
             </div>
           </div>
         </div>
-      </div>
-      
+      </Container>
     </section>
   );
 }
