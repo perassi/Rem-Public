@@ -5,11 +5,11 @@ type ButtonType = "outline" | "fill" | "fill-invert"
 
 interface ButtonPropsInterface {
   children: ReactNode;
-  className: string;
-  type: ButtonType;
+  className?: string;
+  type?: ButtonType;
 }
 
-export const Button = ({ children, className, type }: ButtonPropsInterface) => {
+export const Button = ({ children, className = "", type = "fill" }: ButtonPropsInterface) => {
   const baseStyles = "flex items-center justify-center w-fit text-[20px] leading-[1.25] rounded-[10px] px-[40px] py-[20px] cursor-pointer transition-colors";
 
   const typeStyles = {
