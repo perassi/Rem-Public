@@ -31,7 +31,7 @@ export function HomeBanner() {
             <H1 className="text-3xl md:text-6xl mb-3 md:mb-5 md:max-w-[675px] text-white">Save Money And Get The Medicare Coverage You Deserve</H1>
             <p className="text-white mb-5 md:mb-8 xl:max-w-[675px]">Unbiased, Local Experts Find Plans That Fit Your Needs And Your Budget. Save More With Personalized Recommendations Tailored To Your Life.</p>
             <div className="flex flex-wrap gap-5">
-              <Button type="fill-invert" className="text-base hover:text-white">Find Plans On Your Own</Button>
+              <Button type="fill" className="text-base">Find Plans On Your Own</Button>
               <Button type="outline" className="text-base text-white">Get A Free Consultation Now</Button>
             </div>
           </div>

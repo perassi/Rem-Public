@@ -30,7 +30,7 @@ export function Origins() {
                 </li>
               </ul>
               <div className="flex flex-wrap gap-5">
-                <Button type="fill-invert" className="text-base">Find Plans On Your Own</Button>
+                <Button type="fill" className="text-base">Find Plans On Your Own</Button>
                 <Button type="outline" className="text-base">Get A Free Consultation Now</Button>
               </div>
             </div>

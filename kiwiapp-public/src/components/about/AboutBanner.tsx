@@ -13,7 +13,7 @@ export function AboutBanner() {
             <H1 className="text-3xl md:text-16 mb-2 md:mb-5">About Us</H1>
             <p className="mb-8 lg:max-w-screen-md">At REM, We Believe Medicare Should Be Simple, Accessible, And Focused On Your Needs—Not Sales Quotas. That’s Why We’ve Built A Team Of Local, Trusted Agents Who Provide Personalized Support, Not Just For Enrollment, But For Navigating The Complexities Of Medicare. With REM, You Get More Than A Plan—You Get Guidance From Someone Who Understands Your Community And Puts Your Health And Well-Being First.</p>
             <div className="flex flex-wrap gap-5 pb-16">
-              <Button type="fill-invert" className="text-base leading-[1.25]">Find Plans On Your Own</Button>
+              <Button type="fill" className="text-base leading-[1.25]">Find Plans On Your Own</Button>
               <Button type="outline" className="text-base leading-[1.25]">Get A Free Consultation Now</Button>
             </div>
             <div className="flex max-sm:flex-col gap-x-8">

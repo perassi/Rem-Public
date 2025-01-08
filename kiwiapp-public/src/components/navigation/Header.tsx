@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-import RemLogo from "public/assets/images/rem-logo.png"
+import RemLogo from "public/assets/icons/rem-logo.svg"
 import PhoneIcon from "public/assets/icons/phone.svg"
 import MenuIcon from "public/assets/icons/hamburger-menu-white.svg"
 import { routes } from "@/utils/routes"

@@ -14,8 +14,8 @@ export function StressOut() {
         <H2 className="text-white text-center text-3xl md:text-6xl mb-3">Take The Stress Out Of Medicare.</H2>
         <p className="pb-5 sm:pb-8 font-medium text-white max-lg:text-center">We Ensure Every Step Is Easy, From Finding The Right Plan To Getting The Most Out Of Your Benefits.</p>
         <div className="flex flex-wrap justify-center gap-5">
-          <Button type="fill-invert" className="hover:text-white lg:py-8">Find Plans On Your Own</Button>
-          <Button type="outline" className="hover:text-evergreen-800 text-white lg:py-8">Get A Free Consultation Now</Button>
+          <Button type="fill" className="lg:py-8">Find Plans On Your Own</Button>
+          <Button type="outline" className="text-white lg:py-8">Get A Free Consultation Now</Button>
         </div>
       </Container>
     </section>

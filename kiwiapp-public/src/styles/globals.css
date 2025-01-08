@@ -22,6 +22,5 @@ body {
 }
 
 p {
-  font-weight: 500;
-  line-height: 1.875;
+  @apply font-medium leading-[1.875];
 }
