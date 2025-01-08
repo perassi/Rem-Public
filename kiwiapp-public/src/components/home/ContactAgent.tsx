@@ -19,7 +19,7 @@ export function ContactAgent() {
             <span>&nbsp;(623) 223-8884</span>
           </Button>
         </a>
-        <p className="text-xl text-center font-medium z-10">Mon - Fri 9am-5pm</p>
+        <p className="text-xl text-center font-medium z-10">Mon - Fri 9am-5pm <span className="text-[10px]">PST</span></p>
       </Container>
     </section>
   );

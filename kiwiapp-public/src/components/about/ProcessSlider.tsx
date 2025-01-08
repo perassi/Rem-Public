@@ -64,7 +64,7 @@ export const ProcessSlider = () => {
                 <div className={cn("w-full !flex justify-center transition-opacity duration-300", i !== slideIndex && "max-sm:!opacity-0", i !== slideIndex && i !== slideIndex + 1 && "max-xl:!opacity-0", i !== slideIndex && i !== slideIndex + 1 && i !== slideIndex + 2 && "xl:!opacity-0")} key={slide.description}>
                   <div className="relative flex flex-col pt-8 max-w-[340px] xl:max-w-[374px]">
                     <div className="absolute top-0 left-0 -translate-x-[50%] rounded-full flex items-center justify-center border-2 border-evergreen-800 text-3xl leading-[1] font-bold w-[60px] h-[60px] box-border bg-remGreen-400">{i + 1}</div>
-                    <div className="p-5 border-2 border-evergreen-800 border-dashed bg-beige-400 rounded-2xl max-h-[400px] w-[310px] min-[400px]:w-[340px] sm:max-w-[380px] xl:w-[400px]">
+                    <div className="p-5 bg-beige-400 rounded-2xl max-h-[400px] w-[310px] min-[400px]:w-[340px] sm:max-w-[380px] xl:w-[400px]">
                       <Image src={slide.image} alt={slide.description} className={'min-sm:w-auto bg-beige-400 rounded-2xl object-cover w-[270px] min-[400px]:w-[300px] xl:w-full h-[320px] sm:h-[360px]'} />
                     </div>
                     <div className="mt-8 xl:ml-[6px] sm:mt-4 flex flex-col w-full justify-center md:mt-8">

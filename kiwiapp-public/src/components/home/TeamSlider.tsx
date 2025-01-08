@@ -41,7 +41,7 @@ export const TeamSlider = () => {
 
   return (
     <section className="py-16 lg:py-32 flex flex-col bg-white">
-      <Container className="max-sm:w-screen max-sm:p-0">
+      <Container className="w-screen max-sm:p-0">
         <div className="relative flex flex-col">
           <H2 className="text-3xl md:text-6xl mb-8 md:mb-12 w-full text-center">Meet Our Licensed<br className='block sm:hidden'/> Insurance Agents</H2>
           <div className="md:w-full max-h-[390px]">
