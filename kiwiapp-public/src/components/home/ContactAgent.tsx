@@ -16,10 +16,9 @@ export function ContactAgent() {
         <a href="tel:+16232238884">
           <Button type="fill" className="mb-8 py-5 z-10">
             <Image src={PhoneBlackIcon} alt="PhoneBlackIcon"/>
-            <span>&nbsp;(623) 223-8884</span>
+            <span className="font-medium ml-1">Get Help</span>
           </Button>
         </a>
-        <p className="text-xl text-center font-medium z-10">Mon - Fri 9am-5pm <span className="text-[10px]">PST</span></p>
       </Container>
     </section>
   );

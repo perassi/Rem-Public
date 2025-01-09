@@ -31,12 +31,12 @@ const dropdownItems = [
 const DropdownItem = ({item}: DropdownItemProps) => {
   const [open, setOpen] = useState(false);
   return (
-    <div key={item.title} onClick={() => setOpen(!open)} className="sm:w-[350px] mt-8 cursor-pointer hover:opacity-70 transition-opacity">
+    <div key={item.title} onClick={() => setOpen(!open)} className="sm:w-80 mt-8 cursor-pointer hover:opacity-70 transition-opacity">
       <div className="flex items-center justify-between mb-3">
         <p className="text-xl leading-[1.25] font-medium">{item.title}</p>
         {open ? <Image src={ChevronUp} alt="ChevronUp"/> : <Image src={ChevronDown} alt="ChevronDown"/>}
       </div>
-      <p className={cn("text-[#7F8785] transition-opacity", open ? "visible opacity-100 h-auto" : "collapse opacity-0 h-0")}>{item.content}</p>
+      <p className={cn("text-gray-500 transition-opacity", open ? "visible opacity-100 h-auto" : "collapse opacity-0 h-0")}>{item.content}</p>
     </div>
   )
 }

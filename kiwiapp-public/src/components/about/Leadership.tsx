@@ -32,7 +32,7 @@ export const Leadership = () => {
                   <div className="mt-8 sm:mt-4 md:mt-8 text-center">
                     <p className="mb-3 font-semibold text-xl leading-[1]">{slide.name}</p>
                     <p className="mb-0 pb-4">{slide.position}</p>
-                    <p className="mb-0 text-[#7F8785]">{slide.description}</p>
+                    <p className="mb-0 text-gray-500">{slide.description}</p>
                   </div>
                 </div>
               ))}

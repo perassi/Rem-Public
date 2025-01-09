@@ -22,10 +22,10 @@ export const Footer = () => {
               <Link href="/" className="text-base leading-[1.25] font-medium text-white cursor-pointer hover:opacity-70">Español</Link>
             </div>
             <div className="flex gap-x-5">
-              <Link href="/" className="flex items-center rounded-full cursor-pointer bg-white bg-opacity-10 w-[60px] h-[60px] justify-center hover:opacity-70">
+              <Link href="/" className="flex items-center rounded-full cursor-pointer bg-white bg-opacity-10 w-16 h-16 justify-center hover:opacity-70">
                 <Image src={FacebookWhiteIcon} alt="FacebookIcon"/>
               </Link>
-              <Link href="/" className="flex items-center rounded-full cursor-pointer bg-white bg-opacity-10 w-[60px] h-[60px] justify-center hover:opacity-70">
+              <Link href="/" className="flex items-center rounded-full cursor-pointer bg-white bg-opacity-10 w-16 h-16 justify-center hover:opacity-70">
                 <Image src={LinkedInWhiteIcon} alt="LinkedInIcon"/>
               </Link>
             </div>

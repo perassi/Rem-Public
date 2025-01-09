@@ -16,7 +16,7 @@ export function SetApart() {
   return (
     <section className="flex relative bg-white items-center justify-center pb-8 sm:pb-14 lg:pb-32">
       <Container>
-        <div className="max-w-[1300px] flex items-center justify-center xl:justify-between flex-col">
+        <div className="flex items-center justify-center xl:justify-between flex-col">
           <H2 className="text-3xl md:text-6xl mb-3 md:mb-5 w-full text-center">What Sets Us Apart</H2>
           <p className="font-medium mb-8 sm:mb-12 text-center max-w-[1080px]">This Presentation Contains Confidential And Proprietary Information Intended Solely For The Recipient. By Accepting This
           <br/>Document, You Agree To Keep All Information Contained Within It Confidential.</p>
@@ -24,7 +24,7 @@ export function SetApart() {
             {imageData.map((item, i) => (
               <div className="flex flex-col xl:flex-1 sm:items-center xl:items-start" key={item.title}>
                 <div className={cn("rounded-2xl flex items-center justify-center w-full sm:w-fit p-5 sm:p-8 mb-8", i === 0 ? "bg-[#F8F1F4]" : "bg-[#E4F8F0]")}>
-                  <Image className="rounded-2xl w-full sm:w-[360px]" src={item.image} alt={item.title}/>
+                  <Image className="rounded-2xl w-full sm:w-96" src={item.image} alt={item.title}/>
                 </div>
                 <H6 className="text-xl font-semibold font-sans mb-3">{item.title}</H6>
                 <p className="text-center max-w-[600px] xl:max-w-auto xl:text-left font-medium max-xl:mb-8">{item.text}</p>

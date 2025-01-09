@@ -32,7 +32,7 @@ export function TripleLink() {
                     <H3 className="text-3xl mb-3 text-left">{item.title}</H3>
                     <p className="font-medium">{item.content}</p>
                   </div>
-                  <div className="flex items-center rounded-full cursor-pointer hover:opacity-70 transition-opacity bg-beige-500 max-lg:mt-5 max-lg:w-[60px] lg:min-w-[60px] h-[60px] justify-center">
+                  <div className="flex items-center rounded-full cursor-pointer hover:opacity-70 transition-opacity bg-beige-500 max-lg:mt-5 max-lg:w-16 lg:min-w-16 h-16 justify-center">
                     <Image src={ArrowRightIcon} alt="ArrowRightIcon"/>
                   </div>
                 </Link>

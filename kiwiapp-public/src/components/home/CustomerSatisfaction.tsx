@@ -5,7 +5,6 @@ import Image from "next/image";
 import GreenDotsRight from "public/assets/images/green-dots-2.png";
 import PersonOnPc from "public/assets/images/person-on-pc.jpg";
 import PersonOnPcMobile from "public/assets/images/person-on-pc-mobile.jpg";
-import { H4 } from "@/components/common/Headers";
 import { Container } from "@/components/common/Container";
 import { cn } from "@/utils/commonUtils";
 
@@ -27,9 +26,9 @@ export function CustomerSatisfaction() {
             </div>
             <div className="w-full lg:w-[56%]">
               <div className="pb-10 lg:pb-8">
-                <H4 className="text-xl lg:!leading-[1.75] font-sans hidden min-[640px]:block !leading-[1.5] mb-8 text-left text-white">{testimonyPart1 + testimonyPart2}</H4>
-                <H4 className={cn("text-xl lg:!leading-[1.75] font-sans min-[640px]:hidden !leading-[1.5] mb-8 text-left text-white transition-opacity", expanded && "mb-0")}>{testimonyPart1}{!expanded && <span>...</span>} <span onClick={() => setExpanded(!expanded)} className={cn("underline block", expanded && "hidden")}>Read more</span></H4>
-                <H4 className={cn("text-xl lg:!leading-[1.75] font-sans min-[640px]:hidden !leading-[1.5] mb-8 text-left text-white transition-opacity duration-500", !expanded && "h-0 mb-0 opacity-0 invisible")}>{testimonyPart2} <span onClick={() => setExpanded(!expanded)} className="underline block">Show less</span></H4>
+                <p className="text-xl lg:!leading-[1.75] font-normal hidden min-[640px]:block !leading-[1.5] mb-8 text-left text-white">{testimonyPart1 + testimonyPart2}</p>
+                <p className={cn("text-xl lg:!leading-[1.75] font-normal min-[640px]:hidden !leading-[1.5] mb-8 text-left text-white transition-opacity", expanded && "mb-0")}>{testimonyPart1}{!expanded && <span>...</span>} <span onClick={() => setExpanded(!expanded)} className={cn("underline block hover:opacity-80 cursor-pointer", expanded && "hidden")}>Read more</span></p>
+                <p className={cn("text-xl lg:!leading-[1.75] font-normal min-[640px]:hidden !leading-[1.5] mb-8 text-left text-white transition-opacity duration-500", !expanded && "h-0 mb-0 opacity-0 invisible")}>{testimonyPart2} <span onClick={() => setExpanded(!expanded)} className="underline block hover:opacity-80 cursor-pointer">Show less</span></p>
                 <p className="text-white font-semibold text-xl leading-[1] mb-3">Rebeca, King County, WA</p>
                 <p className="text-white font-medium">King County, WA</p>
               </div>

@@ -44,7 +44,7 @@ export function Values() {
                 <Image src={item.icon} alt={item.title}/>
               </div>
               <H6 className="font-sans font-semibold text-xl mb-3">{item.title}</H6>
-              <p className="max-lg:max-w-[640px] font-medium text-center sm:w-[310px]">{item.text}</p>
+              <p className="max-lg:max-w-[640px] font-medium text-center sm:w-80">{item.text}</p>
             </div>
           ))}
         </div>

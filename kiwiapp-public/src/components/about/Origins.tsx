@@ -13,7 +13,7 @@ export function Origins() {
           <div className="flex flex-wrap justify-between items-center gap-y-8 md:gap-y-14">
             <div className="w-full lg:w-[40%] flex justify-center">
               <Image src={ClientMeeting} alt="ClientMeeting" className="rounded-2xl h-auto w-full max-w-[520px] mt-5 lg:mt-0 lg:mb-0 hidden sm:block" />
-              <Image src={ClientMeetingMobile} alt="ClientMeeting" className="rounded-2xl h-auto md:min-w-[530px] mb-8 lg:mb-0 max-md:max-w-full sm:hidden block" />
+              <Image src={ClientMeetingMobile} alt="ClientMeeting" className="rounded-2xl h-auto mb-8 max-w-full sm:hidden block" />
             </div>
             <div className="w-full lg:w-[56%] flex flex-col justify-center font-medium">
               <H2 className="text-3xl md:text-6xl font-normal mb-3 md:mb-5">Why Jorge Started REM</H2>

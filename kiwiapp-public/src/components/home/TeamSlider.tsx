@@ -72,11 +72,11 @@ export const TeamSlider = () => {
           <div className="flex-1 flex justify-center">
             <div className="mt-8 sm:mt-12 items-center gap-5 flex">
               {/* @ts-expect-error react-slick */}
-              <button onClick={() => sliderRef.slickGoTo(slideIndex - 4)} className={cn("w-[60px] h-[60px] flex justify-center items-center rounded-full z-10 bg-remGreen-400 hover:bg-remGreen-500 transition-colors cursor-pointer")}>
+              <button onClick={() => sliderRef.slickGoTo(slideIndex - 4)} className={cn("w-16 h-16 flex justify-center items-center rounded-full z-10 bg-remGreen-400 hover:bg-remGreen-500 transition-colors cursor-pointer")}>
                 <Image src={ChevronLeftIcon} alt='ChevronLeftIcon'/>
               </button>
               {/* @ts-expect-error react-slick */}
-              <button onClick={() => sliderRef.slickGoTo(slideIndex + 4)} className={cn("w-[60px] h-[60px] flex justify-center items-center rounded-full z-10 bg-remGreen-400 hover:bg-remGreen-500 transition-colors cursor-pointer")}>
+              <button onClick={() => sliderRef.slickGoTo(slideIndex + 4)} className={cn("w-16 h-16 flex justify-center items-center rounded-full z-10 bg-remGreen-400 hover:bg-remGreen-500 transition-colors cursor-pointer")}>
                 <Image src={ChevronRightIcon} alt='ChevronRightIcon'/>
               </button>
             </div>
