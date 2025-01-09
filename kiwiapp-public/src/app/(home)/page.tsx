@@ -1,4 +1,13 @@
-import { ContactTeam, HomeBanner, TripleLink, TeamSlider, SetApart, CustomerSatisfaction, ExpertSupport, ContactAgent } from "@/components/home";
+import {
+  ContactTeam,
+  HomeBanner,
+  TripleLink,
+  TeamSlider,
+  SetApart,
+  CustomerSatisfaction,
+  ExpertSupport,
+  ContactAgent,
+} from "@/components/home";
 
 export default function Home() {
   return (

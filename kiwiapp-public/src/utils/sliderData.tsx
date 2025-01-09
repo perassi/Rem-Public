@@ -16,62 +16,70 @@ export const teamSliderData = [
     image: Team1,
     name: "Jorge Banuelos",
     position: "Chief Executive Officer",
-    location: "Los Angeles"
+    location: "Los Angeles",
   },
   {
     image: Team2,
     name: "Jorge Banuelos",
     position: "Chief Executive Officer",
-    location: "New York"
+    location: "New York",
   },
   {
     image: Team3,
     name: "Jorge Banuelos",
     position: "Chief Executive Officer",
-    location: "San Francisco"
+    location: "San Francisco",
   },
   {
     image: Team4,
     name: "Jorge Banuelos",
     position: "Chief Executive Officer",
-    location: "San Antonio"
+    location: "San Antonio",
   },
   {
     image: Team1,
     name: "Jorge Banuelos",
     position: "Chief Executive Officer",
-    location: "Seattle"
+    location: "Seattle",
   },
   {
     image: Team2,
     name: "Jorge Banuelos",
     position: "Chief Executive Officer",
-    location: "Atlanta"
+    location: "Atlanta",
   },
-]
+];
 
 export const processSliderData = [
   {
     image: Process1,
     title: "Getting To Know You",
-    description: "We Take The Time To Understand Your Unique Health, Budget, And Lifestyle Needs. By Listening To Your Priorities, We Ensure Every Step Is Tailored To You.",
+    description:
+      "We Take The Time To Understand Your Unique Health, Budget, And Lifestyle Needs. By Listening To Your Priorities, We Ensure Every Step Is Tailored To You.",
   },
   {
     image: Process2,
     title: "Finding A Plan That Fits",
-    description: "We Match You With Plans That Meet Your Needs, Including Coverage For Your Doctors, Prescriptions, And Other Essentials. No Pressure, No Confusion—Just Clear Options.",
+    description:
+      "We Match You With Plans That Meet Your Needs, Including Coverage For Your Doctors, Prescriptions, And Other Essentials. No Pressure, No Confusion—Just Clear Options.",
   },
   {
     image: Process3,
-    title: <>Connecting You With The <br/> Right Providers</>,
-    description: "We Help You Find And Connect With In-Network Providers, Specialists, And Resources, So You Can Start Using Your Plan With Confidence.",
+    title: (
+      <>
+        Connecting You With The <br /> Right Providers
+      </>
+    ),
+    description:
+      "We Help You Find And Connect With In-Network Providers, Specialists, And Resources, So You Can Start Using Your Plan With Confidence.",
   },
   {
     image: Process1,
     title: "Getting To Know You",
-    description: "We Take The Time To Understand Your Unique Health, Budget, And Lifestyle Needs. By Listening To Your Priorities, We Ensure Every Step Is Tailored To You.",
+    description:
+      "We Take The Time To Understand Your Unique Health, Budget, And Lifestyle Needs. By Listening To Your Priorities, We Ensure Every Step Is Tailored To You.",
   },
-]
+];
 
 export const leadershipData = [
   {
@@ -79,34 +87,39 @@ export const leadershipData = [
     name: "Jorge Banuelos",
     position: "Chief Executive Officer",
     link: "https://www.linkedin.com/",
-    description: "SaaS Solutions Typically Operate On A Subscription Basis, Eliminating The Need For Significant Upfront.",
+    description:
+      "SaaS Solutions Typically Operate On A Subscription Basis, Eliminating The Need For Significant Upfront.",
   },
   {
     image: Donny,
     name: "Donny Tye",
     position: "Head Of BD",
     link: "https://www.linkedin.com/",
-    description: "SaaS Solutions Typically Operate On A Subscription Basis, Eliminating The Need For Significant Upfront.",
+    description:
+      "SaaS Solutions Typically Operate On A Subscription Basis, Eliminating The Need For Significant Upfront.",
   },
   {
     image: Zhongxia,
     name: "Zhongxia Zhou",
     position: "Chief Technology Officer",
     link: "https://www.linkedin.com/",
-    description: "SaaS Solutions Typically Operate On A Subscription Basis, Eliminating The Need For Significant Upfront.",
+    description:
+      "SaaS Solutions Typically Operate On A Subscription Basis, Eliminating The Need For Significant Upfront.",
   },
   {
     image: AmySnider,
     name: "Amy Snider, J.D.",
     position: "VP Compliance & Agencies",
     link: "https://www.linkedin.com/",
-    description: "SaaS Solutions Typically Operate On A Subscription Basis, Eliminating The Need For Significant Upfront.",
+    description:
+      "SaaS Solutions Typically Operate On A Subscription Basis, Eliminating The Need For Significant Upfront.",
   },
   {
     image: Jean,
     name: "Jean Pierre Castillo",
     position: "Founding Engineer",
     link: "https://www.linkedin.com/",
-    description: "SaaS Solutions Typically Operate On A Subscription Basis, Eliminating The Need For Significant Upfront.",
+    description:
+      "SaaS Solutions Typically Operate On A Subscription Basis, Eliminating The Need For Significant Upfront.",
   },
-]
+];

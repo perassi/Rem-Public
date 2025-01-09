@@ -10,6 +10,6 @@
   "jsxSingleQuote": false,
   "bracketSameLine": false,
   "endOfLine": "lf",
-  "plugins": ["prettier-plugin-tailwindcss"],
+  "plugins": ["prettier-plugin-classnames"],
   "tailwindFunctions": ["tv", "cva", "clsx", "cn"]
 }

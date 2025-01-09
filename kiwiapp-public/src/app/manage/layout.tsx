@@ -16,13 +16,9 @@ export default function Layout({
       <body className="bg-beige-400">
         <Providers>
           <SidebarProvider>
-            <div className="h-min-screen flex overflow-hidden bg-beige-400 ">
+            <div className="h-min-screen flex overflow-hidden bg-beige-400">
               <Sidebar />
-              <div
-                className={
-                  "flex flex-1 flex-col bg-beige-400 transition-all duration-300"
-                }
-              >
+              <div className={"flex flex-1 flex-col bg-beige-400 transition-all duration-300"}>
                 <main className="flex h-full w-full flex-1">{children}</main>
               </div>
             </div>

@@ -2,7 +2,7 @@
 
 import NextLink from "next/link";
 import React, { useEffect } from "react";
-import { cn } from '@/utils/commonUtils';
+import { cn } from "@/utils/commonUtils";
 import { useSidebarContext } from "./SidebarContext";
 
 interface Props {
@@ -22,10 +22,7 @@ export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
   }, [isActive, setCurrentSection, title]);
 
   return (
-    <NextLink
-      href={href}
-      className="max-w-full text-xl tracking-wide active:bg-none"
-    >
+    <NextLink href={href} className="max-w-full text-xl tracking-wide active:bg-none">
       <div
         className={cn(
           isActive
@@ -36,11 +33,7 @@ export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
         )}
       >
         {icon}
-        <span
-          className={cn(
-            isActive ? "text-beige-400" : "text-gray-300 group-hover:text-evergreen-800"
-          )}
-        >
+        <span className={cn(isActive ? "text-beige-400" : "text-gray-300 group-hover:text-evergreen-800")}>
           {title}
         </span>
       </div>

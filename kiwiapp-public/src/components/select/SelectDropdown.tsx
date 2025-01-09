@@ -1,14 +1,8 @@
 "use client";
 
-import {
-  Combobox,
-  ComboboxButton,
-  ComboboxInput,
-  ComboboxOption,
-  ComboboxOptions,
-} from "@headlessui/react";
+import { Combobox, ComboboxButton, ComboboxInput, ComboboxOption, ComboboxOptions } from "@headlessui/react";
 import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
-import { cn } from '@/utils/commonUtils';
+import { cn } from "@/utils/commonUtils";
 import { useState } from "react";
 
 export type SelectDropdownOption<T> = {
@@ -50,26 +44,17 @@ const SelectDropdown = <T,>({
   };
 
   return (
-    <Combobox<T>
-      immediate
-      value={selectedValue}
-      onChange={onComboboxChange}
-      onClose={() => setQuery("")}
-    >
+    <Combobox<T> immediate value={selectedValue} onChange={onComboboxChange} onClose={() => setQuery("")}>
       <div className="relative">
         <ComboboxInput
           autoComplete="off"
           className={cn(
             "w-full rounded-lg border border-gray-300 py-1.5 pl-3 pr-8 text-lg",
             "focus:border-evergreen-800 focus:outline-none focus:ring-0",
-            query !== "" || selectedValue !== undefined
-              ? "text-evergreen-800"
-              : "text-neutral-200"
+            query !== "" || selectedValue !== undefined ? "text-evergreen-800" : "text-neutral-200"
           )}
           displayValue={(value: string | number) => {
-            return (
-              options.find((option) => option.value === value)?.label || ""
-            );
+            return options.find((option) => option.value === value)?.label || "";
           }}
           onChange={(event) => setQuery(event.target.value)}
           placeholder={placeholder}
