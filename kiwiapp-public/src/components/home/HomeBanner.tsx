@@ -27,13 +27,9 @@ export function HomeBanner() {
       className="flex relative bg-evergreen-800 max-sm:bg-gradient-to-b from-[rgba(14,232,152,0.3)] to-evergreen-800 justify-center pt-16
         lg:pb-40 pb-36"
     >
-      <Container>
+      <Image src={GreenShade} alt="GreenShade" className="absolute top-0 left-0 sm:block hidden pointer-events-none" />
+      <Container className="relative">
         <div className="w-full flex flex-wrap items-center justify-between xl:gap-x-5 gap-y-16">
-          <Image
-            src={GreenShade}
-            alt="GreenShade"
-            className="absolute top-0 left-0 sm:block hidden pointer-events-none"
-          />
           <div className="xl:mb-0 w-full lg:w-[56%]">
             <H1 className="text-3xl md:text-6xl mb-3 md:mb-5 md:max-w-[675px] text-white">
               Save Money And Get The Medicare Coverage You Deserve
@@ -56,8 +52,8 @@ export function HomeBanner() {
             <Image src={HomeHeroMobile} alt="HomeHero" className="mb-8 xl:mb-0 block sm:hidden w-full h-auto" />
           </div>
           <div
-            className="flex flex-col absolute rounded-2xl px-5 lg:px-9 drop-shadow-[0_100px_100px_rgba(0,38,43,0.05)] max-w-[1300px]
-              w-[calc(100%-40px)] bottom-0 translate-y-[50%] items-center bg-white py-8 sm:pt-14 sm:pb-14 gap-y-8"
+            className="flex flex-col absolute rounded-2xl px-5 lg:px-9 drop-shadow-[0_100px_100px_rgba(0,38,43,0.05)] w-[calc(100%-40px)]
+              -bottom-36 lg:-bottom-40 translate-y-[50%] items-center bg-white py-8 sm:pt-14 sm:pb-14 gap-y-8"
           >
             <H5 className="mb-0 text-center font-sans text-xl">Compare Plans From Carriers</H5>
             <div className="flex flex-wrap xl:flex-nowrap max-[1300px]:gap-x-5 gap-y-6 justify-evenly w-full">
