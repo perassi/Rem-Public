@@ -51,15 +51,17 @@ export function HomeBanner() {
             <Image src={HomeHero} alt="HomeHero" className="mb-8 xl:mb-0 hidden sm:block" />
             <Image src={HomeHeroMobile} alt="HomeHero" className="mb-8 xl:mb-0 block sm:hidden w-full h-auto" />
           </div>
-          <div
-            className="flex flex-col absolute rounded-2xl px-5 lg:px-9 drop-shadow-[0_100px_100px_rgba(0,38,43,0.05)] w-[calc(100%-40px)]
-              -bottom-36 lg:-bottom-40 translate-y-[50%] items-center bg-white py-8 sm:pt-14 sm:pb-14 gap-y-8"
-          >
-            <H5 className="mb-0 text-center font-sans text-xl">Compare Plans From Carriers</H5>
-            <div className="flex flex-wrap xl:flex-nowrap max-[1300px]:gap-x-5 gap-y-6 justify-evenly w-full">
-              {companyData.map((item) => (
-                <Image src={item.image} alt={item.alt} key={item.alt} className="object-contain max-sm:basis-[25%]" />
-              ))}
+          <div className="absolute md:px-10 px-5 left-0 -bottom-36 lg:-bottom-40 w-full translate-y-[50%]">
+            <div
+              className="flex flex-col rounded-2xl px-5 lg:px-9 drop-shadow-[0_100px_100px_rgba(0,38,43,0.05)] w-full items-center bg-white py-8
+                sm:pt-14 sm:pb-14 gap-y-8"
+            >
+              <H5 className="mb-0 text-center font-sans text-xl">Compare Plans From Carriers</H5>
+              <div className="flex flex-wrap xl:flex-nowrap max-[1300px]:gap-x-5 gap-y-6 justify-evenly w-full">
+                {companyData.map((item) => (
+                  <Image src={item.image} alt={item.alt} key={item.alt} className="object-contain max-sm:basis-[25%]" />
+                ))}
+              </div>
             </div>
           </div>
         </div>
