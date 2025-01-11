@@ -80,7 +80,7 @@ export const TeamSlider = () => {
             <div className="mt-8 sm:mt-12 items-center gap-5 flex">
               <button
                 // @ts-expect-error react-slick
-                onClick={() => sliderRef.slickGoTo(slideIndex - 4)}
+                onClick={() => sliderRef.slickGoTo(slideIndex - (shouldCenter ? 1 : 4))}
                 className={cn(
                   `w-16 h-16 flex justify-center items-center rounded-full z-10 bg-remGreen-400 hover:bg-remGreen-500 transition-colors
                   cursor-pointer`
@@ -90,7 +90,7 @@ export const TeamSlider = () => {
               </button>
               <button
                 // @ts-expect-error react-slick
-                onClick={() => sliderRef.slickGoTo(slideIndex + 4)}
+                onClick={() => sliderRef.slickGoTo(slideIndex + (shouldCenter ? 1 : 4))}
                 className={cn(
                   `w-16 h-16 flex justify-center items-center rounded-full z-10 bg-remGreen-400 hover:bg-remGreen-500 transition-colors
                   cursor-pointer`
