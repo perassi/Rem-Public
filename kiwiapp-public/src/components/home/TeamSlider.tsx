@@ -47,7 +47,7 @@ export const TeamSlider = () => {
             Meet Our Licensed
             <br className="block sm:hidden" /> Insurance Agents
           </H2>
-          <div className="md:w-full max-h-[390px]">
+          <div className="md:w-full max-h-96">
             <Slider
               ref={(slider) => {
                 // @ts-expect-error react-slick's types don't like react refs
@@ -56,12 +56,12 @@ export const TeamSlider = () => {
               {...settings}
             >
               {teamSliderData.map((slide) => (
-                <div key={slide.location} className="max-sm:mx-[10px] sm:mr-5 flex flex-row max-w-[310px]">
+                <div key={slide.location} className="max-sm:mx-3 sm:mr-5 flex flex-row max-w-[94%]">
                   <div className="relative">
                     <Image
                       src={slide.image}
                       alt={slide.name}
-                      className={"w-full bg-beige-400 rounded-lg object-cover h-[310px]"}
+                      className={"w-full bg-beige-400 rounded-lg object-cover"}
                     />
                     <div className="absolute bottom-5 w-max -translate-x-[50%] rounded-full left-[50%] bg-white z-10 flex gap-1 py-3 px-5">
                       <Image src={LocationIcon} alt="LocationIcon" />
@@ -78,8 +78,8 @@ export const TeamSlider = () => {
           </div>
           <div className="flex-1 flex justify-center">
             <div className="mt-8 sm:mt-12 items-center gap-5 flex">
-              {/* @ts-expect-error react-slick */}
               <button
+                // @ts-expect-error react-slick
                 onClick={() => sliderRef.slickGoTo(slideIndex - 4)}
                 className={cn(
                   `w-16 h-16 flex justify-center items-center rounded-full z-10 bg-remGreen-400 hover:bg-remGreen-500 transition-colors
@@ -88,8 +88,8 @@ export const TeamSlider = () => {
               >
                 <Image src={ChevronLeftIcon} alt="ChevronLeftIcon" />
               </button>
-              {/* @ts-expect-error react-slick */}
               <button
+                // @ts-expect-error react-slick
                 onClick={() => sliderRef.slickGoTo(slideIndex + 4)}
                 className={cn(
                   `w-16 h-16 flex justify-center items-center rounded-full z-10 bg-remGreen-400 hover:bg-remGreen-500 transition-colors

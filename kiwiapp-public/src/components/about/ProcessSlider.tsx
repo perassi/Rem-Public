@@ -46,7 +46,7 @@ export const ProcessSlider = () => {
   };
 
   return (
-    <section className="relative pb-14 lg:pb-32 flex flex-col bg-white">
+    <section className="relative pb-14 lg:pb-32 flex flex-col bg-white xl:overflow-hidden">
       <div
         className="absolute w-full h-full pointer-events-none z-10 from-white bg-gradient-to-l to-0% min-[850px]:to-[50px]
           [1350px]:to-[100px] to-transparent"
@@ -79,7 +79,7 @@ export const ProcessSlider = () => {
                 <div className="relative flex flex-col pt-8 max-w-[340px] xl:max-w-[374px]">
                   <div
                     className="absolute top-0 left-0 -translate-x-[50%] rounded-full flex items-center justify-center border-2 border-evergreen-800
-                      text-3xl leading-[1] font-bold w-16 h-16 box-border bg-remGreen-400"
+                      text-3xl leading-[1] font-bold w-14 h-14 box-border bg-remGreen-400"
                   >
                     {i + 1}
                   </div>
@@ -102,9 +102,9 @@ export const ProcessSlider = () => {
           </Slider>
           <div className="flex-1 flex justify-center">
             <div className="mt-3 sm:mt-12 items-center gap-5 flex">
-              {/* @ts-expect-error react-slick */}
               <button
                 disabled={!smallScreen && !mediumScreen && slideIndex === 0}
+                // @ts-expect-error react-slick
                 onClick={() => sliderRef.slickGoTo(slideIndex - 1)}
                 className={cn(
                   "w-16 h-16 flex justify-center items-center rounded-full z-10",
@@ -115,9 +115,9 @@ export const ProcessSlider = () => {
               >
                 <Image src={ChevronLeftIcon} alt="ChevronLeftIcon" />
               </button>
-              {/* @ts-expect-error react-slick */}
               <button
                 disabled={!smallScreen && !mediumScreen && slideIndex === 1}
+                // @ts-expect-error react-slick
                 onClick={() => sliderRef.slickGoTo(slideIndex + 1)}
                 className={cn(
                   "w-16 h-16 flex justify-center items-center rounded-full z-10",
