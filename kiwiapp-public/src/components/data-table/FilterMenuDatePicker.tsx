@@ -35,6 +35,7 @@ export default function FilterMenuDatePicker({
   const selectHandler = useCallback((date: Date | undefined) => {
     onSelect(date);
     setIsOpen(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

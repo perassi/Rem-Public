@@ -8,7 +8,6 @@ import ColumnEditMenu from "../../../components/data-table/ColumnEditMenu";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import DataTable from "@/components/data-table/DataTable";
 import getColumns from "@/app/manage/commission/get-columns";
-import DollarFigure from "@/components/data-table/DollarFigure";
 import { CommissionData, CommissionDatum } from "@/pages/api/commission/types";
 import FilterMenu from "@/components/data-table/FilterMenu";
 

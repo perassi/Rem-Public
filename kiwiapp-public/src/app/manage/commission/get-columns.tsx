@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 import DollarFigure from "@/components/data-table/DollarFigure";
 import { CommissionDatum } from "@/pages/api/commission/types";

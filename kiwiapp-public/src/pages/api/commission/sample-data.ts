@@ -5,13 +5,13 @@ import Papa from "papaparse";
 
 const handler = async (
   req: NextApiRequest,
-  res: NextApiResponse<CommissionData>
+  res: NextApiResponse<CommissionData>,
 ) => {
-  const { limit = 100, sortBy, sortOrder } = req.body;
+  const { limit = 100 } = req.body;
 
   const fileContents = await readFile(
     `${process.cwd()}/src/pages/api/commission/sample-data.csv`,
-    "utf-8"
+    "utf-8",
   );
   const { data } = Papa.parse<CommissionDatum>(fileContents, { header: true });
 

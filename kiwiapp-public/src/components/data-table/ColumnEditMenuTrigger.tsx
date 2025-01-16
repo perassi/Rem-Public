@@ -11,7 +11,7 @@ interface TriggerButtonProps<A> extends ComponentProps<typeof Button> {
 
 export default function ColumnEditMenuTrigger<A>({
   table,
-  isOpen = false,
+  // isOpen = false,
   ...props
 }: TriggerButtonProps<A>) {
   const count = table

@@ -28,7 +28,7 @@ export default function ColumnEditMenuCheckboxItem<A>({
 
       setVisibleColumnIds(newVisibleColumnIds);
     },
-    [visibleColumnIds, setVisibleColumnIds]
+    [visibleColumnIds, setVisibleColumnIds, columnId]
   );
 
   const selectHandler = useCallback(

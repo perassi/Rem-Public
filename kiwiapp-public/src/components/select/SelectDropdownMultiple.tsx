@@ -7,7 +7,7 @@ import {
   ComboboxOption,
   ComboboxOptions,
 } from "@headlessui/react";
-import { CheckIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
+import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { CheckSquare, Square } from "@untitled-ui/icons-react";
 import clsx from "clsx";
 import { useState } from "react";
@@ -66,7 +66,7 @@ const SelectDropdownMultiple = <T,>({
             "focus:border-evergreen-800 focus:outline-none focus:ring-0",
             query !== "" || selectedValue !== undefined
               ? "text-evergreen-800"
-              : "text-neutral-200"
+              : "text-neutral-200",
           )}
           displayValue={(value: string | number) => {
             return (
@@ -87,7 +87,7 @@ const SelectDropdownMultiple = <T,>({
         className={clsx(
           `z-50 w-[var(--input-width)] border bg-white p-1 [--anchor-gap:var(--spacing-1)]
           empty:invisible`,
-          "transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0"
+          "transition duration-100 ease-in data-[leave]:data-[closed]:opacity-0",
         )}
       >
         {filteredOptions.map((option) => (

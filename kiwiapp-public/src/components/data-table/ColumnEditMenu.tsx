@@ -5,7 +5,7 @@ import {
   DropdownMenuContent,
   DropdownMenuSeparator,
 } from "@/components/common/DropdownMenu";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Button } from "@/components/common/Button";
 import ColumnEditMenuCheckboxItem from "@/components/data-table/ColumnEditMenuCheckboxItem";
 
@@ -18,16 +18,16 @@ function ColumnEditMenu<A>({ table }: ColumnEditMenuProps<A>) {
 
   const toggleableColumns = useMemo(
     () => table.getAllColumns().filter((column) => column.getCanHide()),
-    [table]
+    [table],
   );
 
   const [visibleColumnIds, setVisibleColumnIds] = useState(
-    new Set(toggleableColumns.map(({ id }) => id))
+    new Set(toggleableColumns.map(({ id }) => id)),
   );
 
   const toggleMenuHandler = useCallback(
     (value: boolean) => setIsOpen(!value),
-    [setIsOpen]
+    [setIsOpen],
   );
 
   const openMenuHandler = useCallback(() => setIsOpen(true), [setIsOpen]);
@@ -41,8 +41,8 @@ function ColumnEditMenu<A>({ table }: ColumnEditMenuProps<A>) {
           column.toggleVisibility(true);
 
           return column.id;
-        })
-      )
+        }),
+      ),
     );
   }, [setVisibleColumnIds, toggleableColumns]);
 
@@ -56,7 +56,7 @@ function ColumnEditMenu<A>({ table }: ColumnEditMenuProps<A>) {
       event.preventDefault();
       cancelHandler();
     },
-    [cancelHandler]
+    [cancelHandler],
   );
 
   const saveHandler = useCallback(() => {
@@ -66,11 +66,7 @@ function ColumnEditMenu<A>({ table }: ColumnEditMenuProps<A>) {
       column.toggleVisibility(isVisible);
     });
     closeMenuHandler();
-  }, [visibleColumnIds, closeMenuHandler]);
-
-  useEffect(() => {
-    return resetHandler;
-  }, []);
+  }, [visibleColumnIds, closeMenuHandler, toggleableColumns]);
 
   return (
     <DropdownMenu open={isOpen} onOpenChange={toggleMenuHandler}>
