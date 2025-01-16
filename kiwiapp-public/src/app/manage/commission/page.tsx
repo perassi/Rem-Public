@@ -8,17 +8,17 @@ import ColumnEditMenu from "../../../components/data-table/ColumnEditMenu";
 import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import DataTable from "@/components/data-table/DataTable";
 import getColumns from "@/app/manage/commission/get-columns";
-import { CommissionData, CommissionDatum } from "@/pages/api/commission/types";
 import FilterMenu from "@/components/data-table/FilterMenu";
+import { CommissionDatum } from "@/types";
 
 const CommissionPage = () => {
   const [currentTab, setCurrentTab] = useState("members");
-  const [data, setData] = useState<CommissionData>([]);
+  const [data, setData] = useState<CommissionDatum[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
       // TODO this is using a stubbed out endpoint that return sample data.
-      const response = await fetch("/api/commission/sample-data");
+      const response = await fetch("/api/commission");
       const json = await response.json();
 
       setData(json);

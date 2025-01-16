@@ -1,10 +1,10 @@
 import { sumBy } from "lodash";
 
 import { getChartColor } from "@/utils/chartUtils";
-import { CommissionData } from "@/pages/api/commission/types";
+import { CommissionDatum } from "@/types";
 
 export const getNewEnrollmentsByCarrier = (data: {
-  [key: string]: CommissionData;
+  [key: string]: CommissionDatum[];
 }) => {
   return {
     labels: Object.keys(data),
@@ -26,7 +26,7 @@ export const getNewEnrollmentsByCarrier = (data: {
 };
 
 export const getNewEnrollmentsByAgency = (data: {
-  [key: string]: CommissionData;
+  [key: string]: CommissionDatum[];
 }) => {
   return {
     labels: Object.keys(data),

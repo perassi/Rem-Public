@@ -10,23 +10,23 @@ import {
 } from "@/components/overview";
 import FilterMenu from "@/components/data-table/FilterMenu";
 import { groupBy } from "lodash";
-import { CommissionData } from "@/pages/api/commission/types";
 import {
   getNewEnrollmentsByAgency,
   getNewEnrollmentsByCarrier,
 } from "@/utils/overviewUtils";
+import { CommissionDatum } from "@/types";
 
 export default function OverviewPage() {
-  const [data, setData] = useState<{ [key: string]: CommissionData } | null>(
+  const [data, setData] = useState<{ [key: string]: CommissionDatum[] } | null>(
     null,
   );
 
   useEffect(() => {
     const fetchData = async () => {
       // TODO this is using a stubbed out endpoint that return sample data.
-      const response = await fetch("/api/commission/sample-data");
+      const response = await fetch("/api/commission");
       const json = await response.json();
-      const newData: { [key: string]: CommissionData } = groupBy(
+      const newData: { [key: string]: CommissionDatum[] } = groupBy(
         json,
         "CARRIER",
       );

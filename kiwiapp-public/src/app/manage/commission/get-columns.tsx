@@ -1,7 +1,7 @@
 /* eslint-disable */
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 import DollarFigure from "@/components/data-table/DollarFigure";
-import { CommissionDatum } from "@/pages/api/commission/types";
+import { CommissionDatum } from "@/types";
 
 const columnHelper = createColumnHelper<CommissionDatum>();
 export default function getColumns(section: string) {

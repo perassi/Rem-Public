@@ -20,5 +20,3 @@ export interface CommissionDatum {
   "Commission Agency 2": string;
   "Commission Agency 2 Amount": string;
 }
-
-export type CommissionData = CommissionDatum[];
