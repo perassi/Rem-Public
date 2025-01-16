@@ -6,6 +6,7 @@ import {
   File07,
   Settings02,
   Users01,
+  PieChart03,
 } from "@untitled-ui/icons-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -43,6 +44,12 @@ export const Sidebar = () => {
       </div>
       <div className="flex flex-1 flex-col justify-between">
         <div className="mt-9 flex flex-col gap-6 px-2">
+          <SidebarItem
+            isActive={pathname?.includes("/manage/overview")}
+            title="Overview"
+            icon={<PieChart03 width={20} height={20} />}
+            href="/manage/overview"
+          />
           <SidebarItem
             isActive={pathname?.includes("/manage/commission")}
             title="Commission"
