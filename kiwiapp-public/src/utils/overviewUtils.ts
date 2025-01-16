@@ -1,8 +1,11 @@
 import { sumBy } from "lodash";
 
 import { getChartColor } from "@/utils/chartUtils";
+import { CommissionData } from "@/pages/api/commission/types";
 
-export const getNewEnrollmentsByCarrier = (data) => {
+export const getNewEnrollmentsByCarrier = (data: {
+  [key: string]: CommissionData;
+}) => {
   return {
     labels: Object.keys(data),
     datasets: [
@@ -22,7 +25,9 @@ export const getNewEnrollmentsByCarrier = (data) => {
   };
 };
 
-export const getNewEnrollmentsByAgency = (data) => {
+export const getNewEnrollmentsByAgency = (data: {
+  [key: string]: CommissionData;
+}) => {
   return {
     labels: Object.keys(data),
     datasets: Object.keys(data).map((carrier) => {
