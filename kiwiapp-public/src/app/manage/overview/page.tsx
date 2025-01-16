@@ -17,7 +17,9 @@ import {
 } from "@/utils/overviewUtils";
 
 export default function OverviewPage() {
-  const [data, setData] = useState<{ [key: string]: CommissionData }>(null);
+  const [data, setData] = useState<{ [key: string]: CommissionData } | null>(
+    null,
+  );
 
   useEffect(() => {
     const fetchData = async () => {
