@@ -9,7 +9,7 @@ import {
   SelectedBar,
 } from "@/components/overview";
 import FilterMenu from "@/components/data-table/FilterMenu";
-
+import { groupBy } from "lodash";
 import { CommissionData } from "@/pages/api/commission/types";
 import {
   getNewEnrollmentsByAgency,
@@ -24,18 +24,7 @@ export default function OverviewPage() {
       // TODO this is using a stubbed out endpoint that return sample data.
       const response = await fetch("/api/commission/sample-data");
       const json = await response.json();
-
-      // eslint-disable-next-line
-      const groupedData = json.reduce((acc, item) => {
-        const carrier = item.CARRIER;
-        if (!acc[carrier]) {
-          acc[carrier] = [];
-        }
-        acc[carrier].push(item);
-        return acc;
-      }, {});
-
-      setData(groupedData);
+      setData(groupBy(json, "CARRIER"));
     };
 
     fetchData().then();
