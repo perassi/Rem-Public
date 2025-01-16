@@ -17,14 +17,18 @@ import {
 } from "@/utils/overviewUtils";
 
 export default function OverviewPage() {
-  const [data, setData] = useState<CommissionData>([]);
+  const [data, setData] = useState<{ [key: string]: CommissionData }>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       // TODO this is using a stubbed out endpoint that return sample data.
       const response = await fetch("/api/commission/sample-data");
       const json = await response.json();
-      setData(groupBy(json, "CARRIER"));
+      const newData: { [key: string]: CommissionData } = groupBy(
+        json,
+        "CARRIER",
+      );
+      setData(newData);
     };
 
     fetchData().then();
