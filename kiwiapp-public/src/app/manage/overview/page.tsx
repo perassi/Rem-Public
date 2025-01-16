@@ -25,6 +25,7 @@ export default function OverviewPage() {
       const response = await fetch("/api/commission/sample-data");
       const json = await response.json();
 
+      // eslint-disable-next-line
       const groupedData = json.reduce((acc, item) => {
         const carrier = item.CARRIER;
         if (!acc[carrier]) {
