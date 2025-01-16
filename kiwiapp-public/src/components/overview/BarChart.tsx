@@ -1,5 +1,6 @@
-import { Bar } from "react-chartjs-2";
+import { FC } from "react";
 
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -8,6 +9,7 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
+  ChartData,
 } from "chart.js";
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
@@ -49,6 +51,9 @@ export const berOptions: ChartOptions<"bar"> = {
   },
 };
 
-export const BarChart = ({ data }) => {
+interface BarChartProps {
+  data: ChartData<"bar">;
+}
+export const BarChart: FC<BarChartProps> = ({ data }) => {
   return <Bar data={data} options={berOptions} />;
 };

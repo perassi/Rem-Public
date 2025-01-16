@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 import { Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
@@ -5,6 +7,7 @@ import {
   Tooltip,
   Legend,
   ChartOptions,
+  ChartData,
 } from "chart.js";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -30,6 +33,9 @@ export const doughnutOptions: ChartOptions<"doughnut"> = {
   },
 };
 
-export const DoughnutChart = ({ data }) => {
+interface DoughnutChartProps {
+  data: ChartData<"doughnut">;
+}
+export const DoughnutChart: FC<DoughnutChartProps> = ({ data }) => {
   return <Doughnut data={data} options={doughnutOptions} />;
 };
