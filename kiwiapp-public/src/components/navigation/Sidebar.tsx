@@ -24,7 +24,7 @@ export const Sidebar = () => {
           collapsed
             ? "w-16 -translate-x-full transform"
             : "w-64 translate-x-0 transform"
-        } relative z-[202] flex flex-col
+        } z-[202] flex flex-col
         overflow-y-auto border-r border-divider bg-background py-6`}
     >
       {collapsed ? (

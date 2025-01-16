@@ -1,14 +1,47 @@
 "use client";
+import { useEffect, useState } from "react";
 
-import { OverviewCard } from "@/components/overview/OverviewCard";
-import { DoughnutCard } from "@/components/overview/DoughnutCard";
-import { SelectedBar } from "@/components/overview/SelectedBar";
+import {
+  OverviewCard,
+  ChartCard,
+  DoughnutChart,
+  BarChart,
+  SelectedBar,
+} from "@/components/overview";
 import FilterMenu from "@/components/data-table/FilterMenu";
-import { BarCard } from "@/components/overview/BarCard";
+
+import { CommissionData } from "@/pages/api/commission/types";
+import {
+  getNewEnrollmentsByAgency,
+  getNewEnrollmentsByCarrier,
+} from "@/utils/overviewUtils";
 
 export default function OverviewPage() {
+  const [data, setData] = useState<CommissionData>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // TODO this is using a stubbed out endpoint that return sample data.
+      const response = await fetch("/api/commission/sample-data");
+      const json = await response.json();
+
+      const groupedData = json.reduce((acc, item) => {
+        const carrier = item.CARRIER;
+        if (!acc[carrier]) {
+          acc[carrier] = [];
+        }
+        acc[carrier].push(item);
+        return acc;
+      }, {});
+
+      setData(groupedData);
+    };
+
+    fetchData().then();
+  }, []);
+
   return (
-    <div className="flex h-full w-full flex-col">
+    <div className="flex h-full w-full flex-col ml-64">
       <div className="flex flex-wrap gap-2 justify-between items-center px-8 py-6 border-b border-b-black/5">
         <h1 className="font-header text-3xl text-evergreen-800">Overview</h1>
         <div className="flex flex-wrap items-center gap-6">
@@ -25,10 +58,18 @@ export default function OverviewPage() {
           <OverviewCard title="Chargeback YTD" value="-$768,558" />
         </div>
         <div className="flex flex-wrap gap-y-10 gap-x-4 mt-10">
-          <DoughnutCard title="New Enrollments by Carrier" data="635" />
-          <BarCard title="New Enrollments by Agency" data="635" />
-          <DoughnutCard title="Commissions by Carrier" data="635" />
-          <BarCard title="Commissions by Agency" data="635" />
+          <ChartCard title="New Enrollments by Carrier">
+            {data && <DoughnutChart data={getNewEnrollmentsByCarrier(data)} />}
+          </ChartCard>
+          <ChartCard title="New Enrollments by Agency">
+            {data && <BarChart data={getNewEnrollmentsByAgency(data)} />}
+          </ChartCard>
+          <ChartCard title="Commissions by Carrier">
+            {data && <DoughnutChart data={getNewEnrollmentsByCarrier(data)} />}
+          </ChartCard>
+          <ChartCard title="Commissions by Agency">
+            {data && <BarChart data={getNewEnrollmentsByAgency(data)} />}
+          </ChartCard>
         </div>
       </div>
     </div>

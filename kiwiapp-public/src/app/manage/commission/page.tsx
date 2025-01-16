@@ -37,7 +37,7 @@ const CommissionPage = () => {
   });
 
   return (
-    <div className="flex h-screen w-full flex-col overflow-y-auto">
+    <div className="flex h-screen w-full flex-col overflow-y-auto ml-64">
       <div className="px-8 py-6 font-header text-3xl text-evergreen-800">
         Commission
       </div>
