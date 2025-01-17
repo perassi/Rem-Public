@@ -5,29 +5,38 @@ import {
   DropdownMenuContent,
   DropdownMenuSeparator,
 } from "@/components/common/DropdownMenu";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/common/Button";
 import ColumnEditMenuCheckboxItem from "@/components/data-table/ColumnEditMenuCheckboxItem";
 
 interface ColumnEditMenuProps<A> {
   table: Table<A>;
+
+  onColumnVisibilityChange: (columns: Set<string>) => void;
 }
 
-function ColumnEditMenu<A>({ table }: ColumnEditMenuProps<A>) {
+function ColumnEditMenu<A>({
+  table,
+  onColumnVisibilityChange,
+}: ColumnEditMenuProps<A>) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleableColumns = useMemo(
     () => table.getAllColumns().filter((column) => column.getCanHide()),
-    [table],
+    [table]
   );
 
   const [visibleColumnIds, setVisibleColumnIds] = useState(
-    new Set(toggleableColumns.map(({ id }) => id)),
+    new Set(toggleableColumns.map(({ id }) => id))
   );
+
+  useEffect(() => {
+    onColumnVisibilityChange(visibleColumnIds);
+  }, [visibleColumnIds]);
 
   const toggleMenuHandler = useCallback(
     (value: boolean) => setIsOpen(!value),
-    [setIsOpen],
+    [setIsOpen]
   );
 
   const openMenuHandler = useCallback(() => setIsOpen(true), [setIsOpen]);
@@ -41,8 +50,8 @@ function ColumnEditMenu<A>({ table }: ColumnEditMenuProps<A>) {
           column.toggleVisibility(true);
 
           return column.id;
-        }),
-      ),
+        })
+      )
     );
   }, [setVisibleColumnIds, toggleableColumns]);
 
@@ -56,7 +65,7 @@ function ColumnEditMenu<A>({ table }: ColumnEditMenuProps<A>) {
       event.preventDefault();
       cancelHandler();
     },
-    [cancelHandler],
+    [cancelHandler]
   );
 
   const saveHandler = useCallback(() => {
@@ -76,10 +85,9 @@ function ColumnEditMenu<A>({ table }: ColumnEditMenuProps<A>) {
         isOpen={isOpen}
       />
       <DropdownMenuContent
-        className="flex-col px-5 py-4"
-        align="end"
-        onInteractOutside={interactOutsideHandler}
-      >
+        className='flex-col px-5 py-4'
+        align='end'
+        onInteractOutside={interactOutsideHandler}>
         {toggleableColumns.map((column) => (
           <ColumnEditMenuCheckboxItem
             key={column.id}
@@ -88,28 +96,25 @@ function ColumnEditMenu<A>({ table }: ColumnEditMenuProps<A>) {
             setVisibleColumnIds={setVisibleColumnIds}
           />
         ))}
-        <DropdownMenuSeparator className="mt-4 mb-2" />
-        <div className="flex flex-row justify-between flex-nowrap gap-x-2">
+        <DropdownMenuSeparator className='mt-4 mb-2' />
+        <div className='flex flex-row justify-between flex-nowrap gap-x-2'>
           <Button
-            variant="ghost"
-            className="font-medium p-0 m-0"
-            onClick={resetHandler}
-          >
+            variant='ghost'
+            className='font-medium p-0 m-0'
+            onClick={resetHandler}>
             Reset Columns
           </Button>
-          <div className="flex flex-row gap-x-1">
+          <div className='flex flex-row gap-x-1'>
             <Button
-              variant="outline"
-              className="border-everegreen-800 drop-shadow-none"
-              onClick={cancelHandler}
-            >
+              variant='outline'
+              className='border-everegreen-800 drop-shadow-none'
+              onClick={cancelHandler}>
               Cancel
             </Button>
             <Button
-              variant="default"
-              className="bg-green-400 drop-shadow-none"
-              onClick={saveHandler}
-            >
+              variant='default'
+              className='bg-green-400 drop-shadow-none'
+              onClick={saveHandler}>
               Save
             </Button>
           </div>
