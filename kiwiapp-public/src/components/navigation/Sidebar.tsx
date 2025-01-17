@@ -19,7 +19,7 @@ export const Sidebar = () => {
 
   return (
     <aside
-      className={`fixed left-0 top-0 h-screen min-w-[15%] bg-evergreen-800 text-beige transition-transform
+      className={`fixed left-0 top-0 h-screen bg-evergreen-800 text-beige transition-transform
         ${
           collapsed
             ? "w-16 -translate-x-full transform"

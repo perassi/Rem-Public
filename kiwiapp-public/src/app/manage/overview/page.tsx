@@ -9,32 +9,20 @@ import {
   SelectedBar,
 } from "@/components/overview";
 import FilterMenu from "@/components/data-table/FilterMenu";
-import { groupBy } from "lodash";
 import {
-  getNewEnrollmentsByAgency,
-  getNewEnrollmentsByCarrier,
+  geEnrollmentsByCarrierDoughnut,
+  getCommissionsByAgencyBar,
+  getCommissionsByCarrierDoughnut,
+  getEnrollmentsByAgencyBar,
 } from "@/utils/overviewUtils";
-import { CommissionDatum } from "@/types";
+import { chartData, IChart } from "@/utils/chartUtils";
 
 export default function OverviewPage() {
-  const [data, setData] = useState<{ [key: string]: CommissionDatum[] } | null>(
-    null,
-  );
+  const [data, setData] = useState<IChart | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      // TODO this is using a stubbed out endpoint that return sample data.
-      const response = await fetch("/api/commission");
-      const json = await response.json();
-      const newData: { [key: string]: CommissionDatum[] } = groupBy(
-        json,
-        "CARRIER",
-      );
-      setData(newData);
-    };
-
-    fetchData().then();
-  }, []);
+    setData(chartData);
+  }, [chartData]);
 
   return (
     <div className="flex h-full w-full flex-col ml-64">
@@ -55,16 +43,20 @@ export default function OverviewPage() {
         </div>
         <div className="flex flex-wrap gap-y-10 gap-x-4 mt-10">
           <ChartCard title="New Enrollments by Carrier">
-            {data && <DoughnutChart data={getNewEnrollmentsByCarrier(data)} />}
+            {data && (
+              <DoughnutChart data={geEnrollmentsByCarrierDoughnut(data)} />
+            )}
           </ChartCard>
           <ChartCard title="New Enrollments by Agency">
-            {data && <BarChart data={getNewEnrollmentsByAgency(data)} />}
+            {data && <BarChart data={getEnrollmentsByAgencyBar(data)} />}
           </ChartCard>
           <ChartCard title="Commissions by Carrier">
-            {data && <DoughnutChart data={getNewEnrollmentsByCarrier(data)} />}
+            {data && (
+              <DoughnutChart data={getCommissionsByCarrierDoughnut(data)} />
+            )}
           </ChartCard>
           <ChartCard title="Commissions by Agency">
-            {data && <BarChart data={getNewEnrollmentsByAgency(data)} />}
+            {data && <BarChart data={getCommissionsByAgencyBar(data)} />}
           </ChartCard>
         </div>
       </div>
