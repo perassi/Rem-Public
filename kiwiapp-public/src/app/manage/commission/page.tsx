@@ -5,7 +5,7 @@ import { Tabs, TabsTrigger } from "@/components/common/Tabs";
 import { TabsList } from "@radix-ui/react-tabs";
 import { CheckHeart, User03 } from "@untitled-ui/icons-react";
 import ColumnEditMenu from "../../../components/data-table/ColumnEditMenu";
-import { getCoreRowModel, useReactTable } from "@tanstack/react-table";
+import { getCoreRowModel, getSortedRowModel, SortingState, useReactTable } from "@tanstack/react-table";
 import DataTable from "@/components/data-table/DataTable";
 import getColumns from "@/app/manage/commission/get-columns";
 import FilterMenu from "@/components/data-table/FilterMenu";
@@ -14,7 +14,7 @@ import { CommissionDatum } from "@/types";
 const CommissionPage = () => {
   const [currentTab, setCurrentTab] = useState("members");
   const [data, setData] = useState<CommissionDatum[]>([]);
-
+  const [sorting, setSorting] = useState<SortingState>([]);
   useEffect(() => {
     const fetchData = async () => {
       // TODO this is using a stubbed out endpoint that return sample data.
@@ -30,9 +30,14 @@ const CommissionPage = () => {
   const columns = getColumns(currentTab);
 
   const table = useReactTable<CommissionDatum>({
-    columns,
-    data,
+    data, // Ваши данные
+    columns, // Колонки с сортировкой
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(), // Включает обработку сортировки
+    state: {
+      sorting, // Управляет текущим состоянием сортировки
+    },
+    onSortingChange: setSorting, // Обработчик изменений сортировки
   });
 
   return (

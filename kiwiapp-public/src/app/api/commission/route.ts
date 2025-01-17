@@ -5,9 +5,9 @@ import Papa from "papaparse";
 import { NextResponse } from "next/server";
 
 export interface CommissionDatum {
-  CARRIER: string;
-  MBI: string;
-  MEMBER_ID: string;
+  "CARRIER": string;
+  "MBI": string;
+  "MEMBER_ID": string;
   "Member Name": string;
   "Agent Name": string;
   "Agent NPN": string;
@@ -33,7 +33,8 @@ export async function GET() {
       process.cwd(),
       "src",
       "data",
-      "sample-data.csv",
+      // "sample-data.csv",
+      "Commission_sample_data.csv"
     );
 
     const fileContents = await readFile(csvFilePath, "utf-8");
