@@ -18,10 +18,9 @@ import { CommissionDatum } from "@/types";
 import downloadExcel from "@/utils/exelDownloadReports";
 
 const formatDateToMMDDYY = (date: Date): string => {
-  const month = date.getMonth() + 1; // Месяцы начинаются с 0
+  const month = date.getMonth() + 1; 
   const day = date.getDate();
-  const year = date.getFullYear() % 100; // Берем последние 2 цифры года
-  console.log(`${day}/${month}/${year}`);
+  const year = date.getFullYear() % 100; 
   return `${day}/${month}/${year}`;
 };
 
@@ -111,7 +110,6 @@ const CommissionPage = () => {
   };
 
   useEffect(() => {
-    console.log("[visibleColumnIdssasdasdasdasd]", visibleColumnIds);
   }, [visibleColumnIds]);
 
   return (

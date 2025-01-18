@@ -41,9 +41,7 @@ SelectDropdownMultipleProps<T>) => {
         );
 
   const toggleSelection = (value: string) => {
-    console.log("[value-----]", value);
     const currentSelections = selectedValue || [];
-    console.log("[currentSelections]", currentSelections);
 
     if (currentSelections.includes(value)) {
       onSelectedOptionChange(currentSelections.filter((v) => v !== value));

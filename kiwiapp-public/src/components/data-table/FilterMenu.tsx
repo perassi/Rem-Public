@@ -10,7 +10,7 @@ import { FilterLines } from "@untitled-ui/icons-react";
 import { useState } from "react";
 
 interface FilterMenuProps {
-  carriers: string[]; // Список уникальных операторов
+  carriers: string[]; 
   setSelectedCarriers: React.Dispatch<React.SetStateAction<string[]>>;
   selectedCarriers: string[];
   startDate: Date | undefined;

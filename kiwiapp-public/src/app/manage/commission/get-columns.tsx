@@ -42,8 +42,8 @@ export default function getColumns(section: string) {
         ...initialColumns,
         columnHelper.accessor("Commission Amount Total", {
           cell: (info) => <DollarFigure value={Number(info.getValue())} />,
-          enableSorting: true, // Числа сортируются по величине
-          sortingFn: "basic", // Встроенный метод
+          enableSorting: true, 
+          sortingFn: "basic", 
         }),
         columnHelper.accessor("Agent Name", {
           cell: (info) => info.getValue(),

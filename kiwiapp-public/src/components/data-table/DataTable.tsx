@@ -18,7 +18,6 @@ export default function DataTable<A>({ table }: DataTableProps<A>) {
   const rows = table?.getRowModel().rows;
   useEffect(() => {
     const dataModel = table.getRowModel().rows.map((row) => row.original);
-    console.log("[dataModel]", dataModel);
   }, [table]);
   return (
     <Table className='table-fixed w-full'>
@@ -36,7 +35,7 @@ export default function DataTable<A>({ table }: DataTableProps<A>) {
                   i === 0 && "sticky left-0"
                 )}
                 // className='bg-white hover:bg-white border border-y-neutral-200 border-x-0'
-                onClick={header.column.getToggleSortingHandler()} // Добавьте обработчик
+                onClick={header.column.getToggleSortingHandler()} 
               >
                 <div className='flex'>
                   {flexRender(
