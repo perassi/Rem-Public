@@ -1,4 +1,6 @@
 import { DropdownMenuCheckboxItem } from "@/components/common/DropdownMenu";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import { Column } from "@tanstack/react-table";
 import { useCallback } from "react";
 
@@ -15,6 +17,19 @@ export default function ColumnEditMenuCheckboxItem<A>({
 }: ColumnEditMenuCheckboxItemProps<A>) {
   const columnId = column.id;
   const isChecked = visibleColumnIds.has(column.id);
+  
+  const { attributes, isDragging, listeners, setNodeRef, transform } =
+    useSortable({
+      id: columnId,
+    });
+  const style: React.CSSProperties = {
+    opacity: isDragging ? 0.8 : 1,
+    position: "relative",
+    transform: CSS.Translate.toString(transform), 
+    transition: "width transform 0.2s ease-in-out",
+    width: column.getSize(),
+    zIndex: isDragging ? 1 : 0,
+  };
 
   const checkedChangeHandler = useCallback(
     (value: boolean) => {
@@ -37,15 +52,19 @@ export default function ColumnEditMenuCheckboxItem<A>({
   );
 
   return (
-    <DropdownMenuCheckboxItem
-      key={column.id}
-      className="capitalize"
-      checked={isChecked}
-      onCheckedChange={checkedChangeHandler}
-      // Keep the menu open on select [Issue](https://github.com/radix-ui/primitives/discussions/1632#discussioncomment-3507745)
-      onSelect={selectHandler}
-    >
-      {column.id}
-    </DropdownMenuCheckboxItem>
+    <div className='flex' draggable='true' style={style} ref={setNodeRef}>
+      <button className='px-2' {...attributes} {...listeners}>
+        🟰
+      </button>
+      <DropdownMenuCheckboxItem
+        key={column.id}
+        className='capitalize'
+        checked={isChecked}
+        onCheckedChange={checkedChangeHandler}
+        // Keep the menu open on select [Issue](https://github.com/radix-ui/primitives/discussions/1632#discussioncomment-3507745)
+        onSelect={selectHandler}>
+        {column.id}
+      </DropdownMenuCheckboxItem>
+    </div>
   );
 }

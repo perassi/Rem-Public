@@ -1,115 +1,109 @@
+import React, { useEffect } from "react";
 import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  MouseSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+  DragEndEvent,
+} from "@dnd-kit/core";
+import { restrictToHorizontalAxis } from "@dnd-kit/modifiers";
+import {
+  arrayMove,
+  SortableContext,
+  horizontalListSortingStrategy,
+} from "@dnd-kit/sortable";
+
+import { flexRender, Table as TableType } from "@tanstack/react-table";
+import {
+  DraggableTableHead,
   Table,
   TableBody,
   TableCell,
-  TableHead,
   TableHeader,
   TableRow,
 } from "@/components/common/Table";
-import { flexRender, Table as TableType } from "@tanstack/react-table";
-import clsx from "clsx";
-import { useEffect } from "react";
 
 interface DataTableProps<A> {
   table: TableType<A>;
+  onColumnOrderChange: (columOrder: string[]) => void;
+  columnOrder: string[];
 }
 
-export default function DataTable<A>({ table }: DataTableProps<A>) {
-  const rows = table?.getRowModel().rows;
+export default function DataTable<A>({
+  table,
+  onColumnOrderChange,
+  columnOrder,
+}: DataTableProps<A>) {
   useEffect(() => {
-    const dataModel = table.getRowModel().rows.map((row) => row.original);
-  }, [table]);
-  return (
-    <Table className='table-fixed w-full'>
-      <TableHeader>
-        {table.getHeaderGroups().map((headerGroup) => (
-          <TableRow
-            key={headerGroup.id}
-            className='bg-white hover:bg-white border border-y-neutral-200 border-x-0'>
-            {headerGroup.headers.map((header, i) => (
-              <TableHead
-                key={header.id}
-                style={{ width: `${header.getSize()}px` }}
-                className={clsx(
-                  " text-neutral-400 font-medium px-8  ",
-                  i === 0 && "sticky left-0"
-                )}
-                // className='bg-white hover:bg-white border border-y-neutral-200 border-x-0'
-                onClick={header.column.getToggleSortingHandler()} 
-              >
-                <div className='flex'>
-                  {flexRender(
-                    header.column.columnDef.header,
-                    header.getContext()
-                  )}
-                  <div className='flex flex-col items-center ml-2  '>
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                      strokeWidth='2'
-                      stroke={
-                        header.column.getIsSorted() === "asc"
-                          ? "blue"
-                          : "currentColor"
-                      }
-                      className='w-3 h-3'>
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        d='M5 15l7-7 7 7'
-                      />
-                    </svg>
+    const newColumns = table.getAllColumns().map((col) => col.id);
+    if (
+      columnOrder.length === 0 ||
+      JSON.stringify(columnOrder) !== JSON.stringify(newColumns)
+    ) {
+      onColumnOrderChange(newColumns);
+    }
+  }, [table.getAllColumns()]);
 
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                      strokeWidth='2'
-                      stroke={
-                        header.column.getIsSorted() === "desc"
-                          ? "blue"
-                          : "currentColor"
-                      }
-                      className='w-3 h-3'>
-                      <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        d='M19 9l-7 7-7-7'
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </TableHead>
-            ))}
-          </TableRow>
-        ))}
-      </TableHeader>
-      <TableBody>
-        {rows?.length ? (
-          rows.map((row) => (
+  useEffect(() => {
+    if (columnOrder.length > 0) {
+      table.setColumnOrder(columnOrder);
+    }
+  }, [columnOrder, table]);
+
+  const sensors = useSensors(
+    useSensor(MouseSensor),
+    useSensor(TouchSensor),
+    useSensor(KeyboardSensor)
+  );
+
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+    if (active && over && active.id !== over.id) {
+      onColumnOrderChange((prev) => {
+        const oldIndex = prev.indexOf(active.id as string);
+        const newIndex = prev.indexOf(over.id as string);
+        return arrayMove(prev, oldIndex, newIndex);
+      });
+    }
+  };
+
+  return (
+    <DndContext
+      collisionDetection={closestCenter}
+      modifiers={[restrictToHorizontalAxis]}
+      onDragEnd={handleDragEnd}
+      sensors={sensors}>
+      <Table className='table-fixed w-full'>
+        <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
             <TableRow
-              key={row.id}
-              className='odd:bg-neutral-50 even:bg-white border-0'>
-              {row.getVisibleCells().map((cell) => {
-                return (
-                  <TableCell key={cell.id} className='px-8 truncate'>
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </TableCell>
-                );
-              })}
+              key={headerGroup.id}
+              className='bg-white hover:bg-white border border-y-neutral-200 border-x-0'>
+              <SortableContext
+                items={columnOrder}
+                strategy={horizontalListSortingStrategy}>
+                {headerGroup.headers.map((header) => (
+                  <DraggableTableHead key={header.id} header={header} />
+                ))}
+              </SortableContext>
             </TableRow>
-          ))
-        ) : (
-          <TableRow>
-            <TableCell
-              colSpan={table.getAllColumns().length}
-              className='h-24 text-center'>
-              No results.
-            </TableCell>
-          </TableRow>
-        )}
-      </TableBody>
-    </Table>
+          ))}
+        </TableHeader>
+        <TableBody>
+          {table.getRowModel().rows.map((row) => (
+            <TableRow key={row.id} className='odd:bg-neutral-50 even:bg-white'>
+              {row.getVisibleCells().map((cell) => (
+                <TableCell key={cell.id} className='px-8'>
+                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                </TableCell>
+              ))}
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </DndContext>
   );
 }

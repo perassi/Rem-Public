@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { SetStateAction, useEffect, useMemo, useState } from "react";
 import { Tabs, TabsTrigger } from "@/components/common/Tabs";
 import { TabsList } from "@radix-ui/react-tabs";
 import { CheckHeart, User03 } from "@untitled-ui/icons-react";
@@ -18,9 +18,9 @@ import { CommissionDatum } from "@/types";
 import downloadExcel from "@/utils/excelDownloadReports";
 
 const formatDateToMMDDYY = (date: Date): string => {
-  const month = date.getMonth() + 1; 
+  const month = date.getMonth() + 1;
   const day = date.getDate();
-  const year = date.getFullYear() % 100; 
+  const year = date.getFullYear() % 100;
   return `${day}/${month}/${year}`;
 };
 
@@ -55,7 +55,11 @@ const CommissionPage = () => {
   const [carrierFiltredData, setCarrierFiltredData] = useState<
     CommissionDatum[]
   >([]);
-  const [visibleColumnIds, setVisibleColumns] = useState<Set<string>>();
+  const [visibleColumnIds, setVisibleColumns] = useState<
+    Set<string> | undefined
+  >();
+
+  const [columnOrder, setColumnOrder] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -92,7 +96,13 @@ const CommissionPage = () => {
   const uniqueCarriers = Array.from(
     new Set(dataFromCsv.map((item) => item.CARRIER).filter(Boolean))
   );
-  const columns = getColumns(currentTab);
+
+  // const columns = getColumns(currentTab);
+  const columns = useMemo(() => getColumns(currentTab), [currentTab]);
+
+  // const [columnOrderState, setColumnOrder] = useState<Set<string>>();
+
+
 
   const table = useReactTable<CommissionDatum>({
     data,
@@ -109,9 +119,10 @@ const CommissionPage = () => {
     setVisibleColumns(columns);
   };
 
-  useEffect(() => {
-  }, [visibleColumnIds]);
-
+  const handleColumnOrderChange = (columnOrderProp: string[]) => {
+    setColumnOrder(columnOrderProp);
+  };
+  // if (!visibleColumnIds) return; ??
   return (
     <div className='flex h-screen w-full flex-col overflow-y-auto ml-64'>
       <div className='px-8 py-6 font-header text-3xl text-evergreen-800'>
@@ -147,6 +158,8 @@ const CommissionPage = () => {
               <ColumnEditMenu
                 key={currentTab}
                 onColumnVisibilityChange={handleColumnVisibilityChange}
+                onColumnOrderChange={handleColumnOrderChange}
+                columnOrder={columnOrder}
                 table={table}
               />
               <FilterMenu
@@ -177,7 +190,11 @@ const CommissionPage = () => {
             </div>
           </TabsList>
         </Tabs>
-        <DataTable table={table} />
+        <DataTable
+          columnOrder={columnOrder}
+          onColumnOrderChange={handleColumnOrderChange}
+          table={table}
+        />
       </div>
     </div>
   );
