@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import {
   OverviewCard,
   ChartCard,
-  DoughnutChart,
+  // DoughnutChart,
+  DonutChart,
   BarChart,
   SelectedBar,
 } from "@/components/overview";
@@ -44,7 +45,7 @@ export default function OverviewPage() {
         <div className="flex flex-wrap gap-y-10 gap-x-4 mt-10">
           <ChartCard title="New Enrollments by Carrier">
             {data && (
-              <DoughnutChart data={geEnrollmentsByCarrierDoughnut(data)} />
+              <DonutChart data={geEnrollmentsByCarrierDoughnut(data)} />
             )}
           </ChartCard>
           <ChartCard title="New Enrollments by Agency">
@@ -52,7 +53,7 @@ export default function OverviewPage() {
           </ChartCard>
           <ChartCard title="Commissions by Carrier">
             {data && (
-              <DoughnutChart data={getCommissionsByCarrierDoughnut(data)} />
+              <DonutChart data={getCommissionsByCarrierDoughnut(data)} />
             )}
           </ChartCard>
           <ChartCard title="Commissions by Agency">

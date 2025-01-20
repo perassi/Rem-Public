@@ -36,6 +36,6 @@ export const doughnutOptions: ChartOptions<"doughnut"> = {
 interface DoughnutChartProps {
   data: ChartData<"doughnut">;
 }
-export const DoughnutChart: FC<DoughnutChartProps> = ({ data }) => {
+export const DonutChart: FC<DoughnutChartProps> = ({ data }) => {
   return <Doughnut data={data} options={doughnutOptions} />;
 };

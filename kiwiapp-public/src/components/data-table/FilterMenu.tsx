@@ -4,7 +4,7 @@ import {
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/common/DropdownMenu";
-import FilterMenuDatePicker from "@/components/data-table/FilterMenuDatePicker";
+import DatePicker from "@/components/data-table/DatePicker";
 import SelectDropdownMultiple from "@/components/select/SelectDropdownMultiple";
 import { FilterLines } from "@untitled-ui/icons-react";
 import { useState } from "react";
@@ -52,7 +52,7 @@ export default function FilterMenu({
           <div className='mb-2'>Date Range</div>
           <div className='flex justify-between gap-x-2'>
             <div>
-              <FilterMenuDatePicker
+              <DatePicker
                 id='startDate'
                 label='Start Date'
                 value={startDate}
@@ -60,7 +60,7 @@ export default function FilterMenu({
               />
             </div>
             <div>
-              <FilterMenuDatePicker
+              <DatePicker
                 id='endDate'
                 label='End Date'
                 value={endDate}

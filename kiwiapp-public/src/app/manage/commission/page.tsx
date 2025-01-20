@@ -15,7 +15,7 @@ import DataTable from "@/components/data-table/DataTable";
 import getColumns from "@/app/manage/commission/get-columns";
 import FilterMenu from "@/components/data-table/FilterMenu";
 import { CommissionDatum } from "@/types";
-import downloadExcel from "@/utils/exelDownloadReports";
+import downloadExcel from "@/utils/excelDownloadReports";
 
 const formatDateToMMDDYY = (date: Date): string => {
   const month = date.getMonth() + 1; 

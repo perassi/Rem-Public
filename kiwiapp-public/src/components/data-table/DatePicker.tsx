@@ -16,8 +16,8 @@ interface FilterMenuDatePickerProps {
   onSelect: Dispatch<SetStateAction<Date | undefined>>;
   value: Date | undefined;
 }
-
-export default function FilterMenuDatePicker({
+// FilterMenuDatePicker
+export default function DatePicker({
   label,
   id,
   onSelect,
