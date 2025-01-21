@@ -1,6 +1,6 @@
 "use client";
 
-import { SetStateAction, useEffect, useMemo, useState } from "react";
+import {  useEffect, useMemo, useState } from "react";
 import { Tabs, TabsTrigger } from "@/components/common/Tabs";
 import { TabsList } from "@radix-ui/react-tabs";
 import { CheckHeart, User03 } from "@untitled-ui/icons-react";

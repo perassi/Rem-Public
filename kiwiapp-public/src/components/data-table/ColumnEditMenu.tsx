@@ -52,7 +52,7 @@ function ColumnEditMenu<A>({
 
   useEffect(() => {
     if (columnOrder.length > 0) {
-      table.setColumnOrder(columnOrder); 
+      table.setColumnOrder(columnOrder);
     }
   }, [columnOrder, table]);
 
@@ -73,16 +73,10 @@ function ColumnEditMenu<A>({
     }
   };
 
-
   const toggleableColumns = useMemo(
-    () => table.getAllColumns().filter((column) => column.getCanHide()),
+    () => table.getAllLeafColumns().filter((column) => column.getCanHide()),
     [table]
   );
-
-  // const headers = useMemo(() => table.getHeaderGroups().filter((column) => column.getCanHide()), [table])
-  // const toggleableColumns = table
-  //   .getAllColumns()
-  //   .filter((column) => column.getCanHide());
 
   const [visibleColumnIds, setVisibleColumnIds] = useState(
     new Set(toggleableColumns.map(({ id }) => id))
@@ -148,68 +142,51 @@ function ColumnEditMenu<A>({
           onClick={openMenuHandler}
           isOpen={isOpen}
         />
-        {table.getHeaderGroups().map((headerGroup, i) => (
-          <DropdownMenuContent
-            key={i}
-            className='flex-col px-5 py-4'
-            align='end'
-            onInteractOutside={interactOutsideHandler}>
-            <SortableContext
-              items={columnOrder}
-              strategy={verticalListSortingStrategy}>
-              {/* {headerGroup.headers.map((column, i) => (
-                <div key={i}>
-                  <ColumnEditMenuCheckboxItem
-                    key={i}
-                    column={column}
-                    visibleColumnIds={visibleColumnIds}
-                    setVisibleColumnIds={setVisibleColumnIds}
-                  />
-                </div>
-              ))} */}
-
-              {toggleableColumns.map((column, i) => (
-                <div key={i}>
-                  <ColumnEditMenuCheckboxItem
-                    key={i}
-                    column={column}
-                    visibleColumnIds={visibleColumnIds}
-                    setVisibleColumnIds={setVisibleColumnIds}
-                  />
-                </div>
-              ))}
-            </SortableContext>
-            <DropdownMenuSeparator className='mt-4 mb-2' />
-            <div className='flex flex-row justify-between flex-nowrap gap-x-2'>
-              <Button
-                variant='ghost'
-                className='font-medium p-0 m-0'
-                onClick={resetHandler}>
-                Reset Columns
-              </Button>
-              <div className='flex flex-row gap-x-1'>
-                <Button
-                  variant='outline'
-                  className='border-everegreen-800 drop-shadow-none'
-                  onClick={cancelHandler}>
-                  Cancel
-                </Button>
-                <Button
-                  variant='default'
-                  className='bg-green-400 drop-shadow-none'
-                  onClick={saveHandler}>
-                  Save
-                </Button>
+        <DropdownMenuContent
+          className='flex-colso px-5 py-4'
+          align='end'
+          onInteractOutside={interactOutsideHandler}>
+          <SortableContext
+            items={columnOrder}
+            strategy={verticalListSortingStrategy}>
+            {table.getAllLeafColumns().map((column, i) => (
+              <div key={i}>
+                <ColumnEditMenuCheckboxItem
+                  key={i}
+                  column={column}
+                  visibleColumnIds={visibleColumnIds}
+                  setVisibleColumnIds={setVisibleColumnIds}
+                />
               </div>
+            ))}
+          </SortableContext>
+          <DropdownMenuSeparator className='mt-4 mb-2' />
+          <div className='flex flex-row justify-between flex-nowrap gap-x-2'>
+            <Button
+              variant='ghost'
+              className='font-medium p-0 m-0'
+              onClick={resetHandler}>
+              Reset Columns
+            </Button>
+            <div className='flex flex-row gap-x-1'>
+              <Button
+                variant='outline'
+                className='border-everegreen-800 drop-shadow-none'
+                onClick={cancelHandler}>
+                Cancel
+              </Button>
+              <Button
+                variant='default'
+                className='bg-green-400 drop-shadow-none'
+                onClick={saveHandler}>
+                Save
+              </Button>
             </div>
-          </DropdownMenuContent>
-        ))}
+          </div>
+        </DropdownMenuContent>
       </DropdownMenu>
     </DndContext>
   );
 }
 
 export default ColumnEditMenu;
-
-
-

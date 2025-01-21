@@ -3,7 +3,7 @@ import * as React from "react";
 import { cn } from "@/utils/commonUtils";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import { flexRender } from "@tanstack/react-table";
+import { flexRender, Header } from "@tanstack/react-table";
 
 const Table = React.forwardRef<
   HTMLTableElement,
@@ -87,7 +87,7 @@ TableHead.displayName = "TableHead";
 const DraggableTableHead = ({
   header,
 }: {
-  header: Header<Person, unknown>;
+  header: Header<A, unknown>;
 }) => {
   const { attributes, isDragging, listeners, setNodeRef, transform } =
     useSortable({

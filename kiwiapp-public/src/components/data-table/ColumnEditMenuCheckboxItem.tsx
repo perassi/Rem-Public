@@ -27,7 +27,7 @@ export default function ColumnEditMenuCheckboxItem<A>({
     position: "relative",
     transform: CSS.Translate.toString(transform), 
     transition: "width transform 0.2s ease-in-out",
-    width: column.getSize(),
+    // width: column.getSize(),
     zIndex: isDragging ? 1 : 0,
   };
 
