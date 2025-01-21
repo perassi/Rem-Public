@@ -5,7 +5,7 @@ import {
   DropdownMenuContent,
   DropdownMenuSeparator,
 } from "@/components/common/DropdownMenu";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Dispatch, SetStateAction, useCallback, useEffect, useMemo, useState } from "react";
 import { Button } from "@/components/common/Button";
 import ColumnEditMenuCheckboxItem from "@/components/data-table/ColumnEditMenuCheckboxItem";
 import {
@@ -28,14 +28,15 @@ import { restrictToVerticalAxis } from "@dnd-kit/modifiers";
 interface ColumnEditMenuProps<A> {
   table: Table<A>;
   onColumnVisibilityChange: (columns: Set<string>) => void;
-  onColumnOrderChange: (columOrder: string[]) => void;
+  setColumnOrder:  Dispatch<SetStateAction<string[]>>;
+  // : (columOrder: string[]) => void;
   columnOrder: string[];
 }
 
 function ColumnEditMenu<A>({
   table,
   onColumnVisibilityChange,
-  onColumnOrderChange,
+  setColumnOrder,
   columnOrder,
 }: ColumnEditMenuProps<A>) {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,7 @@ function ColumnEditMenu<A>({
       columnOrder.length === 0 ||
       JSON.stringify(columnOrder) !== JSON.stringify(newColumns)
     ) {
-      onColumnOrderChange(newColumns);
+      setColumnOrder(newColumns);
     }
   }, [table.getAllColumns()]);
 
@@ -65,7 +66,7 @@ function ColumnEditMenu<A>({
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     if (active && over && active.id !== over.id) {
-      onColumnOrderChange((prev) => {
+      setColumnOrder((prev) => {
         const oldIndex = prev.indexOf(active.id as string);
         const newIndex = prev.indexOf(over.id as string);
         return arrayMove(prev, oldIndex, newIndex);

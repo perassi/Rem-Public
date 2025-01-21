@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Dispatch, SetStateAction, useEffect } from "react";
 import {
   DndContext,
   closestCenter,
@@ -25,17 +25,22 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/common/Table";
+import { Virtualizer } from "@tanstack/react-virtual";
 
 interface DataTableProps<A> {
   table: TableType<A>;
-  onColumnOrderChange: (columOrder: string[]) => void;
+  setColumnOrder: Dispatch<SetStateAction<string[]>>;
   columnOrder: string[];
+  rowVirtualizer: Virtualizer<HTMLDivElement, Element>;
+  isFetching: boolean;
 }
 
 export default function DataTable<A>({
   table,
-  onColumnOrderChange,
+  setColumnOrder,
   columnOrder,
+  rowVirtualizer,
+  isFetching,
 }: DataTableProps<A>) {
   useEffect(() => {
     const newColumns = table.getAllColumns().map((col) => col.id);
@@ -43,7 +48,7 @@ export default function DataTable<A>({
       columnOrder.length === 0 ||
       JSON.stringify(columnOrder) !== JSON.stringify(newColumns)
     ) {
-      onColumnOrderChange(newColumns);
+      setColumnOrder(newColumns);
     }
   }, [table.getAllColumns()]);
 
@@ -62,7 +67,8 @@ export default function DataTable<A>({
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
     if (active && over && active.id !== over.id) {
-      onColumnOrderChange((prev) => {
+      setColumnOrder((prev: string[]) => {
+        console.log(prev);
         const oldIndex = prev.indexOf(active.id as string);
         const newIndex = prev.indexOf(over.id as string);
         return arrayMove(prev, oldIndex, newIndex);
@@ -92,7 +98,11 @@ export default function DataTable<A>({
             </TableRow>
           ))}
         </TableHeader>
-        <TableBody>
+        <TableBody
+          style={{
+            height: `${rowVirtualizer.getTotalSize()}px`, //tells scrollbar how big the table is
+            // position: "relative", //needed for absolute positioning of rows
+          }}>
           {table.getRowModel().rows.map((row) => (
             <TableRow key={row.id} className='odd:bg-neutral-50 even:bg-white'>
               {row.getVisibleCells().map((cell) => (
@@ -104,6 +114,7 @@ export default function DataTable<A>({
           ))}
         </TableBody>
       </Table>
+      {isFetching && <div>Fetching More...</div>}
     </DndContext>
   );
 }

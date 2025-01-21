@@ -3,11 +3,12 @@ import path from "path";
 import Papa from "papaparse";
 
 import { NextResponse } from "next/server";
+// import { SortingState } from "@tanstack/react-table";
 
 export interface CommissionDatum {
-  "CARRIER": string;
-  "MBI": string;
-  "MEMBER_ID": string;
+  CARRIER: string;
+  MBI: string;
+  MEMBER_ID: string;
   "Member Name": string;
   "Agent Name": string;
   "Agent NPN": string;
@@ -25,6 +26,7 @@ export interface CommissionDatum {
   "Commission Agency 1 Amount": string;
   "Commission Agency 2": string;
   "Commission Agency 2 Amount": string;
+  [key: string]: string | undefined;
 }
 
 export async function GET() {
@@ -47,7 +49,6 @@ export async function GET() {
 
       return data[randomRowIndex];
     });
-
     return NextResponse.json(results);
   } catch (error) {
     // Return error with 500 status code

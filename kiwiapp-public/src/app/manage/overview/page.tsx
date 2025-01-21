@@ -9,7 +9,7 @@ import {
   BarChart,
   SelectedBar,
 } from "@/components/overview";
-import FilterMenu from "@/components/data-table/FilterMenu";
+// import FilterMenu from "@/components/data-table/FilterMenu";
 import {
   geEnrollmentsByCarrierDoughnut,
   getCommissionsByAgencyBar,
@@ -32,7 +32,7 @@ export default function OverviewPage() {
         <div className="flex flex-wrap items-center gap-6">
           <SelectedBar name="Carriers" value="6 selected" />
           <SelectedBar name="Date Range" value="Oct 2024 — Dec 2024" />
-          <FilterMenu />
+          {/* <FilterMenu /> */}
         </div>
       </div>
       <div className="h-full px-8 py-6">

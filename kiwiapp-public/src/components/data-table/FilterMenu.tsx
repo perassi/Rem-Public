@@ -78,8 +78,6 @@ export default function FilterMenu({
               label: carrier,
               value: carrier,
             }))}
-            // onSelectedOptionChange={() => setSelectedCarriers}
-            // onSelectedOptionClear={() => undefined}
             onSelectedOptionChange={(values) => {
               setSelectedCarriers(values);
             }}

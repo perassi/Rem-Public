@@ -1,10 +1,14 @@
-import { CommissionDatum } from "@/app/api/commission/route";
+// import { CommissionDatum } from "@/app/api/commission/route";
+import { CommissionDatum } from "@/types";
 import ExcelJS from "exceljs";
 
 const downloadExcel = (
-  data: CommissionDatum[],
-  visibleColumnIds: Set<string>
+  data: CommissionDatum[] ,
+  visibleColumnIds: Set<string> | undefined,
+ 
 ) => {
+  if (!visibleColumnIds) return;
+
   const workbook = new ExcelJS.Workbook();
   const worksheet = workbook.addWorksheet("Commission Data");
   const columnsToInclude = [...visibleColumnIds];
@@ -22,7 +26,7 @@ const downloadExcel = (
         acc[header] = item[header];
       }
       return acc;
-    }, {} as Record<string, any>);
+    }, {} as Record<string, unknown>);
     worksheet.addRow(filteredItem);
   });
 

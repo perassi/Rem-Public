@@ -83,12 +83,8 @@ const TableHead = React.forwardRef<
   />
 ));
 TableHead.displayName = "TableHead";
-
-const DraggableTableHead = ({
-  header,
-}: {
-  header: Header<A, unknown>;
-}) => {
+// type A = any;
+const DraggableTableHead = <A,>({ header }: { header: Header<A, unknown> }) => {
   const { attributes, isDragging, listeners, setNodeRef, transform } =
     useSortable({
       id: header.column.id,

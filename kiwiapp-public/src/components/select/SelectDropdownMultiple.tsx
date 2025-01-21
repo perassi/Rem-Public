@@ -18,11 +18,10 @@ export type SelectDropdownOption<T> = {
 };
 
 type SelectDropdownMultipleProps<T> = {
-  selectedValue: string[];
+  selectedValue: T[];
   placeholder: string;
   options: SelectDropdownOption<T>[];
-  onSelectedOptionChange: (newOption: string[]) => void;
-  onSelectedOptionClear: () => void;
+  onSelectedOptionChange: (newOption: T[]) => void;
 };
 
 const SelectDropdownMultiple = <T,>({
@@ -30,8 +29,7 @@ const SelectDropdownMultiple = <T,>({
   placeholder,
   options,
   onSelectedOptionChange,
-}: // onSelectedOptionClear,
-SelectDropdownMultipleProps<T>) => {
+}: SelectDropdownMultipleProps<T>) => {
   const [query, setQuery] = useState("");
   const filteredOptions =
     query === ""
@@ -40,8 +38,9 @@ SelectDropdownMultipleProps<T>) => {
           option.label.toLowerCase().includes(query.toLowerCase())
         );
 
-  const toggleSelection = (value: string) => {
+  const toggleSelection = (value: T) => {
     const currentSelections = selectedValue || [];
+    console.log("[value]", value);
 
     if (currentSelections.includes(value)) {
       onSelectedOptionChange(currentSelections.filter((v) => v !== value));
@@ -49,7 +48,9 @@ SelectDropdownMultipleProps<T>) => {
       onSelectedOptionChange([...currentSelections, value]);
     }
   };
-
+  // filteredOptions.map((option, index) => {
+  //   console.log("[option]", option);
+  // });
   return (
     <Combobox
       immediate
@@ -77,7 +78,6 @@ SelectDropdownMultipleProps<T>) => {
           <ComboboxOption
             key={index}
             value={option.value}
-            // as='div'
             onClick={() => toggleSelection(option.value)}
             className={clsx(
               "flex items-center gap-2 cursor-pointer px-3 py-1.5 rounded-lg",

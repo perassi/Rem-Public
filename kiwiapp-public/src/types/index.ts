@@ -19,4 +19,5 @@ export interface CommissionDatum {
   "Commission Agency 1 Amount": string;
   "Commission Agency 2": string;
   "Commission Agency 2 Amount": string;
+  [key: string]: string | undefined;
 }

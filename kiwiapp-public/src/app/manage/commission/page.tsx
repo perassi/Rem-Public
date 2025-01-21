@@ -1,21 +1,40 @@
 "use client";
 
-import {  useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Tabs, TabsTrigger } from "@/components/common/Tabs";
 import { TabsList } from "@radix-ui/react-tabs";
 import { CheckHeart, User03 } from "@untitled-ui/icons-react";
 import ColumnEditMenu from "../../../components/data-table/ColumnEditMenu";
 import {
+  ColumnSort,
   getCoreRowModel,
   getSortedRowModel,
+  OnChangeFn,
   SortingState,
   useReactTable,
 } from "@tanstack/react-table";
+import {
+  keepPreviousData,
+  QueryClient,
+  QueryClientProvider,
+  useInfiniteQuery,
+} from "@tanstack/react-query";
+import { useVirtualizer } from "@tanstack/react-virtual";
+
 import DataTable from "@/components/data-table/DataTable";
 import getColumns from "@/app/manage/commission/get-columns";
 import FilterMenu from "@/components/data-table/FilterMenu";
-import { CommissionDatum } from "@/types";
 import downloadExcel from "@/utils/excelDownloadReports";
+import { CommissionDatum } from "@/types";
+// import { CommissionDatum } from "@/app/api/commission/route";
+
+type ApiResponse = {
+  data: CommissionDatum[];
+  meta: {
+    totalRowCount: number;
+  };
+};
+const fetchSize = 50;
 
 const formatDateToMMDDYY = (date: Date): string => {
   const month = date.getMonth() + 1;
@@ -44,6 +63,16 @@ const filterDataByDateRange = (
   return res;
 };
 
+const queryClient = new QueryClient();
+
+const CApp = () => {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <CommissionPage />
+    </QueryClientProvider>
+  );
+};
+
 const CommissionPage = () => {
   const [currentTab, setCurrentTab] = useState("members");
   const [data, setData] = useState<CommissionDatum[]>([]);
@@ -58,20 +87,98 @@ const CommissionPage = () => {
   const [visibleColumnIds, setVisibleColumns] = useState<
     Set<string> | undefined
   >();
+  const tableContainerRef = useRef<HTMLDivElement>(null);
 
   const [columnOrder, setColumnOrder] = useState<string[]>([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      // TODO this is using a stubbed out endpoint that return sample data.
-      const response = await fetch("/api/commission");
-      const json = await response.json();
+  const fetchData = async (
+    start: number,
+    size: number,
+    sorting: SortingState
+  ) => {
+    // TODO this is using a stubbed out endpoint that return sample data.
+    const response = await fetch("/api/commission");
+    const json = await response.json();
 
-      setDataFromCsv(json);
+    // setDataFromCsv(json);
+    // console.log("[json]", json);
+
+    const dbData = [...json];
+    if (sorting.length) {
+      const sort = sorting[0] as ColumnSort;
+      const { id, desc } = sort as { id: keyof CommissionDatum; desc: boolean };
+      dbData.sort((a, b) => {
+        if (desc) {
+          return a[id] < b[id] ? 1 : -1;
+        }
+        return a[id] > b[id] ? 1 : -1;
+      });
+    }
+
+    console.log("[dbData]", dbData.slice(start, start + size));
+    // setDataFromCsv(dbData);
+    return {
+      data: dbData.slice(start, start + size),
+      meta: {
+        totalRowCount: dbData.length,
+      },
     };
+  };
 
-    fetchData();
-  }, []);
+  const {
+    data: fetchedData,
+    fetchNextPage,
+    isFetching,
+    isLoading,
+  } = useInfiniteQuery<ApiResponse>({
+    queryKey: [
+      "commission",
+      sorting, //refetch when sorting changes
+    ],
+    queryFn: async ({ pageParam = 0 }) => {
+      const start = (pageParam as number) * fetchSize;
+      const fetchedData = await fetchData(start, fetchSize, sorting); //pretend api call
+      // console.log("[fetchedData---------]", fetchedData);
+      return fetchedData;
+    },
+    initialPageParam: 0,
+    getNextPageParam: (_lastGroup, groups) => groups.length,
+    refetchOnWindowFocus: false,
+    placeholderData: keepPreviousData,
+  });
+
+  const flatData = useMemo(
+    () => fetchedData?.pages?.flatMap((page) => page.data) ?? [],
+    [fetchedData]
+  );
+  useEffect(() => {
+    console.log("[flatData]", flatData);
+    setDataFromCsv(flatData);
+  }, [flatData]);
+
+  const totalDBRowCount = fetchedData?.pages?.[0]?.meta?.totalRowCount ?? 0;
+  const totalFetched = flatData.length;
+
+  const fetchMoreOnBottomReached = useCallback(
+    (containerRefElement?: HTMLDivElement | null) => {
+      if (containerRefElement) {
+        const { scrollHeight, scrollTop, clientHeight } = containerRefElement;
+        //once the user has scrolled within 500px of the bottom of the table, fetch more data if we can
+        if (
+          scrollHeight - scrollTop - clientHeight < 500 &&
+          !isFetching &&
+          totalFetched < totalDBRowCount
+        ) {
+          fetchNextPage();
+        }
+      }
+    },
+    [fetchNextPage, isFetching, totalFetched, totalDBRowCount]
+  );
+
+  useEffect(() => {
+    fetchMoreOnBottomReached(tableContainerRef.current);
+  }, [fetchMoreOnBottomReached]);
 
   useEffect(() => {
     if (selectedCarriers.length) {
@@ -97,12 +204,7 @@ const CommissionPage = () => {
     new Set(dataFromCsv.map((item) => item.CARRIER).filter(Boolean))
   );
 
-  // const columns = getColumns(currentTab);
   const columns = useMemo(() => getColumns(currentTab), [currentTab]);
-
-  // const [columnOrderState, setColumnOrder] = useState<Set<string>>();
-
-
 
   const table = useReactTable<CommissionDatum>({
     data,
@@ -115,14 +217,41 @@ const CommissionPage = () => {
     onSortingChange: setSorting,
   });
 
+  const handleSortingChange: OnChangeFn<SortingState> = (updater) => {
+    console.log("[sorting]", sorting, updater);
+    setSorting(updater);
+    if (!!table.getRowModel().rows.length) {
+      rowVirtualizer.scrollToIndex?.(0);
+    }
+  };
+
+  table.setOptions((prev) => ({
+    ...prev,
+    onSortingChange: handleSortingChange,
+  }));
+
+  const { rows } = table.getRowModel();
+
+  const rowVirtualizer = useVirtualizer({
+    count: rows.length,
+    estimateSize: () => 33, //estimate row height for accurate scrollbar dragging
+    getScrollElement: () => tableContainerRef.current,
+    //measure dynamic row height, except in firefox because it measures table border height incorrectly
+    measureElement:
+      typeof window !== "undefined" &&
+      navigator.userAgent.indexOf("Firefox") === -1
+        ? (element) => element?.getBoundingClientRect().height
+        : undefined,
+    overscan: 5,
+  });
+
   const handleColumnVisibilityChange = (columns: Set<string>) => {
     setVisibleColumns(columns);
   };
 
-  const handleColumnOrderChange = (columnOrderProp: string[]) => {
-    setColumnOrder(columnOrderProp);
-  };
-  // if (!visibleColumnIds) return; ??
+  if (isLoading) {
+    return <>Loading...</>;
+  }
   return (
     <div className='flex h-screen w-full flex-col overflow-y-auto ml-64'>
       <div className='px-8 py-6 font-header text-3xl text-evergreen-800'>
@@ -158,7 +287,7 @@ const CommissionPage = () => {
               <ColumnEditMenu
                 key={currentTab}
                 onColumnVisibilityChange={handleColumnVisibilityChange}
-                onColumnOrderChange={handleColumnOrderChange}
+                setColumnOrder={setColumnOrder}
                 columnOrder={columnOrder}
                 table={table}
               />
@@ -190,14 +319,28 @@ const CommissionPage = () => {
             </div>
           </TabsList>
         </Tabs>
-        <DataTable
-          columnOrder={columnOrder}
-          onColumnOrderChange={handleColumnOrderChange}
-          table={table}
-        />
+
+        <div
+          // className='container'
+          onScroll={(e) => fetchMoreOnBottomReached(e.currentTarget)}
+          ref={tableContainerRef}
+          style={{
+            overflow: "auto", //our scrollable table container
+            position: "relative", //needed for sticky header
+            height: "1000px", //should be a fixed height
+            width: "100%",
+          }}>
+          <DataTable
+            columnOrder={columnOrder}
+            setColumnOrder={setColumnOrder}
+            table={table}
+            rowVirtualizer={rowVirtualizer}
+            isFetching={isFetching}
+          />
+        </div>
       </div>
     </div>
   );
 };
 
-export default CommissionPage;
+export default CApp;
