@@ -24,3 +24,37 @@ body {
 p {
   @apply font-medium leading-[1.875];
 }
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.blur-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 190px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.blur-overlay-left {
+  left: -10px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 1) 20%, /* Полностью белый */
+    rgba(255, 255, 255, 0.8) 70%, /* Полупрозрачный */
+    rgba(255, 255, 255, 0) 100% /* Полностью прозрачный */
+  );  filter: blur(5px);
+}
+
+.blur-overlay-right {
+  right: -10px;
+  background: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 1) 20%, /* Полностью белый */
+    rgba(255, 255, 255, 0.8) 70%, /* Полупрозрачный */
+    rgba(255, 255, 255, 0) 100% /* Полностью прозрачный */
+  );  filter: blur(5px);
+}

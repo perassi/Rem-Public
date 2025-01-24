@@ -1,3 +1,4 @@
+import { DefaultLayout } from "@/components/common/Layout";
 import "@/styles/globals.css";
 
 export const metadata = {
@@ -6,9 +7,5 @@ export const metadata = {
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en">
-      <body className="bg-beige-400 font-sans">{children}</body>
-    </html>
-  );
+  return <DefaultLayout>{children}</DefaultLayout>;
 }
