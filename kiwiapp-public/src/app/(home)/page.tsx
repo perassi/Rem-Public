@@ -3,10 +3,8 @@ import {
   HomeBanner,
   RemAdvantages,
   TeamSlider,
-  SetApart,
+  FeaturesBanner,
   CustomerSatisfaction,
-  ExpertSupport,
-  ContactAgent,
 } from "@/components/home";
 
 export default function Home() {
@@ -16,10 +14,8 @@ export default function Home() {
       <RemAdvantages />
       <WhyRem />
       <TeamSlider />
-      <SetApart />
+      <FeaturesBanner />
       <CustomerSatisfaction />
-      <ExpertSupport />
-      <ContactAgent />
     </>
   );
 }

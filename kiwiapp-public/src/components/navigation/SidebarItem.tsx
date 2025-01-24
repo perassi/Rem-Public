@@ -14,7 +14,7 @@ interface Props {
 
 export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
   const { collapsed, setCollapsed, setCurrentSection } = useSidebarContext();
-
+  console.log(collapsed, setCollapsed); // use for deploy 
   useEffect(() => {
     if (isActive) {
       setCurrentSection(title);
@@ -24,8 +24,7 @@ export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
   return (
     <NextLink
       href={href}
-      className="max-w-full text-xl tracking-wide active:bg-none"
-    >
+      className='max-w-full text-xl tracking-wide active:bg-none'>
       <div
         className={clsx(
           isActive
@@ -33,14 +32,14 @@ export const SidebarItem = ({ icon, title, isActive, href = "" }: Props) => {
             : "group hover:bg-mintly hover:text-evergreen-800",
           `flex h-full min-h-[44px] w-full cursor-pointer items-center gap-2 rounded-xl px-3.5 transition-all duration-0
           active:scale-[0.98]`
-        )}
-      >
+        )}>
         {icon}
         <span
           className={clsx(
-            isActive ? "text-beige-400" : "text-gray group-hover:text-evergreen-800"
-          )}
-        >
+            isActive
+              ? "text-beige-400"
+              : "text-gray group-hover:text-evergreen-800"
+          )}>
           {title}
         </span>
       </div>

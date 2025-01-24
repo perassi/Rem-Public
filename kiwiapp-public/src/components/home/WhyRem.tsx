@@ -48,7 +48,7 @@ export function WhyRem() {
           </div>
         </div>
         <div className=" flex justify-center mt-40">
-          <Image src={Scheme} alt="Scheme" width={1440} height={810} className=" w-[1440px] h-[810px]" />
+          <Image src={Scheme} alt="Scheme" width={1440} height={810}  />
         </div>
       </Container>
     </section>

@@ -12,7 +12,7 @@ import Person1 from "public/assets/images/persons/person-1.png";
 
 export const TeamSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const sliderRef = useRef<Slider | null>(null); 
+  const sliderRef = useRef<Slider | null>(null);
 
   const settings = {
     centerMode: true,
@@ -20,7 +20,7 @@ export const TeamSlider = () => {
     slidesToShow: 1,
     infinite: true,
     speed: 500,
-    arrows: true,
+    arrows: false,
     // @ts-expect-error react-slick
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
   };
@@ -47,7 +47,7 @@ export const TeamSlider = () => {
   ];
 
   return (
-    <section className='py-16 mb-32 lg:py-32 flex flex-col bg-white'>
+    <section className='py-16  lg:py-32 flex flex-col bg-white '>
       <Container className='w-screen max-sm:p-0'>
         <div className='relative flex flex-col '>
           <div className='slider-wrapper relative  '>

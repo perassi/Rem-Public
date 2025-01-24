@@ -2,7 +2,7 @@ import GreenShade from "public/assets/images/green-shade.png";
 import "@/styles/globals.css";
 import Image from "next/image";
 import { Header } from "../navigation/Header";
-import Footer from "../navigation/Footer";
+import { Footer } from "../navigation/Footer";
 
 export function DefaultLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -14,6 +14,7 @@ export function DefaultLayout({ children }: { children: React.ReactNode }) {
             alt='GreenShade'
             className='absolute top-0 left-0 sm:block hidden pointer-events-none'
           />
+
           <Header />
 
           <main className='-mt-20'>{children}</main>

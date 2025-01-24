@@ -95,7 +95,7 @@ const config: Config = {
         beige: {
           "400": "#F0EEEA",
           "500": "#E3E0D8",
-          "600": "#CEC6B1"
+          "600": "#CEC6B1",
         },
         sunset: "#EA8F58",
       },

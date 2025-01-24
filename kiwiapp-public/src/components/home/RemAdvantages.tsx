@@ -78,4 +78,3 @@ export function RemAdvantages() {
     </section>
   );
 }
-/* Group 2369 */
