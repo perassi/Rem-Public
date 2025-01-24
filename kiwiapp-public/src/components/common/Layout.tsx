@@ -8,11 +8,11 @@ export function DefaultLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <body className='bg-beige-400 font-sans'>
-        <div className='bg-evergreen-800 z-100 relative max-sm:bg-gradient-to-b from-[rgba(14,232,152,0.3)] to-evergreen-800'>
+        <div className='bg-evergreen-800 z-100 relative '>
           <Image
             src={GreenShade}
             alt='GreenShade'
-            className='absolute top-0 left-0 sm:block hidden pointer-events-none'
+            className='absolute top-0 left-0 lg:block hidden pointer-events-none'
           />
 
           <Header />

@@ -13,7 +13,7 @@ import MaskGroup from "public/assets/images/dashed-circles-tr.png";
 
 export function RemAdvantages() {
   return (
-    <section className='flex bg-white justify-center pt-[400px] lg:pt-[300px] pb-14 lg:pb-32 relative'>
+    <section className='flex bg-white justify-center pt-[200px] lg:pt-[300px] pb-14 lg:pb-32 relative'>
       <Image
         src={MaskGroup}
         alt='MaskGroup'
@@ -24,8 +24,8 @@ export function RemAdvantages() {
 
       <Container className=''>
         <div className='flex items-center flex-col'>
-          <Image src={Logo} alt='Logo' />
-          <H2 className='text-center mt-9 text-5xl font-[300] md:font-[300] md:text-6xl'>
+          <Image src={Logo} alt='Logo' className="w-[100px] h-[100px] md:w-[152px] md:h-[160px]" />
+          <H2 className='text-center mt-9 text-4xl font-[300] md:font-[300] md:text-6xl'>
             With REM, you won&apos;t miss Another Commission payment again.
           </H2>
 
