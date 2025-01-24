@@ -9,7 +9,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "footer-bg": "url('../../public/assets/images/footer-bg.png')",
+        "green-dots-bg":
+          "url('../../public/assets/images/green-dots-mobile.png')",
+        "green-dots-bottom-mobile":
+          "url('../../public/assets/images/green-dots-bottom-mobile.png')",
+      },
       colors: {
+        remGreen: {
+          "400": "#18F1A1",
+          "500": "#0ee898",
+        },
         green: {
           "100": "#E9FBF5",
           "200": "#93ECCB",
@@ -81,7 +92,11 @@ const config: Config = {
         },
         mintly: "#BBE8D7",
         plum: "#872B58",
-        beige: "#F0EEEA",
+        beige: {
+          "400": "#F0EEEA",
+          "500": "#E3E0D8",
+          "600": "#CEC6B1"
+        },
         sunset: "#EA8F58",
       },
       fontFamily: {

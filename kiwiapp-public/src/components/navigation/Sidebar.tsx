@@ -17,7 +17,7 @@ export const Sidebar = () => {
 
   return (
     <aside
-      className={`fixed left-0 top-0 h-screen min-w-[15%] bg-evergreen-800 text-beige transition-transform
+      className={`fixed left-0 top-0 h-screen min-w-[15%] bg-evergreen-800 text-beige-400 transition-transform
         ${
           collapsed
             ? "w-16 -translate-x-full transform"
@@ -33,7 +33,8 @@ export const Sidebar = () => {
       ) : null}
       <div className="mx-4 mb-4 mt-0 flex items-center justify-between">
         <Image
-          src="/assets/images/logo-no-rem.svg"
+          src="/assets/icons
+          /logo-no-rem.svg"
           alt="Logo"
           width={48}
           height={48}
