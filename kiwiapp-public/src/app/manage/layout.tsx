@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
 import { Providers } from "@/components/provider/Providers";
 import { SidebarProvider } from "@/components/navigation/SidebarContext";
 import { Sidebar } from "@/components/navigation/Sidebar";
@@ -11,11 +11,11 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  // const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleToggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
+  // const handleToggleSidebar = () => {
+  //   setSidebarOpen(!sidebarOpen);
+  // };
 
   return (
     <html lang="en">
