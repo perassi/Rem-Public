@@ -65,16 +65,19 @@ export function FeaturesBanner() {
         className='absolute top-0 left-0 sm:block hidden pointer-events-none'
       />
       <Container>
-        <div className=' flex justify-start mt-20  w-full '>
+        <div className=' flex justify-center lg:justify-start mt-20  w-full '>
           <div className=' flex justify-start  gap-10 '>
-            <div className='flex  flex-col items-center mt-20 '>
-              <H3 className=' font-[300] text-6xl text-white '>For</H3>
+            <div className='flex  flex-col items-center mt-11 md:mt-14 lg:mt-20 '>
+              <H3 className=' font-[300] text-2xl md:text-4xl lg:text-5xl xl:text-6xl text-white '>
+                For
+              </H3>
             </div>
 
             <div className=' flex flex-col items-start gap-5  '>
               {textData.map((item, i) => (
                 <div key={i}>
-                  <H3 className={` font-[300] text-6xl ${item.color}`}>
+                  <H3
+                    className={` font-[300] text-xl sm:text-4xl  md:text-4xl lg:text-5xl xl:text-6xl ${item.color}`}>
                     {item.text}
                   </H3>
                 </div>
@@ -82,15 +85,16 @@ export function FeaturesBanner() {
             </div>
           </div>
         </div>
-        <div className=' flex flex-wrap justify-center gap-4 mt-20'>
+
+        <div className=' flex flex-wrap  w-full justify-center gap-4 mt-20'>
           {imageData.map((img, i) => (
-            <div key={i} className='w-[640px] flex justify-center '>
+            <div key={i} className='w-full lg:w-[600px]  flex justify-center '>
               <Image src={img.image} alt={img.alt} />
             </div>
           ))}
         </div>
         <div className=' mt-20 w-full flex flex-col items-center  justify-center'>
-          <H2 className='text-white text-center font-[300]'>
+          <H2 className='text-white text-center font-[300] text-4xl md:text-5xl lg:text-6xl'>
             {" "}
             Learn about the features disrupting <br /> Medicare & health
             insurance servicing.

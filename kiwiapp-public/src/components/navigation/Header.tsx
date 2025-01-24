@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import RemLogo from "public/assets/icons/rem-logo.svg";
+import MenuIcon from "public/assets/icons/hamburger-menu-white.svg";
 
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
@@ -41,15 +42,20 @@ export const Header = () => {
               </Link>
             </div>
           </div>
-          <Button
-            type='fill'
-            className='sm:px-8 px-5 py-[10px] sm:py-5 align-middle rounded-full max-[400px]:text-sm text-base'>
-            Book A Demo
-          </Button>
+          <div className=" flex items-center justify-center">
+            <Button
+              type='fill'
+              className='sm:px-8 px-5 py-[10px] sm:py-5 align-middle rounded-full max-[400px]:text-sm text-base'>
+              Book A Demo
+            </Button>
+            <button
+              className='h-10 w-10 max-[400px]:ml-[10px] ml-5 lg:hidden bg-evergreen-800 flex items-center justify-center rounded-full
+  cursor-pointer hover:opacity-90 transition-opacity'>
+              <Image src={MenuIcon} alt='MenuIcon' />
+            </button>
+          </div>
         </div>
       </Container>
     </nav>
   );
 };
-
-

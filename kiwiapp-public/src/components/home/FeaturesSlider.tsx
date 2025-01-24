@@ -13,14 +13,16 @@ import Logo from "public/assets/images/Logo.png";
 import SliderBackground from "public/assets/images/features/features-slider/slider-background.png";
 import SliderImage from "public/assets/images/features/features-slider/slider-image.png";
 import GreenShade from "public/assets/images/green-shade.png";
+import { useMediaQuery } from "react-responsive";
 
 export const FeaturesSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider | null>(null);
+  const isMobile = useMediaQuery({ query: "(max-width: 1340px)" });
 
   const settings = {
     centerMode: true,
-    centerPadding: "200px",
+    centerPadding: isMobile ? "0px" : "200px",
     slidesToShow: 1,
     infinite: true,
     speed: 500,
@@ -75,15 +77,15 @@ export const FeaturesSlider = () => {
                       alt='GreenShade'
                       className='absolute rounded-[30px]  top-0 left-0 sm:block hidden pointer-events-none'
                     />
-                    <div className='  flex items-center justify-between relative h-[544px] z-10'>
-                      <div className=' p-10 relative flex flex-col  justify-between w-full min-h-[544px] max-h-[544px] '>
+                    <div className='  flex items-center justify-between relative z-10'>
+                      <div className=' p-10 relative  flex flex-col  justify-between w-full min-h-[644px]  lg:min-h-[544px] lg:max-h-[544px]'>
                         <Image
                           src={Logo}
                           alt='Logo'
                           className='  w-[76px] h-[80px]'
                         />
 
-                        <H2 className='text-black font-[300] text-5xl  text-left w-1/3 '>
+                        <H2 className='text-black  md:block font-[300] text-4xl mb-36  xl:mb-0 text-left w-full md:w-2/3 lg:w-1/3'>
                           {testimonial.text}
                         </H2>
                       </div>
@@ -92,17 +94,18 @@ export const FeaturesSlider = () => {
                         <Image
                           src={testimonial.background}
                           alt={testimonial.alt}
-                          className=' h-[400px] w-[450px] z-0 rounded-[30px]'
+                          className=' h-[200px] w-[250px] md:h-[400px] md:w-[450px] z-0 rounded-[30px]'
                         />
                       </div>
                       <div className=' absolute top-0 right-0 '>
                         <Image
                           src={testimonial.image}
                           alt={testimonial.alt}
-                          className=' h-[400px] w-[420px] z-10 rounded-[30px]'
+                          className=' h-[200px] w-[220px] md:h-[400px] md:w-[420px] z-10 rounded-[30px]'
                         />
                       </div>
                     </div>
+              
                   </div>
                 </div>
               );
@@ -110,7 +113,7 @@ export const FeaturesSlider = () => {
           </Slider>
         </div>
 
-        <div className=' absolute flex justify-between  w-full px-44 mt-44'>
+        <div className=' absolute flex bottom-20 px-12 gap-6 xl:top-0 xl:justify-between  w-full  xl:px-44 xl:mt-44 '>
           <button
             onClick={() => sliderRef.current?.slickPrev()}
             className='bg-beige-400 flex justify-center items-center w-[50px] h-[50px] rounded-full '>

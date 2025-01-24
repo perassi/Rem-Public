@@ -9,14 +9,15 @@ import ChevronRightIcon from "public/assets/icons/chevron-right.svg";
 import { Container } from "@/components/common/Container";
 import Image from "next/image";
 import Person1 from "public/assets/images/persons/person-1.png";
+import { useMediaQuery } from "react-responsive";
 
 export const TeamSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider | null>(null);
-
+  const isMobile = useMediaQuery({ query: "(max-width: 1340px)" });
   const settings = {
     centerMode: true,
-    centerPadding: "200px",
+    centerPadding: isMobile ? "0px" : "200px",
     slidesToShow: 1,
     infinite: true,
     speed: 500,
@@ -51,7 +52,7 @@ export const TeamSlider = () => {
       <Container className='w-screen max-sm:p-0'>
         <div className='relative flex flex-col '>
           <div className='slider-wrapper relative  '>
-            <div className='absolute inset-0 pointer-events-none'>
+            <div className='absolute inset-0 pointer-events-none hidden  2xl:block'>
               <div className='blur-overlay blur-overlay-left'></div>
               <div className='blur-overlay blur-overlay-right'></div>
             </div>
@@ -74,7 +75,7 @@ export const TeamSlider = () => {
                       {isAdjacentSlide && (
                         <div className='absolute rounded-xl'></div>
                       )}
-                      <div className=' p-20 flex items-center justify-center  w-[860px] h-[410px] relative z-10'>
+                      <div className=' p-20 flex items-center justify-center w-full  2xl:w-[860px]  relative z-10'>
                         <p className='text-black text-center'>
                           {testimonial.text}
                         </p>
