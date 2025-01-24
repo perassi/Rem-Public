@@ -1,54 +1,59 @@
+"use client";
 import Image from "next/image";
 import OverviewPreview from "public/assets/images/overview-preview.png";
-import { Container } from "@/components/common/Container";
+import { useEffect, useState } from "react";
+
+function useWindowWidth(): number | null {
+  const [width, setWidth] = useState<number | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return width;
+}
 
 export function HomeBanner() {
+  const width = useWindowWidth();
+
+  if (width === null) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <section className='flex relative justify-center lg:pb-48 pb-36'>
-      <Container className='relative z-10'>
-        <div className='relative flex justify-center translate-y-[100%] xs:translate-y-[70%] sm:translate-y-[61%] md:translate-y-[50%] lg:translate-y-[50%]'>
-          <div className='  '><OverviewImg/></div>
-        </div>
-      </Container>
+    <section
+      className={`flex relative justify-center h-[330px] sm:h-[490px] md:h-[590px] lg:h-[840px] `}>
+      <div
+        className={` absolute -bottom-[15%] z-40  h-auto ${
+          width < 430
+            ? "w-[calc(100%-60px)]"
+            : width < 490
+            ? "w-[calc(100%-90px)]"
+            : width < 700
+            ? "w-[calc(100%-90px)]"
+            : width < 1024
+            ? "w-[calc(100%-110px)]"
+            : width > 1440
+            ? "w-[1220px]"
+            : "w-[calc(100%-220px)]"
+        }`}>
+        <div className='absolute  -inset-4 sm:-inset-6 md:-inset-8 lg:-inset-10 rounded-[20px] backdrop-blur-sm bg-beige-400/20 border-[1px] border-white/20' />
+
+        <Image
+          src={OverviewPreview}
+          alt='OverviewPreview'
+          className={`relative z-10 w-full  h-auto `}
+        />
+      </div>
     </section>
   );
 }
-function OverviewImg() {
-  return (
-    <div className="flex items-center justify-center">
-      {" "}
-      <div className='absolute -inset-4 sm:-inset-6 md:-inset-8 lg:-inset-10 rounded-[20px] backdrop-blur-sm bg-beige-400/20 border-[1px] border-white/20' />
-      <Image
-        src={OverviewPreview}
-        alt='OverviewPreview'
-        className='relative z-10 w-auto '
-      />
-    </div>
-  );
-}
-
-// import Image from "next/image";
-// import OverviewPreview from "public/assets/images/overview-preview.png";
-// import { Container } from "@/components/common/Container";
-
-// export function HomeBanner() {
-//   return (
-//     <section className="flex relative justify-center pb-16 sm:pb-24 md:pb-32 lg:pb-48">
-//       <Container className="relative z-10">
-//         <div className="relative flex justify-center translate-y-[20%] md:translate-y-[30%] lg:translate-y-[40%]">
-//           <div className="">
-//             {/* Blur Background */}
-//             <div className="absolute -inset-4 sm:-inset-6 md:-inset-8 lg:-inset-10 rounded-[20px] sm:rounded-[30px] md:rounded-[35px] lg:rounded-[40px] backdrop-blur-sm bg-beige-400/20 border-[1px] border-white/20" />
-
-//             {/* Image */}
-//             <Image
-//               src={OverviewPreview}
-//               alt="OverviewPreview"
-//               className="relative z-10 w-full sm:w-[90%] md:w-[80%] lg:w-auto"
-//             />
-//           </div>
-//         </div>
-//       </Container>
-//     </section>
-//   );
-// }

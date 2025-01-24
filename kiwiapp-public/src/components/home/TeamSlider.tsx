@@ -1,7 +1,7 @@
 "use client";
 
 import Slider from "react-slick";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ChevronLeftIcon from "public/assets/icons/chevron-left-white.svg";
@@ -15,16 +15,40 @@ export const TeamSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider | null>(null);
   const isMobile = useMediaQuery({ query: "(max-width: 1340px)" });
-  const settings = {
+  // console.log("[isMobile]", isMobile);
+  const [setting, setSetting] = useState({
     centerMode: true,
-    centerPadding: isMobile ? "0px" : "200px",
+    centerPadding: "200px",
     slidesToShow: 1,
     infinite: true,
     speed: 500,
     arrows: false,
     // @ts-expect-error react-slick
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
-  };
+  });
+  useEffect(() => {
+    if (isMobile) {
+      setSetting({
+        centerMode: true,
+        centerPadding: "0px",
+        slidesToShow: 1,
+        infinite: true,
+        speed: 500,
+        arrows: false,
+        beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+      });
+    } else {
+      setSetting({
+        centerMode: true,
+        centerPadding: "200px",
+        slidesToShow: 1,
+        infinite: true,
+        speed: 500,
+        arrows: false,
+        beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
+      });
+    }
+  }, [isMobile]);
 
   const testimonials = [
     {
@@ -47,8 +71,9 @@ export const TeamSlider = () => {
     },
   ];
 
+  console.log("[setting]", setting);
   return (
-    <section className='py-16  lg:py-32 flex flex-col bg-white '>
+    <section className='py-16  lg:py-32 flex -mt-1 flex-col bg-white '>
       <Container className='w-screen max-sm:p-0'>
         <div className='relative flex flex-col '>
           <div className='slider-wrapper relative  '>
@@ -57,7 +82,7 @@ export const TeamSlider = () => {
               <div className='blur-overlay blur-overlay-right'></div>
             </div>
 
-            <Slider ref={sliderRef} {...settings}>
+            <Slider ref={sliderRef} {...setting}>
               {testimonials.map((testimonial, index) => {
                 const isActiveSlide = index === currentSlide;
                 const isAdjacentSlide =

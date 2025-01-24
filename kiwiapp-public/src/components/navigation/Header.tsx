@@ -10,7 +10,7 @@ import { routes } from "@/utils/routes";
 
 export const Header = () => {
   return (
-    <nav className='h-[100px] sm:h-[80px] z-50 w-screen pb-[30px] pt-[60px] sm:py-[30px] '>
+    <nav className='h-[100px] sm:h-[80px] z-50 w-screen pb-[30px] pt-[60px] sm:py-[30px] z-200 relative z-101'>
       <Container>
         <div className='flex p-[10px] bg-beige-400 justify-between rounded-[60px] items-center'>
           <div className=''>
@@ -24,7 +24,7 @@ export const Header = () => {
           </div>
 
           <div className='flex'>
-            <div className='gap-8 hidden xl:flex pr-14 font-[500]'>
+            <div className='gap-8 hidden md:flex pr-14 font-[500]'>
               <Link
                 className='cursor-pointer hover:opacity-70 transition-opacity'
                 href={routes.resources}>
@@ -42,7 +42,7 @@ export const Header = () => {
               </Link>
             </div>
           </div>
-          <div className=" flex items-center justify-center">
+          <div className=' flex items-center justify-center'>
             <Button
               type='fill'
               className='sm:px-8 px-5 py-[10px] sm:py-5 align-middle rounded-full max-[400px]:text-sm text-base'>

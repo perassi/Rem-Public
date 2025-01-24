@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Logo from "public/assets/images/Logo.png";
 
@@ -58,7 +59,7 @@ export function RemAdvantages() {
               alt='circles1'
               width={70}
               height={80}
-              className='w-[90px] h-[80px]'
+              className='w-[90px] h-[80px] -ml-3'
             />
             <H3 className='font-[300] text-[40px]'>10%</H3>
             <span className='font-sans font-medium'>
@@ -72,7 +73,7 @@ export function RemAdvantages() {
               alt='circles2'
               width={70}
               height={80}
-              className='w-[90px] h-[80px]'
+              className='w-[90px] h-[80px] -ml-3'
             />
             <H3 className='font-[300] text-[40px]'>95%</H3>
             <span className='font-sans font-medium'>
@@ -86,7 +87,7 @@ export function RemAdvantages() {
               alt='circles3'
               width={70}
               height={60}
-              className='w-[90px] h-[80px]'
+              className='w-[90px] h-[80px] -ml-3'
             />
             <H3 className='font-[300] text-[40px]'>20%</H3>
             <span className='font-sans font-medium'>
@@ -100,7 +101,7 @@ export function RemAdvantages() {
               alt='circles4'
               width={70}
               height={60}
-              className='w-[90px] h-[80px]'
+              className='w-[90px] h-[80px] -ml-3'
             />
             <H3 className='font-[300] text-[40px]'>+100K</H3>
             <span className='font-sans font-medium'>

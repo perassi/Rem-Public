@@ -5,20 +5,24 @@
 @layer base {
   @font-face {
     font-family: "Sentient";
-    src: url(../../public/assets/fonts/Sentient_Complete/TTF/Sentient-Variable.ttf) format('truetype');
+    src: url(../../public/assets/fonts/Sentient_Complete/TTF/Sentient-Variable.ttf)
+      format("truetype");
   }
   @font-face {
     font-family: "Sentient-italic";
-    src: url(../../public/assets/fonts/Sentient_Complete/TTF/Sentient-Variable.ttf) format('truetype');
+    src: url(../../public/assets/fonts/Sentient_Complete/TTF/Sentient-Variable.ttf)
+      format("truetype");
   }
   @font-face {
     font-family: "General Sans";
-    src: url(../../public/assets/fonts/GeneralSans_Complete/TTF/GeneralSans-Variable.ttf) format('truetype');
+    src: url(../../public/assets/fonts/GeneralSans_Complete/TTF/GeneralSans-Variable.ttf)
+      format("truetype");
   }
 }
 
 body {
-  color: #172A25;
+  color: #172a25;
+  box-sizing: inherit;
 }
 
 p {
@@ -43,18 +47,20 @@ p {
   left: -10px;
   background: linear-gradient(
     to right,
-    rgba(255, 255, 255, 1) 20%, 
-    rgba(255, 255, 255, 0.8) 70%, 
-    rgba(255, 255, 255, 0) 100% 
-  );  filter: blur(5px);
+    rgba(255, 255, 255, 1) 20%,
+    rgba(255, 255, 255, 0.8) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  filter: blur(5px);
 }
 
 .blur-overlay-right {
   right: -10px;
   background: linear-gradient(
     to left,
-    rgba(255, 255, 255, 1) 20%, 
-    rgba(255, 255, 255, 0.8) 70%, 
-    rgba(255, 255, 255, 0) 100% 
-  );  filter: blur(5px);
+    rgba(255, 255, 255, 1) 20%,
+    rgba(255, 255, 255, 0.8) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  filter: blur(5px);
 }

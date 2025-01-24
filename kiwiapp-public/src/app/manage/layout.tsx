@@ -18,19 +18,18 @@ export default function Layout({
   // };
 
   return (
-    <html lang="en">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <body className="bg-beige-400">
+    <html lang='en'>
+      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+      <body className='bg-beige-400'>
         <Providers>
           <SidebarProvider>
-            <div className="h-min-screen flex overflow-hidden bg-beige-400">
+            <div className='h-min-screen flex overflow-hidden bg-beige-400'>
               <Sidebar />
               <div
                 className={
                   "flex flex-1 flex-col bg-beige-400 transition-all duration-300"
-                }
-              >
-                <main className="flex h-full w-full flex-1">{children}</main>
+                }>
+                <main className='flex h-full w-full flex-1'>{children}</main>
               </div>
             </div>
           </SidebarProvider>
