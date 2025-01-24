@@ -57,8 +57,8 @@ export function RemAdvantages() {
               src={circles1}
               alt='circles1'
               width={70}
-              height={60}
-              className='w-[70px] h-[60px]'
+              height={80}
+              className='w-[90px] h-[80px]'
             />
             <H3 className='font-[300] text-[40px]'>10%</H3>
             <span className='font-sans font-medium'>
@@ -71,8 +71,8 @@ export function RemAdvantages() {
               src={circles2}
               alt='circles2'
               width={70}
-              height={60}
-              className='w-[70px] h-[60px]'
+              height={80}
+              className='w-[90px] h-[80px]'
             />
             <H3 className='font-[300] text-[40px]'>95%</H3>
             <span className='font-sans font-medium'>
@@ -86,7 +86,7 @@ export function RemAdvantages() {
               alt='circles3'
               width={70}
               height={60}
-              className='w-[80px] h-[60px]'
+              className='w-[90px] h-[80px]'
             />
             <H3 className='font-[300] text-[40px]'>20%</H3>
             <span className='font-sans font-medium'>
@@ -100,7 +100,7 @@ export function RemAdvantages() {
               alt='circles4'
               width={70}
               height={60}
-              className='w-[60px] h-[60px]'
+              className='w-[90px] h-[80px]'
             />
             <H3 className='font-[300] text-[40px]'>+100K</H3>
             <span className='font-sans font-medium'>
