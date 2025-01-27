@@ -13,8 +13,34 @@ import { Button } from "../common/Button";
 import MaskGroup from "public/assets/images/dashed-circles-tr.png";
 
 export function RemAdvantages() {
+  const blocksData = [
+    {
+      imageSrc: circles1,
+      imageAlt: "circles1",
+      title: "10%",
+      description: "Reduction In Commission Errors.",
+    },
+    {
+      imageSrc: circles2,
+      imageAlt: "circles2",
+      title: "95%",
+      description: "Reduction In Commission Reconciliation And Management",
+    },
+    {
+      imageSrc: circles3,
+      imageAlt: "circles3",
+      title: "20%",
+      description: "Lower Cost Than Alternatives",
+    },
+    {
+      imageSrc: circles4,
+      imageAlt: "circles4",
+      title: "+100K",
+      description: "Commission Records Processed To Date",
+    },
+  ];
   return (
-    <section className='flex bg-white justify-center pt-[200px] lg:pt-[300px] pb-14 lg:pb-32 relative'>
+    <section className='flex bg-white justify-center pt-[200px] lg:pt-[300px] pb-14 lg:pb-32 md:-mb-5 relative'>
       <Image
         src={MaskGroup}
         alt='MaskGroup'
@@ -23,99 +49,56 @@ export function RemAdvantages() {
         className='absolute  right-0 !w-[30%] !h-[500px] top-0 hidden lg:block'
       />
 
-      <Container className='-mt-14 md:mt-0'>
+      <Container className='-mt-16 md:mt-0'>
         <div className='flex items-center flex-col '>
           <Image src={Logo} alt='Logo' className='w-[76px] h-[80px] ' />
           <div className=' flex flex-col gap-0 mt-9'>
-            <H1 className='text-center  text-3xl/loose  font-[300] md:font-[300] md:text-6xl'>
-              With REM, You Won&apos;t Miss
-            </H1>
-            <H1 className='text-center text-3xl/loose font-[300] md:font-[300] md:text-6xl'>
-              Another Commission{" "}
-            </H1>
-            <H1 className='text-center  text-3xl/loose font-[300] md:font-[300] md:text-6xl'>
-              Payment Again.
+            <H1 className='text-center font-header   text-[30px] leading-tight font-[300] md:font-[300] md:text-[50px] md:leading-[1.2]  lg:w-[100%] md:mt-0'>
+              With REM, You Won&apos;t Miss Another Commission Payment Again.
             </H1>
           </div>
 
-          <span className='font-sans font-[470] mt-10 text-[16px] text-center'>
+          <span className=' mt-6 md:mt-10 font-sans font-[470]  text-[16px] leading-[1.8]  text-center'>
             In today&apos;s rapidly evolving insurance landscape, efficiency,
             accuracy, and customer satisfaction are paramount. Rem delivers
-            Next-Generation <br /> Al-powered solutions that transform outdated
-            processes, making your operations faster, more reliable, and
-            customer-centric.
+            Next-Generation Al-
+            <br />
+            powered solutions that transform outdated processes, making your
+            operations faster, more reliable, and customer-centric.
           </span>
 
-          <div className='flex justify-center mt-10 gap-5'>
+          <div className='flex flex-wrap justify-center mt-9 gap-5'>
             <Button
               type='fill'
-              className='sm:px-8 px-5 py-[10px] w-[180px] sm:py-5 align-middle max-[400px]:text-sm text-base font-[450]'>
+              className=' w-[180px] h-[50px] align-middle  text-base font-[450]'>
               Book A Demo
             </Button>
             <Button
               type='outline'
-              className='sm:px-8 px-5 py-[10px] w-[180px] sm:py-5 align-middle max-[400px]:text-sm text-base font-[450]'>
+              className='w-[164px] p-1 h-[50px] align-middle  text-base font-[450]'>
               Learn More
             </Button>
           </div>
         </div>
 
-        <div className='w-full border-t border-b border-black flex flex-col items-center justify-center gap-10 md:flex-row md:flex-wrap lg:flex-nowrap sm:justify-center lg:justify-around py-[30px] mt-32'>
-          <div className='flex flex-col items-center md:items-center lg:items-start gap-6 w-full md:w-[calc(50%-100px)] lg:w-[200px] text-center md:text-center lg:text-left'>
-            <Image
-              src={circles1}
-              alt='circles1'
-              width={70}
-              height={80}
-              className='w-[90px] h-[80px] -ml-3'
-            />
-            <H3 className='font-[300] text-[40px]'>10%</H3>
-            <span className='font-sans font-[450]'>
-              Reduction In Commission Errors.
-            </span>
-          </div>
-
-          <div className='flex flex-col items-center md:items-center lg:items-start gap-6 w-full md:w-[calc(50%-100px)] lg:w-[200px] text-center md:text-center lg:text-left'>
-            <Image
-              src={circles2}
-              alt='circles2'
-              width={70}
-              height={80}
-              className='w-[90px] h-[80px] -ml-3'
-            />
-            <H3 className='font-[300] text-[40px]'>95%</H3>
-            <span className='font-sans font-[450]'>
-              Reduction in Commission Reconciliation <br /> And Management
-            </span>
-          </div>
-
-          <div className='flex flex-col items-center md:items-center lg:items-start gap-6 w-full md:w-[calc(50%-100px)] lg:w-[200px] text-center md:text-center lg:text-left'>
-            <Image
-              src={circles3}
-              alt='circles3'
-              width={70}
-              height={60}
-              className='w-[90px] h-[80px] -ml-3'
-            />
-            <H3 className='font-[300] text-[40px]'>20%</H3>
-            <span className='font-sans font-[450]'>
-              Lower Cost Than Alternatives
-            </span>
-          </div>
-
-          <div className='flex flex-col items-center md:items-center lg:items-start gap-6 w-full md:w-[calc(50%-100px)] lg:w-[200px] text-center md:text-center lg:text-left'>
-            <Image
-              src={circles4}
-              alt='circles4'
-              width={70}
-              height={60}
-              className='w-[90px] h-[80px] -ml-3'
-            />
-            <H3 className='font-[300] text-[40px]'>+100K</H3>
-            <span className='font-sans font-[450]'>
-              Commission Records Processed To Date
-            </span>
-          </div>
+        <div className='w-full  mt-14 md:mt-32 md:py-[10px]  pb-16 md:pb-10 border-t border-b border-black  flex flex-col items-center justify-center  md:flex-row md:flex-wrap lg:flex-nowrap sm:justify-center lg:justify-end lg:gap-20 '>
+          {blocksData.map((block, index) => (
+            <div
+              key={index}
+              className='w-full  md:h-[245px]  flex flex-col items-center text-center mt-8  gap-2 md:mt-0  md:items-center lg:items-start  md:w-[calc(50%-100px)] lg:w-[20%] md:text-center lg:text-left'>
+              <Image
+                src={block.imageSrc}
+                alt={block.imageAlt}
+                width={70}
+                height={80}
+                className='w-[108px] h-[100px]  md:-ml-5'
+              />
+              <H3 className='font-[300] text-[40px]'>{block.title}</H3>
+              <span className='font-sans font-[450] text-[20px] leading-[1.25] mt-3'>
+                {block.description}
+              </span>
+            </div>
+          ))}
         </div>
       </Container>
     </section>

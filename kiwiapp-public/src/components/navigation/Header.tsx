@@ -7,24 +7,25 @@ import MenuIcon from "public/assets/icons/hamburger-menu-white.svg";
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
 import { routes } from "@/utils/routes";
-
+// sm:py-[30px]  pb-[30px] 
 export const Header = () => {
   return (
-    <nav className='h-[100px] sm:h-[80px] z-50 w-screen pb-[30px] pt-[60px] sm:py-[30px] relative z-101 '>
+    <nav className=' relative h-[110px] sm:h-[80px] z-50 w-full pt-[60px] md:pt-[30px]  z-101 '>
       <Container>
-        <div className='flex p-[10px] bg-beige-400 justify-between rounded-[60px] items-center'>
+        <div className='flex p-[20px] md:px-10 md:pr-5 bg-beige-400 justify-between  rounded-full  items-center'>
           <div className=''>
+            
             <Link href={routes.home}>
               <Image
                 src={RemLogo}
                 alt='RemLogo'
-                className='h-[30px] w-auto sm:w-[154px] sm:h-[50px] cursor-pointer'
+                className='h-[30px] w-auto sm:w-[150px] sm:h-[50px] cursor-pointer'
               />
             </Link>
           </div>
 
           <div className='flex'>
-            <div className='gap-8 hidden xl:flex pr-14 font-[500]'>
+            <div className='gap-8 hidden lg:flex pl-4 text-[20px] font-[500]'>
               <Link
                 className='cursor-pointer hover:opacity-70 transition-opacity'
                 href={routes.resources}>
@@ -42,10 +43,11 @@ export const Header = () => {
               </Link>
             </div>
           </div>
-          <div className=' flex items-center justify-center'>
+
+          <div className=' flex items-center justify-center '>
             <Button
               type='fill'
-              className='sm:px-8 px-5 py-[10px] sm:py-5 align-middle rounded-full max-[400px]:text-sm text-base'>
+              className='px-5 py-[8px] sm:px-8  sm:py-5 align-middle rounded-xl md:rounded-full max-[400px]:text-sm text-base'>
               Book A Demo
             </Button>
             <button

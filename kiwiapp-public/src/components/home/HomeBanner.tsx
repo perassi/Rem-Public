@@ -33,7 +33,7 @@ export function HomeBanner() {
     <section
       className={`flex relative justify-center h-[330px] sm:h-[490px] md:h-[590px] lg:h-[840px] `}>
       <div
-        className={` absolute -bottom-[15%] z-40  h-auto ${
+        className={` absolute -bottom-[20%] z-40  h-auto ${
           width <= 430
             ? "w-[calc(100%-60px)]"
             : width < 490

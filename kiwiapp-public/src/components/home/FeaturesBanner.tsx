@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import { H2, H3 } from "@/components/common/Headers";
+import {  H3 } from "@/components/common/Headers";
 import { Container } from "@/components/common/Container";
 
 import CarrierBrealdown from "public/assets/images/features/carrier-brealdown.png";
@@ -59,22 +59,22 @@ const imageData = [
 
 export function FeaturesBanner() {
   return (
-    <section className='  relative flex justify-center flex-col  pb-8  sm:pb-14 lg:pb-20'>
+    <section className='  relative flex justify-center flex-col '>
       <Image
         src={GreenShade}
         alt='GreenShade'
         className='absolute top-0 left-0 sm:block  pointer-events-none'
       />
       <Container>
-        <div className=' flex justify-center lg:justify-start mt-20  w-full lg:px-10'>
-          <div className=' flex justify-center md:justify-start  gap-10 w-full '>
+        <div className=' flex justify-center lg:justify-start mt-16  w-full lg:px-10 md:mt-[7%]'>
+          <div className=' flex justify-center md:justify-start  gap-[13%] md:gap-32 md:mt-2 w-full '>
             <div className='flex  flex-col items-center mt-11 md:mt-14 lg:mt-20 '>
               <H3 className=' font-[300] text-[30px] md:text-4xl lg:text-5xl xl:text-6xl text-white '>
                 For
               </H3>
             </div>
 
-            <div className=' flex flex-col items-start gap-5  '>
+            <div className=' flex flex-col items-start gap-4 w-full '>
               {textData.map((item, i) => (
                 <div key={i}>
                   <H3
@@ -87,39 +87,39 @@ export function FeaturesBanner() {
           </div>
         </div>
 
-        <div className=' flex flex-wrap  w-full justify-center gap-4 mt-20 '>
+        <div className=' flex flex-wrap  w-full justify-center gap-5 mt-16 md:mt-28 '>
           {imageData.map((img, i) => (
-            <div key={i} className='w-full lg:w-[600px]  flex justify-center '>
+            <div key={i} className='w-full lg:w-[640px]  flex justify-center '>
               <Image src={img.image} alt={img.alt} />
             </div>
           ))}
         </div>
 
-        <div className=' mt-20 w-full flex flex-col items-center  justify-center'>
-          <H2 className='text-white text-center font-[300] text-[32px] md:text-5xl lg:text-6xl'>
-            Learn about the features disrupting  Medicare & <br />Health
-            Insurance Servicing.
-          </H2>
+        <div className=' mt-16 md:-mb-5 w-full flex flex-col items-center   justify-center'>
+          <span className='text-white font-header text-center md:w-[60%] font-[300] text-[32px] leading-[1.12]  md:text-[40px] md:mt-10  '>
+            Learn about the features Disrupting Medicare & 
+            Health Insurance Servicing.
+          </span>
 
-          <div className='flex justify-center mt-10 gap-4'>
+          <div className='flex justify-center mt-8 md:mt-10 gap-5'>
             <Button
               type='fill'
-              className='sm:px-8 px-5 py-[10px] w-[180px] font-[450] sm:py-5 align-middle max-[400px]:text-sm text-base'>
+              className=' w-[180px] h-[50px] align-middle  text-base font-[450]'>
               Book A Demo
             </Button>
             <Button
               type='outline'
-              className='sm:px-8 px-5 py-[10px] w-[180px] font-[450] sm:py-5 align-middle max-[400px]:text-sm text-white text-base'>
+              className='w-[164px] p-1 h-[50px] align-middle  text-base text-white font-[450]'>
               Learn More
             </Button>
           </div>
         </div>
+
       </Container>
-      <div className='w-full h-[250px] md:h-[250px] flex justify-center mt-1'>
-        <div className='  w-full    '>
+      <div className='w-full h-[252px] md:h-[100px] flex justify-center '>
           <FeaturesSlider />
-        </div>
       </div>
+      <div className='bg-gray-100 w-full h-[300px] mt-[20%] md:mt-[13%] md:h-[440px]' />
     </section>
   );
 }

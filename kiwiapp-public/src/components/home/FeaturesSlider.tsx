@@ -55,19 +55,19 @@ export const FeaturesSlider = () => {
 
   const testimonials = [
     {
-      text: "Learn about The Features Disrupting Medicare & Health Insurance Servicing.",
+      text: "Learn About The Features Disrupting Medicare & Health Insurance Servicing.",
       alt: "Nemesio Ortiz",
       background: SliderBackground,
       image: SliderImage,
     },
     {
-      text: "Learn about the features disrupting Medicare & Health insurance servicing.",
+      text: "Learn About the features disrupting Medicare & Health insurance servicing.",
       alt: "Jane Doe",
       background: SliderBackground,
       image: SliderImage,
     },
     {
-      text: "Learn about the features disrupting Medicare & Health insurance servicing.",
+      text: "Learn About the features disrupting Medicare & Health insurance servicing.",
       alt: "John Smith",
       background: SliderBackground,
       image: SliderImage,
@@ -75,7 +75,7 @@ export const FeaturesSlider = () => {
   ];
 
   return (
-    <section className='py-16    lg:py-32 flex flex-col  '>
+    <section className='w-full py-14 lg:py-32 flex flex-col  '>
       <div className='relative flex flex-col '>
         <div className=' relative  '>
           <Slider ref={sliderRef} {...setting}>
@@ -100,14 +100,14 @@ export const FeaturesSlider = () => {
                       className='absolute rounded-[30px]  top-0 left-0 sm:block hidden pointer-events-none'
                     />
                     <div className='  flex items-center justify-between relative z-10 overflow-hidden'>
-                      <div className=' p-5 xl:p-10 relative  flex flex-col  justify-between w-full min-h-[530px]  lg:min-h-[544px] lg:max-h-[544px]'>
+                      <div className=' p-5 xl:p-10 relative   flex flex-col  justify-between w-full min-h-[530px]  lg:min-h-[544px] lg:max-h-[544px]'>
                         <Image
                           src={Logo}
                           alt='Logo'
                           className='  w-[76px] h-[80px] mt-9'
                         />
 
-                        <h2 className='text-black font-header  md:block font-[300] leading-[1.25] text-[26px] mb-36 w-[350px]  lg:text-[40px] xl:mb-0 text-left md:w-2/3 lg:w-[490px]'>
+                        <h2 className='text-black font-header  md:block font-[300] leading-[1.25] text-[24px] mb-[34%] w-[320px]   lg:text-[40px] xl:mb-0 text-left md:w-2/3 lg:w-[490px]'>
                           {testimonial.text}
                         </h2>
                       </div>
@@ -116,14 +116,15 @@ export const FeaturesSlider = () => {
                         <Image
                           src={testimonial.background}
                           alt={testimonial.alt}
-                          className=' h-[260px] w-[320px] md:h-[400px] md:w-[450px] z-0 rounded-[30px]'
+                          className=' h-[290px] w-[340px] md:h-[400px] md:w-[450px] z-0 rounded-[30px]'
                         />
                       </div>
+
                       <div className=' absolute -top-2 -right-14  '>
                         <Image
                           src={testimonial.image}
                           alt={testimonial.alt}
-                          className=' h-[auto] w-[280px] md:h-[400px] md:w-[420px] z-10 rounded-[30px]'
+                          className=' h-[285px] w-[295px] md:h-[400px] md:w-[420px] z-10 rounded-[30px]'
                         />
                       </div>
                     </div>
@@ -134,7 +135,7 @@ export const FeaturesSlider = () => {
           </Slider>
         </div>
 
-        <div className=' absolute flex bottom-20 px-12 gap-6 xl:top-2 xl:justify-between  w-full  xl:px-44 xl:mt-44 '>
+        <div className=' absolute flex bottom-16 px-10 gap-6 xl:top-2 xl:justify-between  w-full  xl:px-44 xl:mt-44 '>
           <button
             onClick={() => sliderRef.current?.slickPrev()}
             className='bg-beige-400 flex justify-center items-center w-[50px] h-[50px] rounded-full '>

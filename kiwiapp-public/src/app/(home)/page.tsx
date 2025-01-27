@@ -4,7 +4,6 @@ import {
   RemAdvantages,
   TeamSlider,
   FeaturesBanner,
-  CustomerSatisfaction,
 } from "@/components/home";
 
 export default function Home() {
@@ -15,7 +14,6 @@ export default function Home() {
       <WhyRem />
       <TeamSlider />
       <FeaturesBanner />
-      <CustomerSatisfaction />
     </>
   );
 }
