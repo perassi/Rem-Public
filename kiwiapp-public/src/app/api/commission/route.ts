@@ -3,7 +3,6 @@ import path from "path";
 import Papa from "papaparse";
 
 import { NextResponse } from "next/server";
-// import { SortingState } from "@tanstack/react-table";
 
 export interface CommissionDatum {
   CARRIER: string;

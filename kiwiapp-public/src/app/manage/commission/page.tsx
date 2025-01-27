@@ -26,7 +26,6 @@ import getColumns from "@/app/manage/commission/get-columns";
 import FilterMenu from "@/components/data-table/FilterMenu";
 import downloadExcel from "@/utils/excelDownloadReports";
 import { CommissionDatum } from "@/types";
-// import { CommissionDatum } from "@/app/api/commission/route";
 
 type ApiResponse = {
   data: CommissionDatum[];
@@ -100,9 +99,6 @@ const CommissionPage = () => {
     const response = await fetch("/api/commission");
     const json = await response.json();
 
-    // setDataFromCsv(json);
-    // console.log("[json]", json);
-
     const dbData = [...json];
     if (sorting.length) {
       const sort = sorting[0] as ColumnSort;
@@ -115,8 +111,6 @@ const CommissionPage = () => {
       });
     }
 
-    console.log("[dbData]", dbData.slice(start, start + size));
-    // setDataFromCsv(dbData);
     return {
       data: dbData.slice(start, start + size),
       meta: {
@@ -138,7 +132,7 @@ const CommissionPage = () => {
     queryFn: async ({ pageParam = 0 }) => {
       const start = (pageParam as number) * fetchSize;
       const fetchedData = await fetchData(start, fetchSize, sorting); //pretend api call
-      // console.log("[fetchedData---------]", fetchedData);
+
       return fetchedData;
     },
     initialPageParam: 0,
@@ -152,7 +146,6 @@ const CommissionPage = () => {
     [fetchedData]
   );
   useEffect(() => {
-    console.log("[flatData]", flatData);
     setDataFromCsv(flatData);
   }, [flatData]);
 
@@ -218,7 +211,6 @@ const CommissionPage = () => {
   });
 
   const handleSortingChange: OnChangeFn<SortingState> = (updater) => {
-    console.log("[sorting]", sorting, updater);
     setSorting(updater);
     if (!!table.getRowModel().rows.length) {
       rowVirtualizer.scrollToIndex?.(0);
@@ -321,14 +313,12 @@ const CommissionPage = () => {
         </Tabs>
 
         <div
-          // className='container'
           onScroll={(e) => fetchMoreOnBottomReached(e.currentTarget)}
           ref={tableContainerRef}
           style={{
             overflow: "auto", //our scrollable table container
             position: "relative", //needed for sticky header
             height: "1000px", //should be a fixed height
-            width: "100%",
           }}>
           <DataTable
             columnOrder={columnOrder}

@@ -29,7 +29,6 @@ interface ColumnEditMenuProps<A> {
   table: Table<A>;
   onColumnVisibilityChange: (columns: Set<string>) => void;
   setColumnOrder:  Dispatch<SetStateAction<string[]>>;
-  // : (columOrder: string[]) => void;
   columnOrder: string[];
 }
 

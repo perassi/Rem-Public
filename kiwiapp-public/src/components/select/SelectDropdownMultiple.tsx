@@ -40,7 +40,6 @@ const SelectDropdownMultiple = <T,>({
 
   const toggleSelection = (value: T) => {
     const currentSelections = selectedValue || [];
-    console.log("[value]", value);
 
     if (currentSelections.includes(value)) {
       onSelectedOptionChange(currentSelections.filter((v) => v !== value));
@@ -48,9 +47,7 @@ const SelectDropdownMultiple = <T,>({
       onSelectedOptionChange([...currentSelections, value]);
     }
   };
-  // filteredOptions.map((option, index) => {
-  //   console.log("[option]", option);
-  // });
+
   return (
     <Combobox
       immediate

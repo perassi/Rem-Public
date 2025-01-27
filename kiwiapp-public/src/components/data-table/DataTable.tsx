@@ -68,7 +68,6 @@ export default function DataTable<A>({
     const { active, over } = event;
     if (active && over && active.id !== over.id) {
       setColumnOrder((prev: string[]) => {
-        console.log(prev);
         const oldIndex = prev.indexOf(active.id as string);
         const newIndex = prev.indexOf(over.id as string);
         return arrayMove(prev, oldIndex, newIndex);
