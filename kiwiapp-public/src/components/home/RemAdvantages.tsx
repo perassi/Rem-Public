@@ -46,19 +46,19 @@ export function RemAdvantages() {
         alt='MaskGroup'
         width={1000}
         height={500}
-        className='absolute  right-0 !w-[30%] !h-[500px] top-0 hidden lg:block'
+        className='absolute right-0 !w-[30%] !h-[500px] top-0 hidden lg:block'
       />
 
       <Container className='-mt-16 md:mt-0'>
-        <div className='flex items-center flex-col '>
-          <Image src={Logo} alt='Logo' className='w-[76px] h-[80px] ' />
-          <div className=' flex flex-col gap-0 mt-9'>
-            <H1 className='text-center font-header   text-[30px] leading-tight font-[300] md:font-[300] md:text-[50px] md:leading-[1.2]  lg:w-[100%] md:mt-0'>
+        <div className='flex items-center flex-col'>
+          <Image src={Logo} alt='Logo' className='w-[76px] h-[80px]' />
+          <div className='flex flex-col gap-0 mt-9'>
+            <H1 className='text-center font-header text-[30px] leading-tight font-[300] md:font-[300] md:text-[50px] md:leading-[1.2] lg:w-[100%] md:mt-0'>
               With REM, You Won&apos;t Miss Another Commission Payment Again.
             </H1>
           </div>
 
-          <span className=' mt-6 md:mt-10 font-sans font-[470]  text-[16px] leading-[1.8]  text-center'>
+          <span className='mt-6 md:mt-10 font-sans font-[470] text-[16px] leading-[1.8] text-center'>
             In today&apos;s rapidly evolving insurance landscape, efficiency,
             accuracy, and customer satisfaction are paramount. Rem delivers
             Next-Generation Al-
@@ -70,18 +70,18 @@ export function RemAdvantages() {
           <div className='flex flex-wrap justify-center mt-9 gap-5'>
             <Button
               type='fill'
-              className=' w-[180px] h-[50px] align-middle  text-base font-[450]'>
+              className='w-[180px] h-[50px] align-middle text-base font-[450]'>
               Book A Demo
             </Button>
             <Button
               type='outline'
-              className='w-[164px] p-1 h-[50px] align-middle  text-base font-[450]'>
+              className='w-[164px] p-1 h-[50px] align-middle text-base font-[450]'>
               Learn More
             </Button>
           </div>
         </div>
 
-        <div className='w-full  mt-14 md:mt-32 md:py-[10px]  pb-16 md:pb-10 border-t border-b border-black  flex flex-col items-center justify-center  md:flex-row md:flex-wrap lg:flex-nowrap sm:justify-center lg:justify-end lg:gap-20 '>
+        <div className='w-full mt-14 md:mt-32 md:py-[10px] pb-16 md:pb-10 border-t border-b border-black flex flex-col items-center justify-center md:flex-row md:flex-wrap lg:flex-nowrap sm:justify-center lg:justify-end lg:gap-20'>
           {blocksData.map((block, index) => (
             <div
               key={index}

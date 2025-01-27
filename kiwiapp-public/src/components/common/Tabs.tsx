@@ -14,7 +14,7 @@ const TabsList = React.forwardRef<
     ref={ref}
     className={cn(
       "flex border-b border-transparent", // Flexbox to align tabs horizontally
-      className,
+      className
     )}
     {...props}
   />
@@ -34,7 +34,7 @@ const TabsTrigger = React.forwardRef<
       `data-[state=active]:after:absolute data-[state=active]:after:bottom-0 data-[state=active]:after:left-0
       data-[state=active]:after:right-0 data-[state=active]:after:h-1 data-[state=active]:after:bg-green-500
       data-[state=active]:after:content-['']`, // Active tab underline style
-      className,
+      className
     )}
     {...props}
   />
@@ -44,7 +44,9 @@ TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 const TabsContent = React.forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
->(({ className, ...props }, ref) => <TabsPrimitive.Content ref={ref} className={className} {...props} />);
+>(({ className, ...props }, ref) => (
+  <TabsPrimitive.Content ref={ref} className={className} {...props} />
+));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
 
 const TAB_SEARCH_PARAM = "tab";

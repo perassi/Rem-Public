@@ -31,9 +31,9 @@ export function HomeBanner() {
 
   return (
     <section
-      className={`flex relative justify-center h-[330px] sm:h-[490px] md:h-[590px] lg:h-[840px] `}>
+      className={`flex relative justify-center h-[330px] sm:h-[490px] md:h-[590px] lg:h-[840px]`}>
       <div
-        className={` absolute -bottom-[20%] z-40  h-auto ${
+        className={`absolute -bottom-[20%] z-40  h-auto ${
           width <= 430
             ? "w-[calc(100%-60px)]"
             : width < 490
@@ -46,7 +46,7 @@ export function HomeBanner() {
             ? "w-[1220px]"
             : "w-[calc(100%-220px)]"
         }`}>
-        <div className='absolute  -inset-3 sm:-inset-4 md:-inset-8 lg:-inset-10 rounded-[15px] lg:rounded-[30px] backdrop-blur-sm bg-beige-400/20 border-[1px] border-white/20' />
+        <div className='absolute -inset-3 sm:-inset-4 md:-inset-8 lg:-inset-10 rounded-[15px] lg:rounded-[30px] backdrop-blur-sm bg-beige-400/20 border-[1px] border-white/20' />
 
         <Image
           src={OverviewPreview}

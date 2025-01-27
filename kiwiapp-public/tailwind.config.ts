@@ -17,7 +17,7 @@ const config: Config = {
           "url('../../public/assets/images/green-dots-bottom-mobile.png')",
       },
       colors: {
-        remGreen: {
+        "rem-green": {
           "400": "#18F1A1",
           "500": "#0ee898",
         },

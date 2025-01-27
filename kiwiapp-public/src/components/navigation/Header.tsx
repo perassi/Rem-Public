@@ -7,14 +7,13 @@ import MenuIcon from "public/assets/icons/hamburger-menu-white.svg";
 import { Button } from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
 import { routes } from "@/utils/routes";
-// sm:py-[30px]  pb-[30px] 
 export const Header = () => {
   return (
     <nav className=' relative h-[110px] sm:h-[80px] z-50 w-full pt-[60px] md:pt-[30px]  z-101 '>
       <Container>
         <div className='flex p-[20px] md:px-10 md:pr-5 bg-beige-400 justify-between  rounded-full  items-center'>
           <div className=''>
-            
+
             <Link href={routes.home}>
               <Image
                 src={RemLogo}

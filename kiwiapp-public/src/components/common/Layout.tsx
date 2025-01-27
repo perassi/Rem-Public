@@ -8,7 +8,7 @@ export function DefaultLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <body className='bg-beige-400 font-sans'>
-        <div className='bg-evergreen-800 z-100 relative '>
+        <div className='bg-evergreen-800 z-100 relative'>
           <Image
             src={GreenShade}
             alt='GreenShade'

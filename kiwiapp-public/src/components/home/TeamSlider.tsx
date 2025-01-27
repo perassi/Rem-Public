@@ -15,7 +15,6 @@ export const TeamSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const sliderRef = useRef<Slider | null>(null);
   const isMobile = useMediaQuery({ query: "(max-width: 1340px)" });
-  // console.log("[isMobile]", isMobile);
   const [setting, setSetting] = useState({
     centerMode: true,
     centerPadding: "200px",
@@ -71,13 +70,12 @@ export const TeamSlider = () => {
     },
   ];
 
-
   return (
-    <section className='py-16  lg:py-32 flex -mt-14 lg:-mt-14  flex-col bg-white '>
+    <section className='py-16 lg:py-32 flex -mt-14 lg:-mt-14 flex-col bg-white'>
       <Container className='w-screen max-sm:p-0'>
         <div className='relative flex flex-col '>
-          <div className='slider-wrapper relative  '>
-            <div className='absolute inset-0 pointer-events-none hidden  2xl:block'>
+          <div className='slider-wrapper relative'>
+            <div className='absolute inset-0 pointer-events-none hidden 2xl:block'>
               <div className='blur-overlay blur-overlay-left'></div>
               <div className='blur-overlay blur-overlay-right'></div>
             </div>
@@ -94,13 +92,13 @@ export const TeamSlider = () => {
                 return (
                   <div key={index} className='px-4'>
                     <div
-                      className={`relative  border border-beige/20 ${
+                      className={`relative border border-beige/20 ${
                         isActiveSlide ? "bg-beige-500" : "bg-beige-100 border"
                       } rounded-xl transition-colors duration-500`}>
                       {isAdjacentSlide && (
                         <div className='absolute rounded-xl'></div>
                       )}
-                      <div className=' px-10 py-[18%] md:p-20  flex items-center justify-center w-full  2xl:w-[860px]  relative z-10 '>
+                      <div className='px-10 py-[18%] md:p-20 flex items-center justify-center w-full 2xl:w-[860px] relative z-10'>
                         <p className='text-black text-center font-sans font-[490] text-[18px] leading-[1.6]'>
                           {testimonial.text}
                         </p>
@@ -112,7 +110,7 @@ export const TeamSlider = () => {
             </Slider>
           </div>
 
-          <div className=' absolute mb-9 flex flex-col bottom-9 items-center left-[calc(50%-100px)] w-[200px] '>
+          <div className='absolute mb-9 flex flex-col bottom-9 items-center left-[calc(50%-100px)] w-[200px] '>
             <div className='flex justify-center'>
               <Image
                 src={Person1}
@@ -122,25 +120,25 @@ export const TeamSlider = () => {
                 className='w-[80px] h-[80px]'
               />
             </div>
-            <div className='flex flex-col items-center pb-2  '>
+            <div className='flex flex-col items-center pb-2'>
               <h3 className='text-[20px] font-semibold mt-4 text-black'>
                 {testimonials[currentSlide].name}
               </h3>
-              <p className='text-[16px] leading-[1.25] text-black-200 '>
+              <p className='text-[16px] leading-[1.25] text-black-200'>
                 {testimonials[currentSlide].position}
               </p>
             </div>
           </div>
 
-          <div className='flex justify-center gap-5  mt-[32%] md:mt-32'>
+          <div className='flex justify-center gap-5 mt-[32%] md:mt-32'>
             <button
               onClick={() => sliderRef.current?.slickPrev()}
-              className='bg-evergreen-800  flex justify-center items-center w-[50px] h-[50px] rounded-full '>
+              className='bg-evergreen-800 flex justify-center items-center w-[50px] h-[50px] rounded-full'>
               <Image src={ChevronLeftIcon} alt='ChevronLeftIcon' />
             </button>
             <button
               onClick={() => sliderRef.current?.slickNext()}
-              className='bg-remGreen-400 text-black  flex justify-center items-center w-[50px] h-[50px] rounded-full '>
+              className='bg-rem-green-400 text-black flex justify-center items-center w-[50px] h-[50px] rounded-full'>
               <Image src={ChevronRightIcon} alt='ChevronRightIcon' />
             </button>
           </div>
