@@ -8,7 +8,7 @@ import circles3 from "public/assets/images/advantages/circles3.png";
 import circles4 from "public/assets/images/advantages/circles4.png";
 
 import { Container } from "@/components/common/Container";
-import { H2, H3 } from "../common/Headers";
+import { H1, H3 } from "../common/Headers";
 import { Button } from "../common/Button";
 import MaskGroup from "public/assets/images/dashed-circles-tr.png";
 
@@ -23,30 +23,38 @@ export function RemAdvantages() {
         className='absolute  right-0 !w-[30%] !h-[500px] top-0 hidden lg:block'
       />
 
-      <Container className=''>
-        <div className='flex items-center flex-col'>
-          <Image src={Logo} alt='Logo' className="w-[100px] h-[100px] md:w-[152px] md:h-[160px]" />
-          <H2 className='text-center mt-9 text-4xl font-[300] md:font-[300] md:text-6xl'>
-            With REM, you won&apos;t miss Another Commission payment again.
-          </H2>
+      <Container className='-mt-14 md:mt-0'>
+        <div className='flex items-center flex-col '>
+          <Image src={Logo} alt='Logo' className='w-[76px] h-[80px] ' />
+          <div className=' flex flex-col gap-0 mt-9'>
+            <H1 className='text-center  text-3xl/loose  font-[300] md:font-[300] md:text-6xl'>
+              With REM, You Won&apos;t Miss
+            </H1>
+            <H1 className='text-center text-3xl/loose font-[300] md:font-[300] md:text-6xl'>
+              Another Commission{" "}
+            </H1>
+            <H1 className='text-center  text-3xl/loose font-[300] md:font-[300] md:text-6xl'>
+              Payment Again.
+            </H1>
+          </div>
 
-          <span className='font-sans font-[400] mt-10 text-[16px] text-center'>
-            In Today&apos;s rapidly evolving insurance landscape, efficiency,
+          <span className='font-sans font-[470] mt-10 text-[16px] text-center'>
+            In today&apos;s rapidly evolving insurance landscape, efficiency,
             accuracy, and customer satisfaction are paramount. Rem delivers
             Next-Generation <br /> Al-powered solutions that transform outdated
             processes, making your operations faster, more reliable, and
             customer-centric.
           </span>
 
-          <div className='flex justify-center mt-10 gap-8'>
+          <div className='flex justify-center mt-10 gap-5'>
             <Button
               type='fill'
-              className='sm:px-8 px-5 py-[10px] sm:py-5 align-middle max-[400px]:text-sm text-base'>
+              className='sm:px-8 px-5 py-[10px] w-[180px] sm:py-5 align-middle max-[400px]:text-sm text-base font-[450]'>
               Book A Demo
             </Button>
             <Button
               type='outline'
-              className='sm:px-8 px-5 py-[10px] sm:py-5 align-middle max-[400px]:text-sm text-base'>
+              className='sm:px-8 px-5 py-[10px] w-[180px] sm:py-5 align-middle max-[400px]:text-sm text-base font-[450]'>
               Learn More
             </Button>
           </div>
@@ -62,8 +70,8 @@ export function RemAdvantages() {
               className='w-[90px] h-[80px] -ml-3'
             />
             <H3 className='font-[300] text-[40px]'>10%</H3>
-            <span className='font-sans font-medium'>
-              Reduction In <br /> Commission Errors.
+            <span className='font-sans font-[450]'>
+              Reduction In Commission Errors.
             </span>
           </div>
 
@@ -76,8 +84,8 @@ export function RemAdvantages() {
               className='w-[90px] h-[80px] -ml-3'
             />
             <H3 className='font-[300] text-[40px]'>95%</H3>
-            <span className='font-sans font-medium'>
-              Reduction in Commission Reconciliation And Management
+            <span className='font-sans font-[450]'>
+              Reduction in Commission Reconciliation <br /> And Management
             </span>
           </div>
 
@@ -90,7 +98,7 @@ export function RemAdvantages() {
               className='w-[90px] h-[80px] -ml-3'
             />
             <H3 className='font-[300] text-[40px]'>20%</H3>
-            <span className='font-sans font-medium'>
+            <span className='font-sans font-[450]'>
               Lower Cost Than Alternatives
             </span>
           </div>
@@ -104,7 +112,7 @@ export function RemAdvantages() {
               className='w-[90px] h-[80px] -ml-3'
             />
             <H3 className='font-[300] text-[40px]'>+100K</H3>
-            <span className='font-sans font-medium'>
+            <span className='font-sans font-[450]'>
               Commission Records Processed To Date
             </span>
           </div>

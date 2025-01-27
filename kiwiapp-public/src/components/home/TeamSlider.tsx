@@ -52,28 +52,28 @@ export const TeamSlider = () => {
 
   const testimonials = [
     {
-      text: "Managing commissions across a large network of agents and agencies used to be a constant headache. It felt like we were always chasing down missed payments, reconciling chargebacks, and trying to make sense of complex statements. REM’s solution changed all of that. Now, everything is automated and accurate, saving us so much time and stress. The real-time insights into payments and agent performance have made it easier to run the business and focus on growth.It’s been a game-changer for us.",
+      text: "Managing commissions across a large network of agents and agencies used to be a constant headache. It felt like we were always chasing down missed payments, reconciling chargebacks, and trying to make sense of complex statements. REM’s solution changed all of that. Now, everything is automated and accurate, saving us so much time and stress. The real-time insights into payments and agent performance have made it easier to run the business and focus on growth. It’s been a game-changer for us.",
       name: "Nemesio Ortiz",
       position: "Gamma Care FMO",
       avatar: "https://via.placeholder.com/150",
     },
     {
-      text: "Managing commissions across a large network of agents and agencies used to be a constant headache. It felt like we were always chasing down missed payments, reconciling chargebacks, and trying to make sense of complex statements. REM’s solution changed all of that. Now, everything is automated and accurate, saving us so much time and stress. The real-time insights into payments and agent performance have made it easier to run the business and focus on growth.It’s been a game-changer for us.",
+      text: "Managing commissions across a large network of agents and agencies used to be a constant headache. It felt like we were always chasing down missed payments, reconciling chargebacks, and trying to make sense of complex statements. REM’s solution changed all of that. Now, everything is automated and accurate, saving us so much time and stress. The real-time insights into payments and agent performance have made it easier to run the business and focus on growth. It’s been a game-changer for us.",
       name: "Jane Doe",
       position: "Prime Care",
       avatar: "https://via.placeholder.com/150",
     },
     {
-      text: "Managing commissions across a large network of agents and agencies used to be a constant headache. It felt like we were always chasing down missed payments, reconciling chargebacks, and trying to make sense of complex statements. REM’s solution changed all of that. Now, everything is automated and accurate, saving us so much time and stress. The real-time insights into payments and agent performance have made it easier to run the business and focus on growth.It’s been a game-changer for us.",
+      text: "Managing commissions across a large network of agents and agencies used to be a constant headache. It felt like we were always chasing down missed payments, reconciling chargebacks, and trying to make sense of complex statements. REM’s solution changed all of that. Now, everything is automated and accurate, saving us so much time and stress. The real-time insights into payments and agent performance have made it easier to run the business and focus on growth. It’s been a game-changer for us.",
       name: "John Smith",
       position: "Care Agency",
       avatar: "https://via.placeholder.com/150",
     },
   ];
 
-  console.log("[setting]", setting);
+
   return (
-    <section className='py-16  lg:py-32 flex -mt-1 flex-col bg-white '>
+    <section className='py-16  lg:py-32 flex -mt-14 lg:-mt-14 flex-col bg-white '>
       <Container className='w-screen max-sm:p-0'>
         <div className='relative flex flex-col '>
           <div className='slider-wrapper relative  '>
@@ -100,8 +100,8 @@ export const TeamSlider = () => {
                       {isAdjacentSlide && (
                         <div className='absolute rounded-xl'></div>
                       )}
-                      <div className=' p-20 flex items-center justify-center w-full  2xl:w-[860px]  relative z-10'>
-                        <p className='text-black text-center'>
+                      <div className=' px-5 py-20 md:p-20  flex items-center justify-center w-full  2xl:w-[860px]  relative z-10 '>
+                        <p className='text-black text-center font-[430] text-[18px]'>
                           {testimonial.text}
                         </p>
                       </div>

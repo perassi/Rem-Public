@@ -8,7 +8,6 @@ import ChevronLeftIcon from "public/assets/icons/chevron-left.svg";
 import ChevronRightIcon from "public/assets/icons/chevron-right.svg";
 
 import Image from "next/image";
-import { H3 } from "../common/Headers";
 import Logo from "public/assets/images/Logo.png";
 import SliderBackground from "public/assets/images/features/features-slider/slider-background.png";
 import SliderImage from "public/assets/images/features/features-slider/slider-image.png";
@@ -101,16 +100,16 @@ export const FeaturesSlider = () => {
                       className='absolute rounded-[30px]  top-0 left-0 sm:block hidden pointer-events-none'
                     />
                     <div className='  flex items-center justify-between relative z-10 overflow-hidden'>
-                      <div className=' p-5 relative  flex flex-col  justify-between w-full min-h-[530px]  lg:min-h-[544px] lg:max-h-[544px]'>
+                      <div className=' p-5 xl:p-10 relative  flex flex-col  justify-between w-full min-h-[530px]  lg:min-h-[544px] lg:max-h-[544px]'>
                         <Image
                           src={Logo}
                           alt='Logo'
                           className='  w-[76px] h-[80px] mt-9'
                         />
 
-                        <H3 className='text-black  md:block font-[300] text-[26px] mb-36 w-[350px]  lg:text-[40px] xl:mb-0 text-left md:w-2/3 lg:w-[490px]'>
+                        <h2 className='text-black font-header  md:block font-[300] leading-[1.25] text-[26px] mb-36 w-[350px]  lg:text-[40px] xl:mb-0 text-left md:w-2/3 lg:w-[490px]'>
                           {testimonial.text}
-                        </H3>
+                        </h2>
                       </div>
 
                       <div className=' absolute -top-3 -right-20 md:-top-2 md:-right-10  '>

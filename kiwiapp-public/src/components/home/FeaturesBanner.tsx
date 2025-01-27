@@ -96,21 +96,20 @@ export function FeaturesBanner() {
         </div>
 
         <div className=' mt-20 w-full flex flex-col items-center  justify-center'>
-          <H2 className='text-white text-center font-[300] text-4xl md:text-5xl lg:text-6xl'>
-            {" "}
-            Learn about the features disrupting <br /> Medicare & health
-            insurance servicing.
+          <H2 className='text-white text-center font-[300] text-[32px] md:text-5xl lg:text-6xl'>
+            Learn about the features disrupting  Medicare & <br />Health
+            Insurance Servicing.
           </H2>
 
-          <div className='flex justify-center mt-10 gap-8'>
+          <div className='flex justify-center mt-10 gap-4'>
             <Button
               type='fill'
-              className='sm:px-8 px-5 py-[10px] sm:py-5 align-middle max-[400px]:text-sm text-base'>
+              className='sm:px-8 px-5 py-[10px] w-[180px] font-[450] sm:py-5 align-middle max-[400px]:text-sm text-base'>
               Book A Demo
             </Button>
             <Button
               type='outline'
-              className='sm:px-8 px-5 py-[10px] sm:py-5 align-middle max-[400px]:text-sm text-white text-base'>
+              className='sm:px-8 px-5 py-[10px] w-[180px] font-[450] sm:py-5 align-middle max-[400px]:text-sm text-white text-base'>
               Learn More
             </Button>
           </div>
