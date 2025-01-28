@@ -1,4 +1,5 @@
 "use client";
+import AnimatedSection from "@/utils/animationUtils";
 import Image from "next/image";
 import OverviewPreview from "public/assets/images/overview-preview.png";
 import { useEffect, useState } from "react";
@@ -46,13 +47,15 @@ export function HomeBanner() {
             ? "w-[1220px]"
             : "w-[calc(100%-220px)]"
         }`}>
-        <div className='absolute -inset-3 sm:-inset-4 md:-inset-8 lg:-inset-10 rounded-[15px] lg:rounded-[30px] backdrop-blur-sm bg-beige-400/20 border-[1px] border-white/20' />
+        <AnimatedSection initialY={100} duration={1}>
+          <div className='absolute -inset-3 sm:-inset-4 md:-inset-8 lg:-inset-10 rounded-[15px] lg:rounded-[30px] backdrop-blur-sm bg-beige-400/20 border-[1px] border-white/20' />
 
-        <Image
-          src={OverviewPreview}
-          alt='OverviewPreview'
-          className={`relative z-10 w-full  h-auto `}
-        />
+          <Image
+            src={OverviewPreview}
+            alt='OverviewPreview'
+            className={`relative z-10 w-full  h-auto `}
+          />
+        </AnimatedSection>
       </div>
     </section>
   );
