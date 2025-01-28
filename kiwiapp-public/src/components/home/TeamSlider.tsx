@@ -76,10 +76,10 @@ export const TeamSlider = () => {
       <Container className='w-screen max-sm:p-0'>
         <AnimatedSection initialY={100} duration={1}>
           <div className='relative flex flex-col '>
-            <div className='slider-wrapper relative'>
+            <div className=' overflow-hidden relative'>
               <div className='absolute inset-0 pointer-events-none hidden 2xl:block'>
-                <div className='blur-overlay blur-overlay-left'></div>
-                <div className='blur-overlay blur-overlay-right'></div>
+                <div className='absolute top-0 bottom-0 w-[190px] z-10 pointer-events-none -left-[10px] bg-gradient-to-r from-[rgba(255,255,255,1)] via-[rgba(255,255,255,0.8)] to-[rgba(255,255,255,0)] blur-[5px]'></div>
+                <div className='absolute top-0 bottom-0 w-[190px] z-10 pointer-events-none -right-[10px] bg-gradient-to-l from-[rgba(255,255,255,1)] via-[rgba(255,255,255,0.8)] to-[rgba(255,255,255,0)] blur-[5px]'></div>
               </div>
 
               <Slider ref={sliderRef} {...setting}>

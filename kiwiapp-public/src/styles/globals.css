@@ -28,19 +28,3 @@ body {
 p {
   @apply font-medium leading-[1.875];
 }
-
-.slider-wrapper {
-  @apply relative overflow-hidden;
-}
-
-.blur-overlay {
-  @apply absolute top-0 bottom-0 w-[190px] z-10 pointer-events-none;
-}
-
-.blur-overlay-left {
-  @apply -left-[10px] bg-gradient-to-r from-[rgba(255,255,255,1)] via-[rgba(255,255,255,0.8)] to-[rgba(255,255,255,0)] blur-[5px];
-}
-
-.blur-overlay-right {
-  @apply -right-[10px] bg-gradient-to-l from-[rgba(255,255,255,1)] via-[rgba(255,255,255,0.8)] to-[rgba(255,255,255,0)] blur-[5px];
-}
