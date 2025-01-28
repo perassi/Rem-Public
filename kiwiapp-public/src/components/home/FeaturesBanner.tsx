@@ -115,7 +115,7 @@ export function FeaturesBanner() {
           </div>
         </div>
       </Container>
-      <div className='w-full h-[252px] md:h-[100px] flex justify-center'>
+      <div className='w-full h-[252px] md:h-[0px] flex justify-center'>
         <FeaturesSlider />
       </div>
       <div className='bg-gray-100 w-full h-[300px] mt-[20%] md:mt-[13%] md:h-[440px]' />
