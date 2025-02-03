@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Sentient";
+    src: url(../../public/assets/fonts/Sentient_Complete/TTF/Sentient-Variable.ttf)
+      format("truetype");
+  }
+  @font-face {
+    font-family: "Sentient-italic";
+    src: url(../../public/assets/fonts/Sentient_Complete/TTF/Sentient-Variable.ttf)
+      format("truetype");
+  }
+  @font-face {
+    font-family: "General Sans";
+    src: url(../../public/assets/fonts/GeneralSans_Complete/TTF/GeneralSans-Variable.ttf)
+      format("truetype");
+  }
+}
+
+body {
+  color: #172a25;
+  box-sizing: inherit;
+}
+
+p {
+  @apply font-medium leading-[1.875];
+}
