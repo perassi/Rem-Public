@@ -11,7 +11,7 @@ export const Header = () => {
   return (
     <nav className='relative w-full md:pt-[28px]  '>
       <Container>
-        <div className='flex bg-beige-400 justify-between  rounded-full  items-center'>
+        <div className='flex bg-white justify-between  rounded-full  items-center'>
           <div className=''>
             <Link href={routes.home}>
               <Image

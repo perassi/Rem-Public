@@ -7,12 +7,14 @@ interface ButtonPropsInterface {
   children: ReactNode;
   className?: string;
   type?: ButtonType;
+  onClick?: () => void;
 }
 
 export const Button = ({
   children,
   className = "",
   type = "fill",
+  onClick,
 }: ButtonPropsInterface) => {
   const baseStyles =
     "flex items-center justify-center w-fit text-xl leading-[1.25] font-medium rounded-lg px-10 py-5 cursor-pointer transition-colors";
@@ -26,7 +28,9 @@ export const Button = ({
   };
 
   return (
-    <button className={cn(baseStyles, typeStyles[type], className)}>
+    <button
+      className={cn(baseStyles, typeStyles[type], className)}
+      onClick={onClick}>
       {children}
     </button>
   );

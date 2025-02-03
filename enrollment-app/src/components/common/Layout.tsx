@@ -4,7 +4,7 @@ import { Header } from "../navigation/Header";
 export function DefaultLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
-      <body className='bg-beige-400 font-sans'>
+      <body className='bg-white font-sans'>
         <div className=' relative'>
           <Header />
           <main className=''>{children}</main>
