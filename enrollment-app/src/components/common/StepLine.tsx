@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Container } from "./Container";
+import { IStep } from "@/types/stepType";
 
 interface Step {
   id: number;
@@ -8,12 +9,9 @@ interface Step {
   progress: number;
 }
 
-interface IStepLine {
-  activeStep: number;
-  setActiveStep: React.Dispatch<React.SetStateAction<number>>;
-}
 
-const StepLine = ({ activeStep, setActiveStep }: IStepLine) => {
+
+const StepLine = ({ activeStep, setActiveStep }: IStep) => {
   const steps: Step[] = [
     { id: 1, label: "Plan Type", progress: 8 },
     { id: 2, label: "About You", progress: 25 },
@@ -31,13 +29,13 @@ const StepLine = ({ activeStep, setActiveStep }: IStepLine) => {
     if (currentStep) {
       setStepObject(currentStep);
     }
-    // setActiveStep(activeStep)
   }, [activeStep]);
 
   const handleStepClick = (stepId: number) => {
     const currentStep = steps.find((step) => step.id === stepId);
     if (currentStep) {
       setStepObject(currentStep);
+      setActiveStep(stepId)
     }
   };
 
@@ -51,7 +49,7 @@ const StepLine = ({ activeStep, setActiveStep }: IStepLine) => {
               style={{ width: `${stepObject.progress}%` }}
             />
             <div className=' w-full flex justify-around'>
-              {steps.map((step, index) => (
+              {steps.map((step) => (
                 <div
                   key={step.id}
                   className='relative flex flex-col items-center'>

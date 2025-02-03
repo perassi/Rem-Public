@@ -4,13 +4,10 @@ import StepImage1 from "public/assets/images/step1Image.png";
 import Image from "next/image";
 import { H2 } from "../common/Headers";
 import { Button } from "../common/Button";
+import { IStep } from "@/types/stepType";
+import { handleNextStep, handlePrevStep } from "@/utils/stepUtils";
 
-interface IPlanTypeStep {
-  activeStep: number;
-  setActiveStep: React.Dispatch<React.SetStateAction<number>>;
-}
-
-const PlanTypeStep = ({ setActiveStep, activeStep }: IPlanTypeStep) => {
+const PlanTypeStep = ({ setActiveStep, activeStep }: IStep) => {
   return (
     <div className=''>
       <Container>
@@ -31,13 +28,14 @@ const PlanTypeStep = ({ setActiveStep, activeStep }: IPlanTypeStep) => {
             <div className='mt-10 flex justify-center items-center gap-5'>
               <Button
                 type='outline'
-                className='rounded-full w-full text-[16px] leading-[1.25]'>
+                className='rounded-full w-full text-[16px] leading-[1.25]'
+                onClick={() => handlePrevStep({ activeStep, setActiveStep })}>
                 Go Back
               </Button>
               <Button
                 type='fill'
                 className='rounded-full w-full text-[16px] leading-[1.25]'
-                onClick={() => setActiveStep(activeStep + 1)}>
+                onClick={() => handleNextStep({ activeStep, setActiveStep })}>
                 Save & Continue
               </Button>
             </div>
