@@ -1,12 +1,15 @@
+import { DefaultLayout } from "@/components/common/Layout";
+import "@/styles/globals.css";
 
-export default function RootLayout({
+export const metadata = {
+  title: "Rem",
+  description: "AI-powered insurance solutions.",
+};
+
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
-    <html lang='en'>
-      <body>{children}</body>
-    </html>
-  );
+  return <DefaultLayout>{children}</DefaultLayout>;
 }

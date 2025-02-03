@@ -10,11 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        "footer-bg": "url('../../public/assets/images/footer-bg.png')",
-        "green-dots-bg":
-          "url('../../public/assets/images/green-dots-mobile.png')",
-        "green-dots-bottom-mobile":
-          "url('../../public/assets/images/green-dots-bottom-mobile.png')",
+        // "footer-bg": "url('../../public/assets/images/footer-bg.png')",
+        // "green-dots-bg":
+        //   "url('../../public/assets/images/green-dots-mobile.png')",
+        // "green-dots-bottom-mobile":
+        //   "url('../../public/assets/images/green-dots-bottom-mobile.png')",
       },
       colors: {
         "rem-green": {
