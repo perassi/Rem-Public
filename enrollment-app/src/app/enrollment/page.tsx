@@ -4,6 +4,10 @@ import { useMemo, useState } from "react";
 import PlanTypeStep from "@/components/steps/Step1";
 import { Container } from "@/components/common/Container";
 import AboutYouStep from "@/components/steps/Step2";
+import MyDrugsStep from "@/components/steps/Step3";
+import MyDoctorsStep from "@/components/steps/Step4";
+import ExtrasStep from "@/components/steps/Step5";
+import UsageFrequencyStep from "@/components/steps/Step6";
 
 export default function StepPage() {
   const [activeStep, setActiveStep] = useState<number>(1);
@@ -27,28 +31,28 @@ export default function StepPage() {
           );
         case 3:
           return (
-            <PlanTypeStep
+            <MyDrugsStep
               setActiveStep={setActiveStep}
               activeStep={activeStep}
             />
           );
         case 4:
           return (
-            <PlanTypeStep
+            <MyDoctorsStep
               setActiveStep={setActiveStep}
               activeStep={activeStep}
             />
           );
         case 5:
           return (
-            <PlanTypeStep
+            <ExtrasStep
               setActiveStep={setActiveStep}
               activeStep={activeStep}
             />
           );
         case 6:
           return (
-            <PlanTypeStep
+            <UsageFrequencyStep
               setActiveStep={setActiveStep}
               activeStep={activeStep}
             />
