@@ -22,8 +22,15 @@ const PlanTypeStep = ({ setActiveStep, activeStep }: IStep) => {
           </div>
           <div className='w-full flex flex-col'>
             <input
-              className=' mt-10 border-[1px] border-[#172A25] h-[60px] w-[640px] px-5 bg-white rounded-[5px]'
+              className='mt-10 border-[1px] border-[#172A25] h-[60px] w-[640px] px-5 bg-white rounded-[5px]'
               placeholder='Enter Zip Code'
+              maxLength={5}
+              inputMode="numeric"
+              onInput={(e) => {
+                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 5);
+              }}
+              title='Enter exactly 5 digits'
+              required
             />
             <div className='mt-10 flex justify-center items-center gap-5'>
               <Button
