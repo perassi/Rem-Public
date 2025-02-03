@@ -18,8 +18,7 @@ type Medication = {
 
 const initialData: Medication[] = [
   { name: "Adderall", dosage: "10mg", quantity: 30, daysSupply: 90 },
-  { name: "Ibuprofen", dosage: "200mg", quantity: 20, daysSupply: 30 },
-  { name: "Paracetamol", dosage: "500mg", quantity: 50, daysSupply: 60 },
+  { name: "Ibuprofen", dosage: "10mg", quantity: 20, daysSupply: 30 },
 ];
 
 export default function MedicationTable() {
@@ -112,24 +111,23 @@ export default function MedicationTable() {
   });
 
   return (
-    <div className='w-full '>
-      <table className='w-full   '>
+    <div className='w-full'>
+      <table className='w-full'>
         <thead className=''>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id} className='  '>
+            <tr
+              key={headerGroup.id}
+              className='grid grid-cols-[1.6fr_1fr_2.3fr_0.9fr_60px] '>
               {headerGroup.headers.map((header) => (
                 <th key={header.id} className={`  `}>
                   <div
                     className={` ${
                       header.column.getIndex() === 0
-                        ? "text-left w-[240px] "
-                        : `text-center  
-                        ${
-                          header.column.getIndex() === 3
-                            ? "text-left w-[180px]   "
-                            : "text-center w-[410px]  "
-                        }`
+                        ? "text-left "
+                        : "text-center"
                     } 
+                     
+                  
                   
                       text-[20px] font-[600] font-sans `}>
                     {header.isPlaceholder
@@ -146,18 +144,13 @@ export default function MedicationTable() {
         </thead>
         <tbody className=''>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className='border-b h-[60px] '>
+            <tr key={row.id} className=' border-b mt-2 h-[70px] grid grid-cols-[1.6fr_1fr_2.3fr_0.9fr_60px] items-center '>
               {row.getVisibleCells().map((cell, index) => (
                 <td
                   key={cell.id}
-                  className={`  ${
-                    index === 0 ? "text-left" : "text-center "
-
-                  } 
-                  text-[20px] font-[500] font-sans  pt-3
-                    ${
-                    index === 4 ? " flex justify-start " : ""
-                  } `}>
+                  className={` ${index === 0 ? "text-left" : "text-center "} 
+                  text-[20px] font-[500] font-sans  
+                    ${index === 4 ? " flex justify-center  " : ""} `}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}

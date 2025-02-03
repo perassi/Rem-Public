@@ -71,9 +71,9 @@ const ExtrasStep = ({ setActiveStep, activeStep }: IStep) => {
   return (
     <div className=''>
       <Container>
-        <div className=' w-full flex flex-col items-center justify-center relative'>
+        <div className='  w-full flex flex-col items-center justify-center relative '>
           {modal && (
-            <div className=' absolute z-1000 top-20'>
+            <div className=' absolute z-1000 '>
               <Modal
                 onClose={() => setModal(false)}
                 activeStep={activeStep}
@@ -81,7 +81,7 @@ const ExtrasStep = ({ setActiveStep, activeStep }: IStep) => {
               />
             </div>
           )}
-          <div className='mt-11 flex flex-col  justify-center items-center w-full'>
+          <div className='mt-7 flex flex-col  justify-center items-center w-full'>
             <H2 className=' text-[50px] font-[400] text-center'>
               Select The Benefits That <br />
               Matter Most To you
@@ -89,7 +89,7 @@ const ExtrasStep = ({ setActiveStep, activeStep }: IStep) => {
           </div>
 
           <div
-            className={`  w-[full] flex flex-wrap justify-center gap-4 mt-20 ${
+            className={`  w-[full] flex flex-wrap justify-center gap-4  gap-y-10 mt-24 ${
               modal && "!-z-10"
             } `}>
             {optionsArr.map((item, index) => (
@@ -106,7 +106,7 @@ const ExtrasStep = ({ setActiveStep, activeStep }: IStep) => {
                   <Image src={item.img} alt={item.alt} />
                 </div>
                 <div className='p-4 bg-white  flex items-center justify-center'>
-                  <span className=' text-[20px] leading-[1.25] font-400  text-center'>
+                  <span className=' text-[20px] mt-2 leading-[1.25] font-400  text-center'>
                     {item.title}
                   </span>
                   {selectedOption === index ? (
@@ -141,7 +141,7 @@ const ExtrasStep = ({ setActiveStep, activeStep }: IStep) => {
             ))}
           </div>
 
-          <div className='w-[50%] mt-10 flex flex-col'>
+          <div className='w-[50%] flex flex-col'>
             <div className='mt-10 flex justify-center items-center gap-5'>
               <Button
                 type='outline'

@@ -28,41 +28,40 @@ const MyDrugsStep = ({ setActiveStep, activeStep }: IStep) => {
           </span>
           <MedicationTable />
         </div>
-        <div className=' w-full  mt-10'>
+        <div className=' w-full  mt-16'>
           <span className=' px-8 text-[16px] font-sans font-[600]'>
             Search for medication
           </span>
-          {/* <input className=" w-full mt-5 h-[60px] border border-black rounded-[5px] "/>  */}
           <SearchComponent />
         </div>
         <div className=' w-full mt-20 flex items-end gap-5'>
-          <div>
-            <span className=' px-5 text-[16px] font-sans font-[600]'>
+          <div >
+            <span className=' px-7 text-[16px] font-sans font-[600]'>
               Supply
             </span>
-            <div className=' flex gap-5 mt-10'>
+            <div className=' flex gap-5 mt-5'>
               <input
                 className='w-[200px] px-8 h-[60px] border border-black rounded-[5px]'
-                placeholder='Some..'
+                placeholder=''
               />
               <input
                 className='w-[200px] px-8 h-[60px] border border-black rounded-[5px]'
-                placeholder='Some..'
+                placeholder=''
               />
               <input
                 className='w-[200px] px-8 h-[60px] border border-black rounded-[5px]'
-                placeholder='Some..'
+                placeholder=''
               />
             </div>
           </div>
-          <div className='flex flex-col '>
+          <div className='flex flex-col mt-5'>
             <span className=' px-10 text-[16px] font-sans font-[600]'>
               Quantity
             </span>
             <div className='mt-5 flex gap-5'>
               <input
                 className='w-[310px] p-2 h-[60px] border border-black rounded-[5px]'
-                placeholder='Some..'
+                placeholder=''
               />
               <Button
                 type='fill'

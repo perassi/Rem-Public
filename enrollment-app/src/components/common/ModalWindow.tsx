@@ -34,8 +34,8 @@ const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className='fixed pt-36 inset-0 flex items-center justify-center bg-black/50 !z-1000'>
-      <div className='bg-white w-[1220px] h-[700px] rounded-xl p-8 relative shadow-lg !z-1000'>
+    <div className='fixed pt-16 inset-0 flex items-center justify-center bg-black/50 !z-1000'>
+      <div className='bg-white w-[1220px] min-h-[700px] rounded-xl p-8 relative shadow-lg !z-1000'>
         <button
           className='absolute w-[60px] h-[60px] top-12 bg-[#DCE1E0] rounded-full right-10'
           onClick={onClose}>
@@ -67,7 +67,7 @@ const Modal: React.FC<ModalProps> = ({
           <H2 className='text-[50px] text-center mb-8'>Other Benefits</H2>
         </div>
 
-        {/* Карточки */}
+
         <div className='flex mt-20 flex-wrap justify-center gap-6'>
           {options.map((item, index) => (
             <div
@@ -122,7 +122,6 @@ const Modal: React.FC<ModalProps> = ({
           <Button
             type='fill'
             className='rounded-full w-[310px] text-[16px] leading-[1.25]'
-            // onClick={() => handleNextStep({ activeStep, setActiveStep })
             onClick={() => handleNextStep({ activeStep, setActiveStep })}>
             Save & Continue
           </Button>

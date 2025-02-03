@@ -42,18 +42,17 @@ const AboutYouStep = ({ setActiveStep, activeStep }: IStep) => {
   };
 
   return (
-    <div className='mt-20'>
+    <div className='mt-10'>
       <Container>
         <div className=' flex flex-col items-center justify-center '>
           
-          <div className='mt-11 flex flex-col  justify-center items-center w-full'>
-            <H2 className=' text-[50px] font-[400] text-center'>
-              Do you know the type of plan you <br /> Want to sign up for?
+          <div className=' flex flex-col  justify-center items-center w-full'>
+            <H2 className=' text-[50px] font-[400] leading-[1.2] text-center'>
+              Do You Know The Type Of Plan You <br /> Want To Sign Up For?
             </H2>
           </div>
-          {/* <Image src={StepImage1} alt='StepImage1' className='' /> */}
 
-          <div className='  w-full flex justify-center gap-6 mt-10 '>
+          <div className='   w-full flex justify-center gap-6 mt-20 '>
             {optionsArr.map((item, index) => (
               <div
                 key={index}
@@ -67,7 +66,7 @@ const AboutYouStep = ({ setActiveStep, activeStep }: IStep) => {
                   }`}>
                   <Image src={item.img} alt={item.alt} />
                 </div>
-                <div className='p-4 bg-white  flex items-center justify-center'>
+                <div className='p-4 bg-white mt-5  flex items-center justify-center'>
                   <span className=' text-[20px] leading-[1.25] font-400  text-center'>
                     {item.title}
                   </span>

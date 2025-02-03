@@ -9,8 +9,6 @@ export function DefaultLayout({ children }: { children: React.ReactNode }) {
           <Header />
           <main className=''>{children}</main>
         </div>
-
-        {/* <Footer /> */}
       </body>
     </html>
   );
