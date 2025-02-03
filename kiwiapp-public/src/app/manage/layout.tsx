@@ -1,5 +1,8 @@
 "use client";
 
+// import { useState } from "react";
+import { Providers } from "@/components/provider/Providers";
+import { SidebarProvider } from "@/components/navigation/SidebarContext";
 import { Sidebar } from "@/components/navigation/Sidebar";
 import { SidebarProvider } from "@/components/navigation/SidebarContext";
 import { Providers } from "@/components/provider/Providers";
@@ -10,6 +13,12 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // const handleToggleSidebar = () => {
+  //   setSidebarOpen(!sidebarOpen);
+  // };
+
   return (
     <html lang="en">
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
