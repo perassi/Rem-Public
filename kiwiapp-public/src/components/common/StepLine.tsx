@@ -61,6 +61,7 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeStep]);
 
   const [stepObject, setStepObject] = useState<Step>(steps[0]);
@@ -70,6 +71,7 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
     if (currentStep) {
       setStepObject(currentStep);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeStep]);
 
   const handleGetStepRef = (step: Step) => (el: HTMLDivElement | null) => {

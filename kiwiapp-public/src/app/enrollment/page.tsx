@@ -1,6 +1,6 @@
 "use client";
 import StepLine from "@/components/common/StepLine";
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import PlanTypeStep from "@/components/steps/Step1";
 import { Container } from "@/components/common/Container";
 import AboutYouStep from "@/components/steps/Step2";
