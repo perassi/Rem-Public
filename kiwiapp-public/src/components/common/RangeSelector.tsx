@@ -11,16 +11,16 @@ const RangeSelector = () => {
   };
 
   return (
-    <div className='flex flex-col items-start gap-4 w-full'>
-      <div className='flex justify-between w-full items-center'>
-        <div className='flex '>
+    <div className='flex flex-col items-start gap-y-[20px] sm:gap-y-[30px] w-full'>
+      <div className='flex flex-col sm:flex-row justify-between w-full gap-y-[20px] sm:gap-y-[30px]'>
+        <div className='flex'>
           {options.map((option, index) => (
             <div key={index}>
               <button
                 key={index}
-                className={`w-[60px] ${
+                className={`w-[40px] ${
                   index !== 0 && "ml-5"
-                } h-[60px] rounded-full flex items-center justify-center text-sm font-medium transition-all ${
+                } h-[40px] sm:w-[60px] sm:h-[60px] rounded-full flex items-center justify-center text-sm font-medium transition-all ${
                   selected === option
                     ? "bg-[#872B58] text-white"
                     : "bg-[#DCE1E0] text-gray-700"
@@ -31,7 +31,7 @@ const RangeSelector = () => {
             </div>
           ))}
         </div>
-        <span className='text-black text-[20px] font-[600]'>{selected} Times</span>
+        <span className='text-black text-[16px] sm:text-[20px] leading-[20px] font-[600]'>{selected} Times</span>
       </div>
 
       <div className='relative mt-2 w-full h-[10px] bg-[#DCE1E0] rounded-full'>

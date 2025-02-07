@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import CloseIcon from "public/assets/icons/close-icon.svg";
+import LargeCloseIcon from "public/assets/icons/large-close-icon.svg";
 import OtherImage1 from "public/assets/images/step5/direction1.png";
 import OtherImage2 from "public/assets/images/step5/direction2.png";
 import OtherImage3 from "public/assets/images/step5/direction3.png";
@@ -17,7 +19,6 @@ const options = [
   { id: 4, label: "Pet Care", image: OtherImage4 },
 ];
 
-
 interface ModalProps extends IStep {
   onClose: () => void;
 }
@@ -34,82 +35,74 @@ const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className='fixed pt-16 inset-0 flex items-center justify-center bg-black/50 !z-1000'>
-      <div className='bg-white w-[1220px] min-h-[700px] rounded-xl p-8 relative shadow-lg !z-1000'>
+    <div
+      id="Modal"
+      className="w-full py-[20px] px-[20px] inset-0 flex items-center justify-center"
+    >
+      <div className="overflow-auto w-full max-w-[1220px] max-h-[90vh] sm:max-h-[calc(100vh-40px)] bg-white rounded-[20px] py-[20px] sm:py-[60px] relative shadow-lg">
         <button
-          className='absolute w-[60px] h-[60px] top-12 bg-[#DCE1E0] rounded-full right-10'
-          onClick={onClose}>
-          <svg
-            width='60'
-            height='60'
-            viewBox='0 0 60 60'
-            fill='none'
-            xmlns='http://www.w3.org/2000/svg'>
-            <circle cx='30' cy='30' r='30' fill='#DCE1E0' />
-            <path
-              d='M20 40L40 20'
-              stroke='#172A25'
-              strokeWidth='2'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-            />
-            <path
-              d='M40 40L20 20'
-              stroke='#172A25'
-              strokeWidth='2'
-              strokeLinecap='round'
-              strokeLinejoin='round'
-            />
-          </svg>
+          className="absolute w-[40px] h-[40px] sm:h-[60px] sm:w-[60px] top-[20px] sm:top-[55px] bg-[#DCE1E0] rounded-full right-[20px] sm:right-[40px]"
+          onClick={onClose}
+        >
+          <div className="sm:hidden">
+            <Image src={CloseIcon} alt="close" />
+          </div>
+          <div className="hidden sm:block">
+            <Image src={LargeCloseIcon} alt="close-icon" />
+          </div>
         </button>
 
-        <div className=' mt-5 w-full h-[100px] border-b'>
-          <H2 className='text-[50px] text-center mb-8'>Other Benefits</H2>
+        <div className="mt-[60px] sm:mt-[0px] w-full border-b">
+          <H2 className="text-[30px] sm:text-[50px] text-center mb-[60px]">
+            Other Benefits
+          </H2>
         </div>
 
-
-        <div className='flex mt-20 flex-wrap justify-center gap-6'>
+        <div className="px-[20px] flex mt-[45px] sm:mt-[75px] flex-wrap justify-center gap-y-[20px] gap-x-[10px] sm:gap-x-[20px]">
           {options.map((item, index) => (
             <div
               key={index}
-              className={`flex flex-col w-[270px] relative    cursor-pointer`}
-              onClick={() => handleSelectOption(index)}>
+              className={`flex flex-col relative    cursor-pointer`}
+              onClick={() => handleSelectOption(index)}
+            >
               <div
-                className={`relative w-full h-[220px] flex flex-col rounded-[15px] items-center border-2 ${
+                className={`relative w-[170px] h-[170px] sm:h-[220px] sm:w-[270px] flex flex-col rounded-[15px] items-center border-2 ${
                   selectedOption === index
                     ? "border-rem-green-400"
                     : "border-gray-200"
-                }`}>
+                }`}
+              >
                 <Image src={item.image} alt={item.label} />
               </div>
-              <div className='p-4 bg-white  flex items-center justify-center'>
-                <span className=' text-[20px] mt-5 leading-[1.25] font-400  text-center'>
+              <div className="px-[0px] sm:px-[20px] bg-white mt-[20px] sm:mt-[30px]  flex items-center justify-center">
+                <span className="text-[16px] sm:text-[20px] leading-[1.25] font-medium  text-center">
                   {item.label}
                 </span>
                 {selectedOption === index ? (
-                  <div className='w-[30px] h-[30px] absolute -top-3 left-32 bg-rem-green-400 rounded-full flex items-center justify-center'>
+                  <div className="w-[30px] h-[30px] absolute -top-3 left-[calc(50%-7.5px)] bg-rem-green-400 rounded-full flex items-center justify-center">
                     <svg
-                      className='w-4 h-4 text-black'
-                      fill='none'
-                      stroke='currentColor'
-                      viewBox='0 0 24 24'
-                      xmlns='http://www.w3.org/2000/svg'>
+                      width="16"
+                      height="12"
+                      viewBox="0 0 16 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
                       <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth='2'
-                        d='M5 13l4 4L19 7'></path>
+                        d="M5.72686 12C5.4067 12 5.10255 11.8661 4.87844 11.6317L0.348174 6.89362C-0.116058 6.40809 -0.116058 5.60446 0.348174 5.11894C0.812406 4.63341 1.58079 4.63341 2.04502 5.11894L5.72686 8.96966L13.955 0.364144C14.4192 -0.121381 15.1876 -0.121381 15.6518 0.364144C16.1161 0.849669 16.1161 1.6533 15.6518 2.13882L6.57529 11.6317C6.35118 11.8661 6.04702 12 5.72686 12Z"
+                        fill="#172A25"
+                      />
                     </svg>
                   </div>
                 ) : (
-                  <div className='w-[30px] h-[30px] absolute -top-3 left-32 bg-rem-green-400 rounded-full flex items-center justify-center'>
+                  <div className="w-[30px] h-[30px] absolute -top-3 left-[calc(50%-7.5px)] bg-rem-green-400 rounded-full flex items-center justify-center">
                     <svg
-                      width='30'
-                      height='30'
-                      viewBox='0 0 30 30'
-                      fill='none'
-                      xmlns='http://www.w3.org/2000/svg'>
-                      <circle cx='15' cy='15' r='15' fill='#DCE1E0' />
+                      width="30"
+                      height="30"
+                      viewBox="0 0 30 30"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="15" cy="15" r="15" fill="#DCE1E0" />
                     </svg>
                   </div>
                 )}
@@ -118,11 +111,12 @@ const Modal: React.FC<ModalProps> = ({
           ))}
         </div>
 
-        <div className='mt-12 w-full flex items-center justify-center'>
+        <div className="px-[20px] mt-[60px] w-full flex items-center justify-center">
           <Button
-            type='fill'
-            className='rounded-full w-[310px] text-[16px] leading-[1.25]'
-            onClick={() => handleNextStep({ activeStep, setActiveStep })}>
+            type="fill"
+            className="rounded-full w-full sm:w-[310px] text-[16px] leading-[1.25]"
+            onClick={() => handleNextStep({ activeStep, setActiveStep })}
+          >
             Save & Continue
           </Button>
         </div>

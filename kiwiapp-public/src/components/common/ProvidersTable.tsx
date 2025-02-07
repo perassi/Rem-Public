@@ -99,11 +99,11 @@ export default function ProvidersTable() {
       <table className='w-full'>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id} className='grid grid-cols-3 gap-44'>
+            <tr key={headerGroup.id} className='grid grid-cols-[1.2fr_2.5fr_40px] xl:grid-cols-3 md:gap-40'>
               {headerGroup.headers.map((header) => (
-                <th key={header.id} className=''>
+                <th key={header.id}>
                   <div
-                    className={`text-left text-[20px]    font-[600] font-sans`}>
+                    className={`text-left text-[14px] md:text-[20px] font-[600] font-sans`}>
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -118,13 +118,13 @@ export default function ProvidersTable() {
         </thead>
         <tbody >
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className='border-b h-[60px]  grid grid-cols-3 mt-4 gap-44'>
+            <tr key={row.id} className='border-b h-[60px] mt-[20px] grid grid-cols-[1.2fr_2.5fr_40px] xl:grid-cols-3 md:gap-40 md:mt-4'>
               {row.getVisibleCells().map((cell, index) => (
                 <td
                   key={cell.id}
-                  className={`text-[20px]  ${
-                    index === 2 ? "flex justify-end" : "text-left"
-                  } font-[500] font-sans pt-3 
+                  className={`text-[14px] flex md:block md:text-[20px] pb-[20px] md:pb-[0px] items-center ${
+                    index === 2 ? "flex md:flex justify-end" : "text-left"
+                  } font-[500] font-sans
                 `}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
