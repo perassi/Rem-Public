@@ -103,7 +103,7 @@ export default function ProvidersTable() {
               {headerGroup.headers.map((header) => (
                 <th key={header.id}>
                   <div
-                    className={`text-left text-[14px] md:text-[20px] font-[600] font-sans`}>
+                    className={`text-left text-[14px] md:text-[20px] font-semibold font-sans`}>
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -118,13 +118,13 @@ export default function ProvidersTable() {
         </thead>
         <tbody >
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className='border-b h-[60px] mt-[20px] grid grid-cols-[1.2fr_2.5fr_40px] xl:grid-cols-3 md:gap-40 md:mt-4'>
+            <tr key={row.id} className='border-b h-15 mt-5 grid grid-cols-[1.2fr_2.5fr_40px] xl:grid-cols-3 md:gap-40 md:mt-4'>
               {row.getVisibleCells().map((cell, index) => (
                 <td
                   key={cell.id}
-                  className={`text-[14px] flex md:block md:text-[20px] pb-[20px] md:pb-[0px] items-center ${
+                  className={`text-[14px] flex md:block md:text-[20px] pb-5 md:pb-0 items-center ${
                     index === 2 ? "flex md:flex justify-end" : "text-left"
-                  } font-[500] font-sans
+                  } font-medium font-sans
                 `}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>

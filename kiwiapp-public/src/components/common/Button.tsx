@@ -19,7 +19,7 @@ export const Button = ({
   onClick,
 }: ButtonPropsInterface) => {
   const baseStyles =
-    "flex items-center justify-center w-fit text-xl leading-[1.25] font-medium rounded-[40px] px-10 py-5 cursor-pointer transition-colors";
+    "flex items-center justify-center w-fit text-xl leading-tight font-medium rounded-xl px-10 py-5 cursor-pointer transition-colors";
 
   const typeStyles = {
     outline:

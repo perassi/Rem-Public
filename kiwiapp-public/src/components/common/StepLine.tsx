@@ -77,8 +77,8 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
   };
 
   return (
-    <div ref={wrapperRef} className="mt-[30px] px-[20px] sm:mt-[60px]">
-      <div className=" relative flex flex-col items-center w-full !-z-10 ">
+    <div ref={wrapperRef} className="mt-7 px-5 md:mt-15">
+      <div className="relative flex flex-col items-center w-full !-z-10 ">
         <div className="relative w-full flex  items-center rounded-full">
           <div
             className={`z-10 absolute top-1/2 transform translate-y-1/2 left-0 bg-rem-green-400 h-[1px] rounded-full `}
@@ -87,7 +87,7 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
           <div
             className={`w-full absolute top-1/2 transform translate-y-1/2 left-0 bg-gray-200 h-[1px] rounded-full `}
           />
-          <div className="w-full flex gap-x-[16px] justify-center sm:justify-around">
+          <div className="w-full flex gap-x-4 justify-center md:justify-around">
             {steps.map((step) => (
               <div
                 key={step.id}
@@ -95,13 +95,13 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
                 ref={handleGetStepRef(step)}
               >
                 <button
-                  className={`w-[40px] h-[40px] sm:w-[40px] sm:h-[40px] rounded-full flex items-center justify-center ${
+                  className={`w-[40px] h-[40px] rounded-full flex items-center justify-center ${
                     step.id <= stepObject.id
                       ? "bg-rem-green-400"
                       : "bg-gray-300"
                   } text-black z-10`}
                 >
-                  <div className="hidden sm:block">
+                  <div className="hidden md:block">
                     {step.id < stepObject.id ? (
                       <svg
                         width="16"
@@ -116,19 +116,19 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
                         />
                       </svg>
                     ) : (
-                      <span className="text-[20px] font-sans font-[500]">
+                      <span className="text-[20px] font-sans font-medium">
                         {step.id}
                       </span>
                     )}
                   </div>
-                  <div className="sm:hidden flex justify-center items-center">
+                  <div className="md:hidden flex justify-center items-center">
                     <Image src={step.icon} alt={step.label} />
                   </div>
                 </button>
                 <div
                   className={`${
                     step.id !== activeStep && "hidden"
-                  } sm:block absolute bottom-[-40px] w-max text-[12px] py-[5px] px-[15px] rounded-[20px] border border-[#DCE1E0] font-sans font-[500] sm:border-none sm:text-[14px] md:text-[20px]  sm:rounded-none sm:py-[0px] sm:px-[0px]`}
+                  } md:block absolute bottom-[-40px] w-max text-[12px] py-[5px] px-[15px] rounded-[20px] border border-[#DCE1E0] font-sans font-medium md:border-none md:text-[20px]  md:rounded-none md:py-0 md:px-0`}
                 >
                   {step.label}
                 </div>

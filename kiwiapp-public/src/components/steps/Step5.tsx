@@ -82,20 +82,20 @@ const ExtrasStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
   );
 
   return (
-    <div className="mt-[29px] sm:mt-[74px] px-[20px] sm:px-[0px]">
+    <div className="mt-7 md:mt-18 px-5 md:px-0">
       <div className="w-full flex flex-col items-center justify-center relative">
         {isOpenModal && (
-          <div className="flex justify-center items-center w-[100vw] h-[100vh] top-[0px] left-[0px] fixed z-1000 bg-[rgba(23,42,37,0.7)]">
+          <div className="flex justify-center items-center w-screen h-screen top-0 left-0 fixed z-1000 bg-[rgba(23,42,37,0.7)]">
             <Modal onClose={off} onSave={onNextStep} />
           </div>
         )}
         <div className="flex flex-col  justify-center items-center w-full">
-          <H2 className="sm:max-w-[600px] text-[30px] !leading-[36px] sm:!leading-[60px] sm:text-[50px] font-[400] text-center">
+          <H2 className="md:max-w-[600px] text-[30px] leading-normal md:!leading-tight md:text-[50px] font-normal text-center">
             Select The Benefits That Matter Most To You
           </H2>
         </div>
         <div
-          className={`w-[full] flex flex-wrap justify-center gap-y-[35px] gap-x-[10px] sm:gap-y-10 sm:gap-x-4 mt-[45px] sm:mt-[75px] ${
+          className={`w-full flex flex-wrap justify-center gap-y-9 gap-x-2 md:gap-y-10 md:gap-x-4 mt-11 md:mt-19 ${
             isOpenModal && "!-z-10"
           } `}
         >

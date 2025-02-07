@@ -17,22 +17,22 @@ const PlanTypeStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
   }, []);
 
   return (
-    <div className="mt-[10px]">
+    <div className="mt-2">
       <Container>
         <div className="flex flex-col items-center justify-center">
-          <Image src={StepImage1} alt="StepImage1" className="py-[45px]" />
-          <div className="px-[20px] mt-11 flex flex-col justify-center items-center w-full">
-            <H2 className="text-[30px] sm:text-[50px] font-[400]">
+          <Image src={StepImage1} alt="StepImage1" className="py-11" />
+          <div className="px-5 mt-11 flex flex-col justify-center items-center w-full">
+            <H2 className="text-[30px] md:text-[50px] font-normal">
               What’s Your ZIP Code?
             </H2>
-            <span className="capitalize mt-[10px] sm:mt-[20px] text-center text-[16px] font-[500] leading-[1.25]">
+            <span className="capitalize mt-2 md:mt-5 text-center text-[16px] font-medium leading-tight">
               We need to know this in order to check which plans are available
               in your area.
             </span>
           </div>
-          <div className="px-[20px] mt-[30px] sm:mt-[40px] w-full flex flex-col">
+          <div className="px-5 mt-[30px] md:mt-10 w-full flex flex-col">
             <input
-              className="placeholder-evergreen-800 w-full border-[1px] border-[#172A25] h-[60px] sm:w-full md=[640px] px-5 bg-white rounded-[5px]"
+              className="placeholder-evergreen-800 w-full border-[1px] border-[#172A25] h-15 md:w-full md=[640px] px-5 bg-white rounded-md"
               placeholder="Enter Zip Code"
               maxLength={5}
               inputMode="numeric"
@@ -41,7 +41,7 @@ const PlanTypeStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
               required
             />
             <ActionButtons
-              className="mt-[30px] sm:mt-[40px]"
+              className="mt-7 md:mt-10"
               onClickPrimaryButton={onNextStep}
               onClickSecondaryButton={onPrevStep}
             />

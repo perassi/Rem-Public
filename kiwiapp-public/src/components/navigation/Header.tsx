@@ -9,7 +9,7 @@ import { routes } from "@/utils/routes";
 import { Button } from "../common/Button";
 export const Header = () => {
   return (
-    <nav className="relative w-full pb-[30px] pt-[60px] border-b border-[#DCE1E0] sm:border-none sm:pt-[28px]">
+    <nav className="relative w-full pb-[30px] pt-[60px] border-b border-[#DCE1E0] md:border-none md:pt-[28px]">
       <Container>
         <div className="flex bg-white justify-between  rounded-full  items-center px-[20px]">
           <div>
@@ -17,7 +17,7 @@ export const Header = () => {
               <Image
                 src={RemLogo}
                 alt="RemLogo"
-                className="h-[30px] w-auto sm:w-[150px] sm:h-[50px] cursor-pointer"
+                className="h-[30px] w-auto md:w-[150px] md:h-[50px] cursor-pointer"
               />
             </Link>
           </div>
@@ -26,10 +26,10 @@ export const Header = () => {
             <div className="gap-8 hidden lg:flex pl-4 text-[20px] font-[500]"></div>
           </div>
 
-          <div className="gap-x-[10px] flex items-center justify-center sm:gap-x-[20px]">
+          <div className="gap-x-[10px] flex items-center justify-center md:gap-x-[20px]">
             <Button
               type="outline"
-              className="h-[40px] py-[10px] sm:h-[60px] px-[20px] sm:py-[20px] sm:px-[30px] border border-solid border-[#DCE1E0] align-middle rounded-[40px]"
+              className="h-[40px] py-[10px] md:h-[60px] px-[20px] md:py-[20px] md:px-[30px] border border-solid border-[#DCE1E0] align-middle rounded-[40px]"
             >
               <Image src={PhoneIcon} alt="PhoneIcon" className="mr-[7px]" />
               <span className="text-[16px] font-sans leading-[1.25]">
@@ -38,7 +38,7 @@ export const Header = () => {
             </Button>
             <Button
               type="fill"
-              className="py-[10px] px-[20px] sm:px-[30px] sm:py-[20px] h-[40px] sm:h-[60px] align-middle rounded-[40px] sm:rounded-xl md:rounded-full max-[400px]:text-sm text-base"
+              className="py-[10px] px-[20px] md:px-[30px] md:py-[20px] h-[40px] md:h-[60px] align-middle rounded-full max-[400px]:text-sm text-base"
             >
               Sign In
             </Button>

@@ -19,20 +19,20 @@ const ActionButtons: FC<ActionButtonsProps> = ({
   onClickPrimaryButton,
   onClickSecondaryButton,
 }) => {
-  const baseStyles = `mt-[60px] flex w-full max-w-[640px] justify-center items-center gap-x-2  md:gap-x-5`;
+  const baseStyles = `mt-15 flex w-full max-w-[640px] justify-center items-center gap-x-2  md:gap-x-5`;
 
   return (
     <div className={cn(baseStyles, className)}>
       <Button
         type="outline"
-        className="h-[60px] rounded-full w-full text-[16px] leading-[1.25]"
+        className="h-15 rounded-full w-full text-[16px] leading-tight"
         onClick={onClickSecondaryButton}
       >
         {secondaryButtonText}
       </Button>
       <Button
         type="fill"
-        className="px-[20px] rounded-full w-full text-[16px] leading-[1.25]"
+        className="px-5 rounded-full w-full text-[16px] leading-tight"
         onClick={onClickPrimaryButton}
       >
         {primaryButtonText}

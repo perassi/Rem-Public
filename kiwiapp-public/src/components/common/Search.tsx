@@ -20,7 +20,7 @@ const SearchComponent = () => {
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
-        className="w-full mt-[20px] h-[60px]  border border-black rounded-[5px] px-4 text-[16px] leading-[1.25] font-sans font-[500]"
+        className="w-full mt-[20px] h-[60px]  border border-black rounded-[5px] px-4 text-[16px] leading-tight font-sans font-[500]"
         placeholder="Search..."
       />
       <div className=" w-full mt-5 border border-[#DCE1E0] rounded-[5px] p-2 bg-white z-10">
@@ -35,7 +35,7 @@ const SearchComponent = () => {
                 selectedOption === option ? "bg-[#18F1A1]" : "bg-[#DCE1E0]"
               }`}
             />
-            <span className="text-[16px] leading-[1.25] font-sans font-[500]">
+            <span className="text-[16px] leading-tight font-sans font-[500]">
               {option}
             </span>
           </div>

@@ -23,7 +23,7 @@ const Card: FC<CardPropsProps> = ({
   const baseContainerStyles =
     "flex flex-col max-w-[190px] md:min-w-[310px] relative cursor-pointer";
 
-  const baseWrapperStyles = `relative w-full h-[190px] sm:h-[220px] flex flex-col rounded-[15px] items-center border-2 ${
+  const baseWrapperStyles = `relative w-full h-[190px] md:h-[220px] flex flex-col rounded-2xl items-center border-2 ${
     isActive ? "border-rem-green-400" : "border-gray-200"
   }`;
 
@@ -35,12 +35,12 @@ const Card: FC<CardPropsProps> = ({
       <div className={cn(baseWrapperStyles, classNameWrapper)}>
         <Image src={image} alt={label} />
       </div>
-      <div className="px-[0px] sm:px-[20px] bg-white mt-[20px] sm:mt-[30px]  flex items-center justify-center">
-        <span className="text-[16px] sm:text-[20px] leading-[1.25] font-medium  text-center">
+      <div className="px-0 md:px-5 bg-white mt-5 md:mt-7 flex items-center justify-center">
+        <span className="text-[16px] md:text-[20px] leading-tight font-medium  text-center">
           {label}
         </span>
         {isActive ? (
-          <div className="w-[30px] h-[30px] absolute -top-3 left-[calc(50%-7.5px)] bg-rem-green-400 rounded-full flex items-center justify-center">
+          <div className="w-7 h-7 absolute -top-3 left-[calc(50%-7px)] bg-rem-green-400 rounded-full flex items-center justify-center">
             <svg
               width="16"
               height="12"
@@ -55,7 +55,7 @@ const Card: FC<CardPropsProps> = ({
             </svg>
           </div>
         ) : (
-          <div className="w-[30px] h-[30px] absolute -top-3 left-[calc(50%-7.5px)] bg-rem-green-400 rounded-full flex items-center justify-center">
+          <div className="w-7 h-7 absolute -top-3 left-[calc(50%-7px)] bg-rem-green-400 rounded-full flex items-center justify-center">
             <svg
               width="30"
               height="30"

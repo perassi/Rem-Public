@@ -37,28 +37,28 @@ const Modal: React.FC<ModalProps> = ({ onSave, onClose }) => {
   return (
     <div
       id="Modal"
-      className="w-full py-[20px] px-[20px] inset-0 flex items-center justify-center"
+      className="w-full py-5 px-5 inset-0 flex items-center justify-center"
     >
-      <div className="overflow-auto w-full max-w-[1220px] max-h-[90vh] sm:max-h-[calc(100vh-40px)] bg-white rounded-[20px] py-[20px] sm:py-[60px] relative shadow-lg">
+      <div className="overflow-auto w-full max-w-[1220px] max-h-[90vh] md:max-h-[calc(100vh-40px)] bg-white rounded-2xl py-5 md:py-15 relative shadow-lg">
         <button
-          className="absolute w-[40px] h-[40px] sm:h-[60px] sm:w-[60px] top-[20px] sm:top-[55px] bg-[#DCE1E0] rounded-full right-[20px] sm:right-[40px]"
+          className="absolute w-10 h-10 md:h-15 md:w-15 top-5 md:top-13 bg-[#DCE1E0] rounded-full right-5 md:right-10"
           onClick={onClose}
         >
-          <div className="sm:hidden">
+          <div className="md:hidden">
             <Image src={CloseIcon} alt="close" />
           </div>
-          <div className="hidden sm:block">
+          <div className="hidden md:block">
             <Image src={LargeCloseIcon} alt="close-icon" />
           </div>
         </button>
 
-        <div className="mt-[60px] sm:mt-[0px] w-full border-b">
-          <H2 className="text-[30px] sm:text-[50px] text-center mb-[60px]">
+        <div className="mt-15 md:mt-0 w-full border-b">
+          <H2 className="text-[30px] md:text-[50px] text-center mb-15">
             Other Benefits
           </H2>
         </div>
 
-        <div className="px-[20px] flex mt-[45px] sm:mt-[75px] flex-wrap justify-center gap-y-[20px] gap-x-[10px] sm:gap-x-[20px]">
+        <div className="px-5 flex mt-11 md:mt-19 flex-wrap justify-center gap-y-5 gap-x-2 md:gap-x-5">
           {options.map((item, index) => (
             <Fragment key={item.id}>
               <Card
@@ -72,10 +72,10 @@ const Modal: React.FC<ModalProps> = ({ onSave, onClose }) => {
             </Fragment>
           ))}
         </div>
-        <div className="px-[20px] mt-[60px] w-full flex items-center justify-center">
+        <div className="px-5 mt-15 w-full flex items-center justify-center">
           <Button
             type="fill"
-            className="rounded-full w-full sm:w-[310px] text-[16px] leading-[1.25]"
+            className="rounded-full w-full md:w-[310px] text-[16px] leading-tight"
             onClick={onSave}
           >
             Save & Continue

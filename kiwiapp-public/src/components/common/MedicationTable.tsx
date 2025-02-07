@@ -120,7 +120,7 @@ export default function MedicationTable() {
           {table.getHeaderGroups().map((headerGroup) => (
             <tr
               key={headerGroup.id}
-              className="grid grid-cols-[2.1fr_1fr_1.3fr_1.4fr_40px] sm:grid-cols-[1.6fr_1fr_2.3fr_0.9fr_60px]"
+              className="grid grid-cols-[2.1fr_1fr_1.3fr_1.4fr_40px] md:grid-cols-[1.6fr_1fr_2.3fr_0.9fr_60px]"
             >
               {headerGroup.headers.map((header) => (
                 <th key={header.id}>
@@ -129,7 +129,7 @@ export default function MedicationTable() {
                       header.column.getIndex() === 0
                         ? "text-left"
                         : "text-center"
-                    } text-[14px] sm:text-[20px] font-[600] font-sans`}
+                    } text-[14px] md:text-[20px] font-semibold font-sans`}
                   >
                     {header.isPlaceholder
                       ? null
@@ -147,13 +147,13 @@ export default function MedicationTable() {
           {table.getRowModel().rows.map((row) => (
             <tr
               key={row.id}
-              className=" border-b mt-2 h-[70px] grid grid-cols-[2.1fr_1fr_1.3fr_1.4fr_40px] sm:grid-cols-[1.6fr_1fr_2.3fr_0.9fr_60px] items-center "
+              className=" border-b mt-2 h-[70px] grid grid-cols-[2.1fr_1fr_1.3fr_1.4fr_40px] md:grid-cols-[1.6fr_1fr_2.3fr_0.9fr_60px] items-center"
             >
               {row.getVisibleCells().map((cell, index) => (
                 <td
                   key={cell.id}
                   className={` ${index === 0 ? "text-left" : "text-center "} 
-                  text-[14px] sm:text-[20px] font-[500] font-sans  
+                  text-[14px] md:text-[20px] font-medium font-sans  
                     ${index === 4 ? " flex justify-center  " : ""} `}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}

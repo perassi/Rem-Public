@@ -10,7 +10,7 @@
 
 //   return (
 //     <footer
-//       className="bg-evergreen-800 max-sm:bg-gradient-to-b from-[rgba(14,232,152,0.3)] via-evergreen-800 to-evergreen-800 sm:bg-footer-bg
+//       className="bg-evergreen-800 max-md:bg-gradient-to-b from-[rgba(14,232,152,0.3)] via-evergreen-800 to-evergreen-800 md:bg-footer-bg
 //         bg-cover"
 //     >
 //       <Container>
@@ -23,7 +23,7 @@
 //               <Image
 //                 src={RemLogoWhite}
 //                 alt="RemLogoWhite"
-//                 className="w-auto h-[30px] sm:h-[50px] cursor-pointer hover:opacity-70 transition-opacity"
+//                 className="w-auto h-[30px] md:h-[50px] cursor-pointer hover:opacity-70 transition-opacity"
 //               />
 //             </Link>
 //             <div className="lg:flex gap-x-8 h-full hidden items-center">

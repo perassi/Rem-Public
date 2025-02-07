@@ -49,14 +49,14 @@ const AboutYouStep: FC<IStep> = ({ onPrevStep, onNextStep }) => {
   );
 
   return (
-    <div className="mt-[40px] px-[20px] sm:mt-[70px]">
+    <div className="mt-10 px-5 md:mt-18">
       <div className="flex flex-col items-center justify-center ">
         <div className="flex flex-col  justify-center items-center w-full">
-          <H2 className="max-w-[350px] sm:max-w-[860px] text-[30px] sm:text-[50px] font-[400] !leading-[36px] sm:!leading-[60px] text-center">
+          <H2 className="max-w-[350px] md:max-w-[860px] text-[30px] md:text-[50px] font-normal !leading-normal md:!leading-tight text-center">
             Do You Know The Type Of Plan You Want To Sign Up For?
           </H2>
         </div>
-        <div className="flex flex-wrap xl:flex-nowrap w-full justify-center gap-x-[10px] sm:gap-x-[20px] gap-y-[35px] mt-[47px] sm:mt-[75px]">
+        <div className="flex flex-wrap xl:flex-nowrap w-full justify-center gap-x-2 md:gap-x-5 gap-y-9 mt-11 md:mt-19">
           {optionsArr.map((item, index) => (
             <Fragment key={item.id}>
               <Card

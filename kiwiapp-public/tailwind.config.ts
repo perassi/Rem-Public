@@ -16,6 +16,17 @@ const config: Config = {
         // "green-dots-bottom-mobile":
         //   "url('../../public/assets/images/green-dots-bottom-mobile.png')",
       },
+      spacing: {
+        11: "44px",
+        12: "48px",
+        13: "52px",
+        15: "60px",
+        16: "64px",
+        18: "72px",
+        19: '76px',
+        24: '96px',
+        48: "190px",
+      },
       screens: {
         xs: "430px",
         sm: "640px",

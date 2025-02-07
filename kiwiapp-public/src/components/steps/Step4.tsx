@@ -11,39 +11,39 @@ import type { IStep } from "@/types/stepType";
 
 const MyDoctorsStep: FC<IStep> = ({ onPrevStep, onNextStep }) => {
   return (
-    <div className="mt-[30px] sm:mt-[50px] w-full px-[20px] flex flex-col items-center justify-center">
+    <div className="mt-7 md:mt-12 w-full px-5 flex flex-col items-center justify-center">
         <div className="flex flex-col w-full items-center">
           <Image src={StepImage4} alt="StepImage4" />
-          <div className="mt-[66px] flex flex-col  justify-center items-center w-full">
-            <H2 className="text-[30px] sm:text-[50px] font-[400]">
+          <div className="mt-16 flex flex-col  justify-center items-center w-full">
+            <H2 className="text-[30px] md:text-[50px] font-normal">
               {" "}
               Add Your Providers
             </H2>
-            <span className="mt-[10px] sm:mt-[20px] text-[16px] sm:text-[25px] font-[400] ">
+            <span className="mt-[10px] md:mt-5 text-[16px] md:text-[25px] font-[400] ">
               This Helps Us Find a Plan to Minimize Your Costs
             </span>
           </div>
         </div>
-        <div className="w-full mt-[60px] flex flex-col items-start  gap-y-[30px] overflow-hidden ">
-          <span className="text-[20px] sm:text-[30px] font-sans font-[600]">
+        <div className="w-full mt-15 flex flex-col items-start  gap-y-7 overflow-hidden">
+          <span className="text-5 md:text-[30px] font-sans font-semibold">
             Providers
           </span>
           <ProvidersTable />
         </div>
-        <div className="w-full flex-col flex justify-center mt-[60px] gap-5">
+        <div className="w-full flex-col flex justify-center mt-15 gap-5">
           <div className=" flex flex-col w-full">
-            <span className="  text-[16px] font-sans font-[600]">Zip Code</span>
+            <span className="  text-[16px] font-sans font-semibold">Zip Code</span>
             <input
-              className="mt-5 px-8 h-[60px] border border-black rounded-[5px]"
+              className="mt-5 px-8 h-15 border border-black rounded-md"
               placeholder="Some..."
             />
           </div>
           <div className=" flex flex-col w-full">
-            <span className=" text-[16px] font-sans font-[600]">
+            <span className=" text-[16px] font-sans font-semibold">
               Last Name of Provider
             </span>
             <input
-              className=" mt-5 px-8 h-[60px] border border-black rounded-[5px]"
+              className=" mt-5 px-8 h-[60px] border border-black rounded-md"
               placeholder="Some.."
             />
           </div>
