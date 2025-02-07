@@ -1,5 +1,7 @@
+// utils
 import { cn } from "@/utils/commonUtils";
-import { ReactNode } from "react";
+// types
+import type { ReactNode } from "react";
 
 type ButtonType = "outline" | "fill" | "fill-invert";
 

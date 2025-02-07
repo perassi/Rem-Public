@@ -1,13 +1,21 @@
-import React from "react";
-import { Container } from "../common/Container";
-import StepImage1 from "public/assets/images/step1Image.png";
+import { useCallback, type FC, type FormEvent } from "react";
+// components
 import Image from "next/image";
-import { H2 } from "../common/Headers";
-import { Button } from "../common/Button";
-import { IStep } from "@/types/stepType";
-import { handleNextStep, handlePrevStep } from "@/utils/stepUtils";
+import ActionButtons from "@/components/common/ActionButtons";
+import { H2 } from "@/components/common/Headers";
+import { Container } from "@/components/common/Container";
+// assets
+import StepImage1 from "public/assets/images/step1Image.png";
+// types
+import type { IStep } from "@/types/stepType";
 
-const PlanTypeStep = ({ setActiveStep, activeStep }: IStep) => {
+const PlanTypeStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
+  const handleChange = useCallback((e: FormEvent<HTMLInputElement>) => {
+    e.currentTarget.value = e.currentTarget.value
+      .replace(/\D/g, "")
+      .slice(0, 5);
+  }, []);
+
   return (
     <div className="mt-[10px]">
       <Container>
@@ -28,30 +36,15 @@ const PlanTypeStep = ({ setActiveStep, activeStep }: IStep) => {
               placeholder="Enter Zip Code"
               maxLength={5}
               inputMode="numeric"
-              onInput={(e) => {
-                e.currentTarget.value = e.currentTarget.value
-                  .replace(/\D/g, "")
-                  .slice(0, 5);
-              }}
+              onInput={handleChange}
               title="Enter exactly 5 digits"
               required
             />
-            <div className="mt-[30px] sm:mt-[40px] flex justify-center items-center gap-5">
-              <Button
-                type="outline"
-                className="h-[60px] rounded-full w-full text-[16px] leading-[1.25]"
-                onClick={() => handlePrevStep({ activeStep, setActiveStep })}
-              >
-                Go Back
-              </Button>
-              <Button
-                type="fill"
-                className="px-[20px] rounded-full w-full text-[16px] leading-[1.25]"
-                onClick={() => handleNextStep({ activeStep, setActiveStep })}
-              >
-                Save & Continue
-              </Button>
-            </div>
+            <ActionButtons
+              className="mt-[30px] sm:mt-[40px]"
+              onClickPrimaryButton={onNextStep}
+              onClickSecondaryButton={onPrevStep}
+            />
           </div>
         </div>
       </Container>

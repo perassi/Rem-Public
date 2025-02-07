@@ -8,62 +8,50 @@ import MyDrugsStep from "@/components/steps/Step3";
 import MyDoctorsStep from "@/components/steps/Step4";
 import ExtrasStep from "@/components/steps/Step5";
 import UsageFrequencyStep from "@/components/steps/Step6";
+// hooks
+import { useSteps } from "@/hooks/use-steps";
 
 export default function StepPage() {
-  const [activeStep, setActiveStep] = useState<number>(1);
+  const { activeStep, onPrevStep, onNextStep } = useSteps(1, 6);
 
   const renderCurrentStepContent = useCallback(() => {
     if (activeStep)
       switch (activeStep) {
         case 1:
           return (
-            <PlanTypeStep
-              setActiveStep={setActiveStep}
-              activeStep={activeStep}
-            />
+            <PlanTypeStep onNextStep={onNextStep} onPrevStep={onPrevStep} />
           );
         case 2:
           return (
-            <AboutYouStep
-              setActiveStep={setActiveStep}
-              activeStep={activeStep}
-            />
+            <AboutYouStep onNextStep={onNextStep} onPrevStep={onPrevStep} />
           );
         case 3:
           return (
-            <MyDrugsStep
-              setActiveStep={setActiveStep}
-              activeStep={activeStep}
-            />
+            <MyDrugsStep onNextStep={onNextStep} onPrevStep={onPrevStep} />
           );
         case 4:
           return (
-            <MyDoctorsStep
-              setActiveStep={setActiveStep}
-              activeStep={activeStep}
-            />
+            <MyDoctorsStep onNextStep={onNextStep} onPrevStep={onPrevStep} />
           );
         case 5:
-          return (
-            <ExtrasStep setActiveStep={setActiveStep} activeStep={activeStep} />
-          );
+          return <ExtrasStep onNextStep={onNextStep} onPrevStep={onPrevStep} />;
         case 6:
           return (
             <UsageFrequencyStep
-              setActiveStep={setActiveStep}
-              activeStep={activeStep}
+              onNextStep={onNextStep}
+              onPrevStep={onPrevStep}
             />
           );
         default:
           break;
       }
-  }, [activeStep]);
+  }, [activeStep, onNextStep, onPrevStep]);
 
   return (
     <Container>
       <div>
         <div>
-          <StepLine activeStep={activeStep} setActiveStep={setActiveStep} />
+          <StepLine activeStep={activeStep} />
         </div>
         <div className="mt-[60px] mb-[60px] flex justify-center">
           {renderCurrentStepContent()}

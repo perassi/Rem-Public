@@ -1,4 +1,4 @@
 export interface IStep {
-  activeStep: number;
-  setActiveStep: React.Dispatch<React.SetStateAction<number>>;
+  onNextStep: () => void;
+  onPrevStep: () => void;
 }

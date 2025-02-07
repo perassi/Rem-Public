@@ -1,22 +1,23 @@
-import React from "react";
-import { Container } from "../common/Container";
-import { IStep } from "@/types/stepType";
-import MedicationTable from "../common/MedicationTable";
-import StepImage3 from "public/assets/images/step3.png";
+import React, { type FC } from "react";
+// components
 import Image from "next/image";
-import { H2 } from "../common/Headers";
-import SearchComponent from "../common/Search";
-import { Button } from "../common/Button";
-import { handleNextStep, handlePrevStep } from "@/utils/stepUtils";
+import ActionButtons from "@/components/common/ActionButtons";
+import MedicationTable from "@/components/common/MedicationTable";
+import SearchComponent from "@/components/common/Search";
+import { H2 } from "@/components/common/Headers";
+import { Button } from "@/components/common/Button";
+// assets
+import StepImage3 from "public/assets/images/step3.png";
+// types
+import type { IStep } from "@/types/stepType";
 
-const MyDrugsStep = ({ setActiveStep, activeStep }: IStep) => {
+const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
   return (
-    <div className="mt-[30px] sm:mt-[50px] w-full px-[20px]">
-      <Container className="flex flex-col items-center ">
+    <div className="mt-[30px] sm:mt-[50px] w-full px-[20px] flex flex-col items-center justify-center">
         <div className=" flex flex-col w-full items-center">
           <Image src={StepImage3} alt="StepImage3" className="mb-[64px]" />
           <div className="hidden mt-11 sm:flex flex-col sm: mb-[60px] justify-center items-center w-full">
-            <H2 className=" text-[50px] font-[400]"> Add Your Prescriptions</H2>
+            <H2 className="text-[50px] font-[400]"> Add Your Prescriptions</H2>
             <span className="mt-[20px] text-[25px] font-[500]">
               This Helps Us Find a Plan to Minimize Your Costs
             </span>
@@ -68,33 +69,16 @@ const MyDrugsStep = ({ setActiveStep, activeStep }: IStep) => {
                 className="bg-black w-full h-[60px] rounded-full flex justify-center items-center lg:w-[310px]"
               >
                 <span className="text-[16px] leading-[1.25] text-white">
-                  {" "}
                   Add Medication
                 </span>
               </Button>
             </div>
           </div>
         </div>
-
-        <div className="flex flex-col w-full sm:w-[640px] mt-[60px]">
-          <div className="flex justify-center items-center gap-x-[10px] sm:gap-x-[20px]">
-            <Button
-              type="outline"
-              className="rounded-full w-full text-[16px] leading-[1.25]"
-              onClick={() => handlePrevStep({ activeStep, setActiveStep })}
-            >
-              Go Back
-            </Button>
-            <Button
-              type="fill"
-              className="px-[20px] rounded-full w-full text-[16px] leading-[1.25]"
-              onClick={() => handleNextStep({ activeStep, setActiveStep })}
-            >
-              Save & Continue
-            </Button>
-          </div>
-        </div>
-      </Container>
+        <ActionButtons
+          onClickPrimaryButton={onNextStep}
+          onClickSecondaryButton={onPrevStep}
+        />
     </div>
   );
 };
