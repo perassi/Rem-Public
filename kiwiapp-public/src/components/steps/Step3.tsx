@@ -1,21 +1,52 @@
-import React, { type FC } from "react";
+import React, { useCallback, type FC } from "react";
 // components
 import Image from "next/image";
+import Button from "@/components/common/Button";
 import ActionButtons from "@/components/common/ActionButtons";
 import MedicationTable from "@/components/common/MedicationTable";
 import SearchComponent from "@/components/common/Search";
 import { H2 } from "@/components/common/Headers";
-import { Button } from "@/components/common/Button";
 // assets
 import StepImage3 from "public/assets/images/step3.png";
 // types
-import type { IStep } from "@/types/stepType";
+import type { IStep } from "@/types/steps.types";
+
+const SUPPLY_INPUTS = [
+  {
+    id: 1,
+    name: "14 day",
+  },
+  {
+    id: 2,
+    name: "30 days",
+  },
+  {
+    id: 3,
+    name: "90 days",
+  },
+];
 
 const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
+  const renderSupplyInputs = useCallback(
+    () => (
+      <div className="flex lg:max-w-[640px] gap-x-4  md:gap-x-5 mt-5">
+        {SUPPLY_INPUTS.map((item) => (
+          <input
+            key={item.id}
+            name={item.name}
+            className="w-full px-8 h-15 border border-black rounded-md"
+            placeholder=""
+          />
+        ))}
+      </div>
+    ),
+    []
+  );
+
   return (
     <div className="mt-7 md:mt-12 w-full px-5 flex flex-col items-center justify-center">
-      <div className=" flex flex-col w-full items-center">
-        <Image src={StepImage3} alt="StepImage3" className="mb-16" />
+      <div className="flex flex-col w-full items-center">
+        <Image src={StepImage3} alt="My Drugs" className="mb-16" />
         <div className="hidden mt-11 md:flex flex-col md: mb-15 justify-center items-center w-full">
           <H2 className="text-[50px] font-normal"> Add Your Prescriptions</H2>
           <span className="mt-5 text-[25px] font-medium">
@@ -40,26 +71,13 @@ const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
           <span className="md:pl-7 text-[16px] font-sans font-semibold">
             Supply
           </span>
-          <div className="flex lg:max-w-[640px] gap-x-4  md:gap-x-5 mt-5">
-            <input
-              className="w-full px-8 h-15 border border-black rounded-md"
-              placeholder=""
-            />
-            <input
-              className="w-full px-8 h-15 border border-black rounded-md"
-              placeholder=""
-            />
-            <input
-              className="w-full px-8 h-15 border border-black rounded-md"
-              placeholder=""
-            />
-          </div>
+          {renderSupplyInputs()}
         </div>
         <div className="flex flex-col">
           <span className="md:pl-7 text-[16px] font-sans font-semibold">
             Quantity
           </span>
-          <div className="flex-col md:flex-row mt-5 flex gap-y-[30px] md:gap-x-[20px]">
+          <div className="flex-col md:flex-row mt-5 flex gap-y-7 md:gap-x-5">
             <input
               className="w-full lg:w-[310px] p-2 h-15 border border-black rounded-md"
               placeholder=""
@@ -82,5 +100,4 @@ const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
     </div>
   );
 };
-
 export default MyDrugsStep;

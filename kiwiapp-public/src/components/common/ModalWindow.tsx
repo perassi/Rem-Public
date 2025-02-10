@@ -1,31 +1,28 @@
-import { useCallback, useState, Fragment } from "react";
+import { memo, useRef, useCallback, useState, Fragment, type FC } from "react";
+// hooks
+import { useOnClickOutside } from "@/hooks/use-outside-click";
 // components
 import Card from "@/components/common/Card";
 import Image from "next/image";
+import Button from "@/components/common/Button";
 import { H2 } from "@/components/common/Headers";
-import { Button } from "./Button";
+// constants
+import { MODAL_CARDS } from "@/constants/cards.constants";
 // assets
 import CloseIcon from "public/assets/icons/close-icon.svg";
 import LargeCloseIcon from "public/assets/icons/large-close-icon.svg";
-import OtherImage1 from "public/assets/images/step5/direction1.png";
-import OtherImage2 from "public/assets/images/step5/direction2.png";
-import OtherImage3 from "public/assets/images/step5/direction3.png";
-import OtherImage4 from "public/assets/images/step5/direction4.png";
-
-const options = [
-  { id: 1, label: "Massage", image: OtherImage1 },
-  { id: 2, label: "Acupuncture", image: OtherImage2 },
-  { id: 3, label: "Mental Health", image: OtherImage3 },
-  { id: 4, label: "Pet Care", image: OtherImage4 },
-];
 
 interface ModalProps {
   onClose: () => void;
   onSave: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ onSave, onClose }) => {
+const Modal: FC<ModalProps> = ({ onSave, onClose }) => {
+  const ref = useRef<HTMLDivElement>(null);
+
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
+
+  useOnClickOutside(ref, onClose);
 
   const handleSelectOption = useCallback(
     (index: number) => () => {
@@ -35,13 +32,13 @@ const Modal: React.FC<ModalProps> = ({ onSave, onClose }) => {
   );
 
   return (
-    <div
-      id="Modal"
-      className="w-full py-5 px-5 inset-0 flex items-center justify-center"
-    >
-      <div className="overflow-auto w-full max-w-[1220px] max-h-[90vh] md:max-h-[calc(100vh-40px)] bg-white rounded-2xl py-5 md:py-15 relative shadow-lg">
+    <div className="w-full py-5 px-5 inset-0 flex items-center justify-center">
+      <div
+        ref={ref}
+        className="overflow-auto w-full max-w-[1220px] max-h-[90vh] md:max-h-[calc(100vh-40px)] bg-white rounded-2xl py-5 md:py-15 relative shadow-lg"
+      >
         <button
-          className="absolute w-10 h-10 md:h-15 md:w-15 top-5 md:top-13 bg-[#DCE1E0] rounded-full right-5 md:right-10"
+          className="absolute w-10 h-10 md:h-15 md:w-15 top-5 md:top-13 bg-lightGrayishCyan rounded-full right-5 md:right-10"
           onClick={onClose}
         >
           <div className="md:hidden">
@@ -59,11 +56,11 @@ const Modal: React.FC<ModalProps> = ({ onSave, onClose }) => {
         </div>
 
         <div className="px-5 flex mt-11 md:mt-19 flex-wrap justify-center gap-y-5 gap-x-2 md:gap-x-5">
-          {options.map((item, index) => (
+          {MODAL_CARDS.map((item, index) => (
             <Fragment key={item.id}>
               <Card
                 label={item.label}
-                image={item.image}
+                image={item.img}
                 isActive={selectedOption === index}
                 onClick={handleSelectOption(index)}
                 classNameContainer="max-w-[170px] md:min-w-[270px]"
@@ -86,4 +83,4 @@ const Modal: React.FC<ModalProps> = ({ onSave, onClose }) => {
   );
 };
 
-export default Modal;
+export default memo(Modal);

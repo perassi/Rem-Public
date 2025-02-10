@@ -1,8 +1,8 @@
 import { memo, type FC } from "react";
 // components
-import { Button } from "@/components/common/Button";
+import Button from "@/components/common/Button";
 // utils
-import { cn } from "@/utils/commonUtils";
+import { cn } from "@/utils/common.utils";
 
 interface ActionButtonsProps {
   primaryButtonText?: string;
@@ -19,7 +19,7 @@ const ActionButtons: FC<ActionButtonsProps> = ({
   onClickPrimaryButton,
   onClickSecondaryButton,
 }) => {
-  const baseStyles = `mt-15 flex w-full max-w-[640px] justify-center items-center gap-x-2  md:gap-x-5`;
+  const baseStyles = `mt-15 flex w-full max-w-160 justify-center items-center gap-x-2  md:gap-x-5`;
 
   return (
     <div className={cn(baseStyles, className)}>

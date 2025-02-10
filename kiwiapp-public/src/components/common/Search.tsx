@@ -1,41 +1,47 @@
-import { useState } from "react";
+import { memo, useCallback, useState, type ChangeEvent } from "react";
+// constants
+import { SEARCH_OPTIONS } from "@/constants/medication.constants";
 
 const SearchComponent = () => {
   const [query, setQuery] = useState("");
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
-  const options = [
-    "Drug Name  (Xanax)1",
-    "Drug Name  (Xanax)2",
-    "Drug Name  (Xanax)3",
-  ];
 
-  const handleSelect = (option: string) => {
-    setSelectedOption(option);
-    setQuery(option);
-  };
+  const handleSelect = useCallback(
+    (option: string) => () => {
+      setSelectedOption(option);
+      setQuery(option);
+    },
+    []
+  );
+
+  const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    setQuery(e.target.value);
+  }, []);
 
   return (
-    <div className="relative w-full ">
+    <div className="relative w-full">
       <input
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        className="w-full mt-[20px] h-[60px]  border border-black rounded-[5px] px-4 text-[16px] leading-tight font-sans font-[500]"
+        onChange={onChange}
+        className="w-full mt-5 h-15 border border-black rounded-[5px] px-4 text-[16px] leading-tight font-sans font-medium"
         placeholder="Search..."
       />
-      <div className=" w-full mt-5 border border-[#DCE1E0] rounded-[5px] p-2 bg-white z-10">
-        {options.map((option, index) => (
+      <div className="w-full mt-5 border border-lightGrayishCyan rounded-[5px] p-2 bg-white z-10">
+        {SEARCH_OPTIONS.map((option, index) => (
           <div
             key={index}
-            className="flex items-center p-2  border-b h-[60px]"
-            onClick={() => handleSelect(option)}
+            className="flex items-center p-2  border-b h-15"
+            onClick={handleSelect(option)}
           >
             <button
-              className={`h-[20px] w-[20px] border rounded-full mr-3 ${
-                selectedOption === option ? "bg-[#18F1A1]" : "bg-[#DCE1E0]"
+              className={`h-5 w-5 border rounded-full mr-3 ${
+                selectedOption === option
+                  ? "bg-rem-green-400"
+                  : "bg-lightGrayishCyan"
               }`}
             />
-            <span className="text-[16px] leading-tight font-sans font-[500]">
+            <span className="text-[16px] leading-tight font-sans font-medium">
               {option}
             </span>
           </div>
@@ -45,4 +51,4 @@ const SearchComponent = () => {
   );
 };
 
-export default SearchComponent;
+export default memo(SearchComponent);

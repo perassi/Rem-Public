@@ -1,9 +1,8 @@
+import { memo, type ReactNode } from "react";
 // utils
-import { cn } from "@/utils/commonUtils";
-// types
-import type { ReactNode } from "react";
+import { cn } from "@/utils/common.utils";
 
-type ButtonType = "outline" | "fill" | "fill-invert";
+export type ButtonType = "outline" | "fill" | "fill-invert";
 
 interface ButtonPropsInterface {
   children: ReactNode;
@@ -12,7 +11,7 @@ interface ButtonPropsInterface {
   onClick?: () => void;
 }
 
-export const Button = ({
+const Button = ({
   children,
   className = "",
   type = "fill",
@@ -23,7 +22,7 @@ export const Button = ({
 
   const typeStyles = {
     outline:
-      "bg-transparent border-rem-[#DCE1E0] border-[1px] hover:opacity-80 transition-opacity",
+      "bg-transparent border-rem-lightGrayishCyan border-[1px] hover:opacity-80 transition-opacity",
     "fill-invert":
       "bg-rem-green-400 border-rem-green-400 border-[1px] hover:bg-transparent",
     fill: "bg-rem-green-400 hover:opacity-80 transition-opacity",
@@ -38,3 +37,5 @@ export const Button = ({
     </button>
   );
 };
+
+export default memo(Button);

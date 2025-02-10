@@ -1,5 +1,7 @@
-import { cn } from "@/utils/commonUtils";
-import { ReactNode } from "react";
+// utils
+import { cn } from "@/utils/common.utils";
+// types
+import type { ReactNode } from "react";
 
 interface HeadersPropsInterface {
   children: ReactNode;

@@ -1,17 +1,18 @@
 "use client";
-import StepLine from "@/components/common/StepLine";
-import { useCallback } from "react";
-import PlanTypeStep from "@/components/steps/Step1";
-import { Container } from "@/components/common/Container";
-import AboutYouStep from "@/components/steps/Step2";
-import MyDrugsStep from "@/components/steps/Step3";
-import MyDoctorsStep from "@/components/steps/Step4";
-import ExtrasStep from "@/components/steps/Step5";
-import UsageFrequencyStep from "@/components/steps/Step6";
 // hooks
 import { useSteps } from "@/hooks/use-steps";
+import { useCallback } from "react";
+// components
+import StepLine from "@/components/common/StepLine";
+import ExtrasStep from "@/components/steps/Step5";
+import MyDrugsStep from "@/components/steps/Step3";
+import PlanTypeStep from "@/components/steps/Step1";
+import AboutYouStep from "@/components/steps/Step2";
+import MyDoctorsStep from "@/components/steps/Step4";
+import UsageFrequencyStep from "@/components/steps/Step6";
+import { Container } from "@/components/common/Container";
 
-export default function StepPage() {
+const EnrollmentPage = () => {
   const { activeStep, onPrevStep, onNextStep } = useSteps(1, 6);
 
   const renderCurrentStepContent = useCallback(() => {
@@ -53,10 +54,12 @@ export default function StepPage() {
         <div>
           <StepLine activeStep={activeStep} />
         </div>
-        <div className="mt-[60px] mb-[60px] flex justify-center">
+        <div className="mt-15 mb-15 flex justify-center">
           {renderCurrentStepContent()}
         </div>
       </div>
     </Container>
   );
-}
+};
+
+export default EnrollmentPage;

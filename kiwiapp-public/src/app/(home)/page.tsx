@@ -1,6 +1,6 @@
-// import { Button } from "@headlessui/react";
-import { Button } from "@/components/common/Button";
+// components
 import Link from "next/link";
+import Button from "@/components/common/Button";
 
 export default function Home() {
   return (

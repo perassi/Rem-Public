@@ -1,5 +1,6 @@
 "use client";
 import React, {
+  memo,
   useRef,
   useState,
   useEffect,
@@ -8,35 +9,17 @@ import React, {
 } from "react";
 // components
 import Image from "next/image";
-// assets
-import ExtraIcon from "public/assets/icons/extras-icon.svg";
-import MyDrugsIcon from "public/assets/icons/my-drugs-icon.svg";
-import NotebookIcon from "public/assets/icons/notebook-icon.svg";
-import AboutYouIcon from "public/assets/icons/about-you-icon.svg";
-import MyDoctorIcon from "public/assets/icons/my-doctor-icon.svg";
+// constants
+import { STEPS } from "@/constants/steps-line.constants";
 // types
-import type { StaticImport } from "next/dist/shared/lib/get-img-props";
+import type { Step } from "@/types/steps.types";
 
 interface StepLineProps {
   activeStep: number;
 }
 
-interface Step {
-  id: number;
-  icon: StaticImport;
-  label: string;
-}
-
 const StepLine: FC<StepLineProps> = ({ activeStep }) => {
   const [activeStepLeftPosition, setActiveStepLeftPosition] = useState(0);
-  const steps: Step[] = [
-    { id: 1, label: "Plan Type", icon: NotebookIcon },
-    { id: 2, label: "About You", icon: AboutYouIcon },
-    { id: 3, label: "My Drugs", icon: MyDrugsIcon },
-    { id: 4, label: "My Doctors", icon: MyDoctorIcon },
-    { id: 5, label: "Extras", icon: ExtraIcon },
-    { id: 6, label: "Usage Frequency", icon: NotebookIcon },
-  ];
 
   const stepRefs = useRef<(HTMLDivElement | null)[]>([]);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -61,27 +44,29 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeStep]);
 
-  const [stepObject, setStepObject] = useState<Step>(steps[0]);
+  const [stepObject, setStepObject] = useState<Step>(STEPS[0]);
 
   useEffect(() => {
-    const currentStep = steps.find((step) => step.id === activeStep);
+    const currentStep = STEPS.find((step) => step.id === activeStep);
     if (currentStep) {
       setStepObject(currentStep);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeStep]);
 
-  const handleGetStepRef = (step: Step) => (el: HTMLDivElement | null) => {
-    stepRefs.current[step.id - 1] = el;
-  };
+  const handleGetStepRef = useCallback(
+    (step: Step) => (el: HTMLDivElement | null) => {
+      stepRefs.current[step.id - 1] = el;
+    },
+    []
+  );
 
   return (
     <div ref={wrapperRef} className="mt-7 px-5 md:mt-15">
       <div className="relative flex flex-col items-center w-full !-z-10 ">
-        <div className="relative w-full flex  items-center rounded-full">
+        <div className="relative w-full flex items-center rounded-full">
           <div
             className={`z-10 absolute top-1/2 transform translate-y-1/2 left-0 bg-rem-green-400 h-[1px] rounded-full `}
             style={{ width: `${activeStepLeftPosition}px` }}
@@ -90,14 +75,14 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
             className={`w-full absolute top-1/2 transform translate-y-1/2 left-0 bg-gray-200 h-[1px] rounded-full `}
           />
           <div className="w-full flex gap-x-4 justify-center md:justify-around">
-            {steps.map((step) => (
+            {STEPS.map((step) => (
               <div
                 key={step.id}
                 className="relative flex flex-col items-center"
                 ref={handleGetStepRef(step)}
               >
                 <button
-                  className={`w-[40px] h-[40px] rounded-full flex items-center justify-center ${
+                  className={`w-10 h-10 rounded-full flex items-center justify-center ${
                     step.id <= stepObject.id
                       ? "bg-rem-green-400"
                       : "bg-gray-300"
@@ -130,7 +115,7 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
                 <div
                   className={`${
                     step.id !== activeStep && "hidden"
-                  } md:block absolute bottom-[-40px] w-max text-[12px] py-[5px] px-[15px] rounded-[20px] border border-[#DCE1E0] font-sans font-medium md:border-none md:text-[20px]  md:rounded-none md:py-0 md:px-0`}
+                  } md:block absolute bottom-[-40px] w-max text-[12px] py-1 px-4 rounded-full border border-lightGrayishCyan font-sans font-medium md:border-none md:text-[20px]  md:rounded-none md:py-0 md:px-0`}
                 >
                   {step.label}
                 </div>
@@ -143,4 +128,4 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
   );
 };
 
-export default StepLine;
+export default memo(StepLine);

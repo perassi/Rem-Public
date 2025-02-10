@@ -7,7 +7,7 @@ import { Container } from "@/components/common/Container";
 // assets
 import StepImage1 from "public/assets/images/step1Image.png";
 // types
-import type { IStep } from "@/types/stepType";
+import type { IStep } from "@/types/steps.types";
 
 const PlanTypeStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
   const handleChange = useCallback((e: FormEvent<HTMLInputElement>) => {
@@ -20,7 +20,7 @@ const PlanTypeStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
     <div className="mt-2">
       <Container>
         <div className="flex flex-col items-center justify-center">
-          <Image src={StepImage1} alt="StepImage1" className="py-11" />
+          <Image src={StepImage1} alt="Plan type" className="py-11" />
           <div className="px-5 mt-11 flex flex-col justify-center items-center w-full">
             <H2 className="text-[30px] md:text-[50px] font-normal">
               What’s Your ZIP Code?
@@ -30,9 +30,9 @@ const PlanTypeStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
               in your area.
             </span>
           </div>
-          <div className="px-5 mt-[30px] md:mt-10 w-full flex flex-col">
+          <div className="px-5 mt-7 md:mt-10 w-full flex flex-col">
             <input
-              className="placeholder-evergreen-800 w-full border-[1px] border-[#172A25] h-15 md:w-full md=[640px] px-5 bg-white rounded-md"
+              className="placeholder-evergreen-800 w-full border-[1px] border-evergreen-800 h-15 md:w-full px-5 bg-white rounded-md"
               placeholder="Enter Zip Code"
               maxLength={5}
               inputMode="numeric"

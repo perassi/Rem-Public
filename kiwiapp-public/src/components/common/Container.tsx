@@ -1,15 +1,13 @@
-import { ReactNode } from "react";
-import { cn } from "@/utils/commonUtils";
+// utils
+import { cn } from "@/utils/common.utils";
+// types
+import type { FC, ReactNode } from "react";
 
 interface ContainerProps {
   children: ReactNode;
   className?: string;
 }
 
-export function Container({ children, className }: ContainerProps) {
-  return (
-    <div className={cn("max-w-[1300px] mx-auto", className)}>
-      {children}
-    </div>
-  );
-}
+export const Container: FC<ContainerProps> = ({ children, className }) => (
+  <div className={cn("max-w-[1300px] mx-auto", className)}>{children}</div>
+);
