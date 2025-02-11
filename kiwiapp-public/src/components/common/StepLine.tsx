@@ -1,12 +1,5 @@
 "use client";
-import React, {
-  memo,
-  useRef,
-  useState,
-  useEffect,
-  useCallback,
-  type FC,
-} from "react";
+import React, { memo, useRef, useState, useEffect, useCallback, type FC } from "react";
 import Image from "next/image";
 import { STEPS } from "@/constants/steps-line.constants";
 import type { Step } from "@/types/steps.types";
@@ -57,62 +50,46 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
     (step: Step) => (el: HTMLDivElement | null) => {
       stepRefs.current[step.id - 1] = el;
     },
-    []
+    [],
   );
 
   return (
     <div ref={wrapperRef} className="mt-7 px-5 md:mt-15">
-      <div className="relative flex flex-col items-center w-full !-z-10 ">
-        <div className="relative w-full flex items-center rounded-full">
+      <div className="relative !-z-10 flex w-full flex-col items-center">
+        <div className="relative flex w-full items-center rounded-full">
           <div
-            className={`z-10 absolute top-1/2 transform translate-y-1/2 left-0 bg-rem-green-400 h-[1px] rounded-full `}
+            className={"absolute left-0 top-1/2 z-10 h-[1px] translate-y-1/2 transform rounded-full bg-rem-green-400"}
             style={{ width: `${activeStepLeftPosition}px` }}
           />
           <div
-            className={`w-full absolute top-1/2 transform translate-y-1/2 left-0 bg-gray-200 h-[1px] rounded-full `}
+            className={"absolute left-0 top-1/2 h-[1px] w-full translate-y-1/2 transform rounded-full bg-gray-200"}
           />
-          <div className="w-full flex gap-x-4 justify-center md:justify-around">
+          <div className="flex w-full justify-center gap-x-4 md:justify-around">
             {STEPS.map((step) => (
-              <div
-                key={step.id}
-                className="relative flex flex-col items-center"
-                ref={handleGetStepRef(step)}
-              >
+              <div key={step.id} className="relative flex flex-col items-center" ref={handleGetStepRef(step)}>
                 <button
-                  className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                    step.id <= stepObject.id
-                      ? "bg-rem-green-400"
-                      : "bg-gray-300"
-                  } text-black z-10`}
+                  className={`flex h-10 w-10 items-center justify-center rounded-full ${ step.id <= stepObject.id ? "bg-rem-green-400" : "bg-gray-300"
+                  } z-10 text-black`}
                 >
                   <div className="hidden md:block">
                     {step.id < stepObject.id ? (
-                      <svg
-                        width="16"
-                        height="12"
-                        viewBox="0 0 16 12"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
+                      <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                           d="M5.72686 12C5.4067 12 5.10255 11.8661 4.87844 11.6317L0.348174 6.89362C-0.116058 6.40809 -0.116058 5.60446 0.348174 5.11894C0.812406 4.63341 1.58079 4.63341 2.04502 5.11894L5.72686 8.96966L13.955 0.364144C14.4192 -0.121381 15.1876 -0.121381 15.6518 0.364144C16.1161 0.849669 16.1161 1.6533 15.6518 2.13882L6.57529 11.6317C6.35118 11.8661 6.04702 12 5.72686 12Z"
                           fill="#172A25"
                         />
                       </svg>
                     ) : (
-                      <span className="text-xl font-sans font-medium">
-                        {step.id}
-                      </span>
+                      <span className="font-sans text-xl font-medium">{step.id}</span>
                     )}
                   </div>
-                  <div className="md:hidden flex justify-center items-center">
+                  <div className="flex items-center justify-center md:hidden">
                     <Image src={step.icon} alt={step.label} />
                   </div>
                 </button>
                 <div
-                  className={`${
-                    step.id !== activeStep && "hidden"
-                  } md:block absolute bottom-[-40px] w-max text-xs py-1 px-4 rounded-full border border-neutral-100 font-sans font-medium md:border-none md:text-xl  md:rounded-none md:py-0 md:px-0`}
+                  className={`${step.id !== activeStep && "hidden"} absolute bottom-[-40px] w-max rounded-full border border-neutral-100 px-4 py-1
+                  font-sans text-xs font-medium md:block md:rounded-none md:border-none md:px-0 md:py-0 md:text-xl`}
                 >
                   {step.label}
                 </div>

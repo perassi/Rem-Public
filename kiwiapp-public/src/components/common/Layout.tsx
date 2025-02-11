@@ -3,11 +3,11 @@ import { Header } from "../navigation/Header";
 
 export function DefaultLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang='en'>
-      <body className='bg-white font-sans'>
-        <div className=' relative'>
+    <html lang="en">
+      <body className="bg-white font-sans">
+        <div className="relative">
           <Header />
-          <main className=''>{children}</main>
+          <main className="">{children}</main>
         </div>
       </body>
     </html>

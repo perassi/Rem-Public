@@ -17,30 +17,17 @@ const EnrollmentPage = () => {
     if (activeStep)
       switch (activeStep) {
         case 1:
-          return (
-            <PlanTypeStep onNextStep={onNextStep} onPrevStep={onPrevStep} />
-          );
+          return <PlanTypeStep onNextStep={onNextStep} onPrevStep={onPrevStep} />;
         case 2:
-          return (
-            <AboutYouStep onNextStep={onNextStep} onPrevStep={onPrevStep} />
-          );
+          return <AboutYouStep onNextStep={onNextStep} onPrevStep={onPrevStep} />;
         case 3:
-          return (
-            <MyDrugsStep onNextStep={onNextStep} onPrevStep={onPrevStep} />
-          );
+          return <MyDrugsStep onNextStep={onNextStep} onPrevStep={onPrevStep} />;
         case 4:
-          return (
-            <MyDoctorsStep onNextStep={onNextStep} onPrevStep={onPrevStep} />
-          );
+          return <MyDoctorsStep onNextStep={onNextStep} onPrevStep={onPrevStep} />;
         case 5:
           return <ExtrasStep onNextStep={onNextStep} onPrevStep={onPrevStep} />;
         case 6:
-          return (
-            <UsageFrequencyStep
-              onNextStep={onNextStep}
-              onPrevStep={onPrevStep}
-            />
-          );
+          return <UsageFrequencyStep onNextStep={onNextStep} onPrevStep={onPrevStep} />;
         default:
           break;
       }
@@ -52,9 +39,7 @@ const EnrollmentPage = () => {
         <div>
           <StepLine activeStep={activeStep} />
         </div>
-        <div className="mt-15 mb-15 flex justify-center">
-          {renderCurrentStepContent()}
-        </div>
+        <div className="mb-15 mt-15 flex justify-center">{renderCurrentStepContent()}</div>
       </div>
     </Container>
   );

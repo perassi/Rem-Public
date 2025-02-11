@@ -10,7 +10,7 @@ const SearchComponent = () => {
       setSelectedOption(option);
       setQuery(option);
     },
-    []
+    [],
   );
 
   const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
@@ -23,26 +23,16 @@ const SearchComponent = () => {
         type="text"
         value={query}
         onChange={onChange}
-        className="w-full mt-5 h-15 border border-black rounded-[5px] px-4 text-base leading-tight font-sans font-medium"
+        className="mt-5 h-15 w-full rounded-[5px] border border-black px-4 font-sans text-base font-medium leading-tight"
         placeholder="Search..."
       />
-      <div className="w-full mt-5 border border-neutral-100 rounded-[5px] p-2 bg-white z-10">
+      <div className="z-10 mt-5 w-full rounded-[5px] border border-neutral-100 bg-white p-2">
         {SEARCH_OPTIONS.map((option, index) => (
-          <div
-            key={index}
-            className="flex items-center p-2  border-b h-15"
-            onClick={handleSelect(option)}
-          >
+          <div key={index} className="flex h-15 items-center border-b p-2" onClick={handleSelect(option)}>
             <button
-              className={`h-5 w-5 border rounded-full mr-3 ${
-                selectedOption === option
-                  ? "bg-rem-green-400"
-                  : "bg-neutral-100"
-              }`}
+              className={`mr-3 h-5 w-5 rounded-full border ${selectedOption === option ? "bg-rem-green-400" : "bg-neutral-100"}`}
             />
-            <span className="text-base leading-tight font-sans font-medium">
-              {option}
-            </span>
+            <span className="font-sans text-base font-medium leading-tight">{option}</span>
           </div>
         ))}
       </div>

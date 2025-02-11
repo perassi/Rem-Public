@@ -15,26 +15,24 @@ const ExtrasStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
     (index: number) => () => {
       setSelectedOption(index);
     },
-    []
+    [],
   );
 
   return (
-    <div className="mt-7 md:mt-18 px-5 md:px-0">
-      <div className="w-full flex flex-col items-center justify-center relative">
+    <div className="mt-7 px-5 md:mt-18 md:px-0">
+      <div className="relative flex w-full flex-col items-center justify-center">
         {isOpenModal && (
-          <div className="flex justify-center items-center w-screen h-screen top-0 left-0 fixed z-1000 bg-[rgba(23,42,37,0.7)]">
+          <div className="z-1000 fixed left-0 top-0 flex h-screen w-screen items-center justify-center bg-[rgba(23,42,37,0.7)]">
             <Modal onClose={off} onSave={onNextStep} />
           </div>
         )}
-        <div className="flex flex-col  justify-center items-center w-full">
-          <H2 className="md:max-w-[600px] leading-normal md:!leading-tight font-normal text-center">
+        <div className="flex w-full flex-col items-center justify-center">
+          <H2 className="text-center font-normal leading-normal md:max-w-[600px] md:!leading-tight">
             Select The Benefits That Matter Most To You
           </H2>
         </div>
         <div
-          className={`w-full flex flex-wrap justify-center gap-y-9 gap-x-2 md:gap-y-10 md:gap-x-4 mt-11 md:mt-19 ${
-            isOpenModal && "!-z-10"
-          } `}
+          className={`mt-11 flex w-full flex-wrap justify-center gap-x-2 gap-y-9 md:mt-19 md:gap-x-4 md:gap-y-10 ${isOpenModal && "!-z-10"} `}
         >
           {BENEFITS_CARDS.map((item, index) => (
             <Fragment key={item.id}>
@@ -47,10 +45,7 @@ const ExtrasStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
             </Fragment>
           ))}
         </div>
-        <ActionButtons
-          onClickPrimaryButton={on}
-          onClickSecondaryButton={onPrevStep}
-        />
+        <ActionButtons onClickPrimaryButton={on} onClickSecondaryButton={onPrevStep} />
       </div>
     </div>
   );

@@ -1,11 +1,6 @@
 "use client";
 import { memo, useMemo, useCallback, useState } from "react";
-import {
-  ColumnDef,
-  flexRender,
-  useReactTable,
-  getCoreRowModel,
-} from "@tanstack/react-table";
+import { ColumnDef, flexRender, useReactTable, getCoreRowModel } from "@tanstack/react-table";
 import Button from "@/components/common/Button";
 import { DEFAULT_MEDICATION_DATA } from "@/constants/medication.constants";
 import type { Medication } from "@/types/medication.types";
@@ -17,7 +12,7 @@ const MedicationTable = () => {
     (index: number) => () => {
       setData((prev) => prev.filter((_, i) => i !== index));
     },
-    []
+    [],
   );
 
   const columns: ColumnDef<Medication>[] = useMemo(
@@ -25,47 +20,33 @@ const MedicationTable = () => {
       {
         accessorKey: "name",
         header: () => "Medication Name",
-        cell: ({ getValue }) => (
-          <span className="text-left">{getValue<string>()}</span>
-        ),
+        cell: ({ getValue }) => <span className="text-left">{getValue<string>()}</span>,
       },
       {
         accessorKey: "dosage",
         header: () => "Dosage",
-        cell: ({ getValue }) => (
-          <span className="text-center">{getValue<string>()}</span>
-        ),
+        cell: ({ getValue }) => <span className="text-center">{getValue<string>()}</span>,
       },
       {
         accessorKey: "quantity",
         header: () => "Quantity",
-        cell: ({ getValue }) => (
-          <span className="text-center">{getValue<number>()}</span>
-        ),
+        cell: ({ getValue }) => <span className="text-center">{getValue<number>()}</span>,
         size: 70,
       },
       {
         accessorKey: "daysSupply",
         header: () => "Days Supply",
-        cell: ({ getValue }) => (
-          <span className="text-center">{getValue<number>()}</span>
-        ),
+        cell: ({ getValue }) => <span className="text-center">{getValue<number>()}</span>,
       },
       {
         id: "actions",
         header: () => "",
         cell: ({ row }) => (
           <Button
-            className="w-10 h-10 p-0 rounded-full text-white bg-red-500 hover:bg-red-700"
+            className="h-10 w-10 rounded-full bg-red-500 p-0 text-white hover:bg-red-700"
             onClick={handleDelete(row.index)}
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g>
                 <g>
                   <path
@@ -96,7 +77,7 @@ const MedicationTable = () => {
         ),
       },
     ],
-    [handleDelete]
+    [handleDelete],
   );
 
   const table = useReactTable({
@@ -117,18 +98,9 @@ const MedicationTable = () => {
               {headerGroup.headers.map((header) => (
                 <th key={header.id}>
                   <div
-                    className={` ${
-                      header.column.getIndex() === 0
-                        ? "text-left"
-                        : "text-center"
-                    } text-sm md:text-xl font-semibold font-sans`}
+                    className={` ${header.column.getIndex() === 0 ? "text-left" : "text-center"} font-sans text-sm font-semibold md:text-xl`}
                   >
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </div>
                 </th>
               ))}
@@ -139,14 +111,14 @@ const MedicationTable = () => {
           {table.getRowModel().rows.map((row) => (
             <tr
               key={row.id}
-              className="border-b mt-2 h-[70px] grid grid-cols-[2.1fr_1fr_1.3fr_1.4fr_40px] md:grid-cols-[1.6fr_1fr_2.3fr_0.9fr_60px] items-center"
+              className="mt-2 grid h-[70px] grid-cols-[2.1fr_1fr_1.3fr_1.4fr_40px] items-center border-b
+                md:grid-cols-[1.6fr_1fr_2.3fr_0.9fr_60px]"
             >
               {row.getVisibleCells().map((cell, index) => (
                 <td
                   key={cell.id}
-                  className={` ${index === 0 ? "text-left" : "text-center"} 
-                  text-sm md:text-xl font-medium font-sans  
-                    ${index === 4 ? "flex justify-center" : ""} `}
+                  className={` ${index === 0 ? "text-left" : "text-center"} font-sans text-sm font-medium md:text-xl
+                  ${index === 4 ? "flex justify-center" : ""} `}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>

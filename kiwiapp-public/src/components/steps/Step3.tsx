@@ -25,12 +25,12 @@ const SUPPLY_INPUTS = [
 
 const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
   const renderSupplyInputs = () => (
-    <div className="flex lg:max-w-[640px] gap-x-4  md:gap-x-5 mt-5">
+    <div className="mt-5 flex gap-x-4 md:gap-x-5 lg:max-w-[640px]">
       {SUPPLY_INPUTS.map((item) => (
         <input
           key={item.id}
           name={item.name}
-          className="w-full px-8 h-15 border border-black rounded-md"
+          className="h-15 w-full rounded-md border border-black px-8"
           placeholder=""
         />
       ))}
@@ -38,55 +38,41 @@ const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
   );
 
   return (
-    <div className="mt-7 md:mt-12 w-full px-5 flex flex-col items-center justify-center">
-      <div className="flex flex-col w-full items-center">
+    <div className="mt-7 flex w-full flex-col items-center justify-center px-5 md:mt-12">
+      <div className="flex w-full flex-col items-center">
         <Image src={StepImage3} alt="My Drugs" className="mb-16" />
-        <div className="hidden mt-11 md:flex flex-col md: mb-15 justify-center items-center w-full">
+        <div className="md: mb-15 mt-11 hidden w-full flex-col items-center justify-center md:flex">
           <H2 className="font-normal"> Add Your Prescriptions</H2>
-          <span className="mt-5 text-2xl font-medium">
-            This Helps Us Find a Plan to Minimize Your Costs
-          </span>
+          <span className="mt-5 text-2xl font-medium">This Helps Us Find a Plan to Minimize Your Costs</span>
         </div>
       </div>
-      <div className="w-full flex flex-col items-start gap-y-7 md:gap-y-[50px] overflow-hidden ">
-        <span className="text-xl md:text-2xl font-sans font-semibold">
-          Enrolled Drugs
-        </span>
+      <div className="flex w-full flex-col items-start gap-y-7 overflow-hidden md:gap-y-[50px]">
+        <span className="font-sans text-xl font-semibold md:text-2xl">Enrolled Drugs</span>
         <MedicationTable />
       </div>
-      <div className=" w-full  mt-16">
-        <span className="pl-7 text-base font-sans font-semibold">
-          Search for medication
-        </span>
+      <div className="mt-16 w-full">
+        <span className="pl-7 font-sans text-base font-semibold">Search for medication</span>
         <SearchComponent />
       </div>
-      <div className="flex-col lg:flex-row w-full mt-15 flex gap-5">
+      <div className="mt-15 flex w-full flex-col gap-5 lg:flex-row">
         <div>
-          <span className="md:pl-7 font-sans font-semibold">Supply</span>
+          <span className="font-sans font-semibold md:pl-7">Supply</span>
           {renderSupplyInputs()}
         </div>
         <div className="flex flex-col">
-          <span className="md:pl-7 font-sans font-semibold">Quantity</span>
-          <div className="flex-col md:flex-row mt-5 flex gap-y-7 md:gap-x-5">
-            <input
-              className="w-full lg:w-[310px] p-2 h-15 border border-black rounded-md"
-              placeholder=""
-            />
+          <span className="font-sans font-semibold md:pl-7">Quantity</span>
+          <div className="mt-5 flex flex-col gap-y-7 md:flex-row md:gap-x-5">
+            <input className="h-15 w-full rounded-md border border-black p-2 lg:w-[310px]" placeholder="" />
             <Button
               type="fill"
-              className="bg-black w-full h-15 rounded-full flex justify-center items-center lg:w-[310px]"
+              className="flex h-15 w-full items-center justify-center rounded-full bg-black lg:w-[310px]"
             >
-              <span className="text-base leading-tight text-white">
-                Add Medication
-              </span>
+              <span className="text-base leading-tight text-white">Add Medication</span>
             </Button>
           </div>
         </div>
       </div>
-      <ActionButtons
-        onClickPrimaryButton={onNextStep}
-        onClickSecondaryButton={onPrevStep}
-      />
+      <ActionButtons onClickPrimaryButton={onNextStep} onClickSecondaryButton={onPrevStep} />
     </div>
   );
 };

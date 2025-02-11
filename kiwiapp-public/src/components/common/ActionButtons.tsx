@@ -23,16 +23,12 @@ const ActionButtons: FC<ActionButtonsProps> = ({
     <div className={cn(baseStyles, className)}>
       <Button
         type="outline"
-        className="h-15 rounded-full w-full text-base leading-tight"
+        className="h-15 w-full rounded-full text-base leading-tight"
         onClick={onClickSecondaryButton}
       >
         {secondaryButtonText}
       </Button>
-      <Button
-        type="fill"
-        className="px-5 rounded-full w-full text-base leading-tight"
-        onClick={onClickPrimaryButton}
-      >
+      <Button type="fill" className="w-full rounded-full px-5 text-base leading-tight" onClick={onClickPrimaryButton}>
         {primaryButtonText}
       </Button>
     </div>

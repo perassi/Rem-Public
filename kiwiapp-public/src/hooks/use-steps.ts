@@ -5,11 +5,11 @@ export const useSteps = (initialStep: number, maxStep: number) => {
 
   const onNextStep = useCallback(() => {
     if (activeStep < maxStep) setActiveStep(activeStep + 1);
-  }, [activeStep, maxStep])
+  }, [activeStep, maxStep]);
 
   const onPrevStep = useCallback(() => {
     if (activeStep > 1) setActiveStep(activeStep - 1);
-  }, [activeStep])
+  }, [activeStep]);
 
-  return {activeStep, onNextStep, onPrevStep }
+  return { activeStep, onNextStep, onPrevStep };
 };

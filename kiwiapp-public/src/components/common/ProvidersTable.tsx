@@ -1,11 +1,6 @@
 "use client";
 import { memo, useCallback, useState } from "react";
-import {
-  ColumnDef,
-  flexRender,
-  useReactTable,
-  getCoreRowModel,
-} from "@tanstack/react-table";
+import { ColumnDef, flexRender, useReactTable, getCoreRowModel } from "@tanstack/react-table";
 import Button from "@/components/common/Button";
 import { DEFAULT_PROVIDERS_DATA } from "@/constants/providers.constants";
 import type { Providers } from "@/types/providers-data.types";
@@ -17,39 +12,29 @@ const ProvidersTable = () => {
     (index: number) => () => {
       setData((prev) => prev.filter((_, i) => i !== index));
     },
-    []
+    [],
   );
 
   const columns: ColumnDef<Providers>[] = [
     {
       accessorKey: "name",
       header: () => "Name",
-      cell: ({ getValue }) => (
-        <span className="text-left">{getValue<string>()}</span>
-      ),
+      cell: ({ getValue }) => <span className="text-left">{getValue<string>()}</span>,
     },
     {
       accessorKey: "address",
       header: () => "Practice Address",
-      cell: ({ getValue }) => (
-        <span className="text-center">{getValue<string>()}</span>
-      ),
+      cell: ({ getValue }) => <span className="text-center">{getValue<string>()}</span>,
     },
     {
       id: "actions",
       header: () => "",
       cell: ({ row }) => (
         <Button
-          className="w-10 min-w-10 h-10 p-0 rounded-full text-white bg-red-500 hover:bg-red-700"
+          className="h-10 w-10 min-w-10 rounded-full bg-red-500 p-0 text-white hover:bg-red-700"
           onClick={handleDelete(row.index)}
         >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 20 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g>
               <g>
                 <path
@@ -92,21 +77,11 @@ const ProvidersTable = () => {
       <table className="w-full">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr
-              key={headerGroup.id}
-              className="grid grid-cols-[1.2fr_2.5fr_40px] xl:grid-cols-3 md:gap-40"
-            >
+            <tr key={headerGroup.id} className="grid grid-cols-[1.2fr_2.5fr_40px] md:gap-40 xl:grid-cols-3">
               {headerGroup.headers.map((header) => (
                 <th key={header.id}>
-                  <div
-                    className={`text-left text-sm md:text-xl font-semibold font-sans`}
-                  >
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                  <div className={"text-left font-sans text-sm font-semibold md:text-xl"}>
+                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                   </div>
                 </th>
               ))}
@@ -117,15 +92,13 @@ const ProvidersTable = () => {
           {table.getRowModel().rows.map((row) => (
             <tr
               key={row.id}
-              className="border-b h-15 mt-5 grid grid-cols-[1.2fr_2.5fr_40px] xl:grid-cols-3 md:gap-40 md:mt-4"
+              className="mt-5 grid h-15 grid-cols-[1.2fr_2.5fr_40px] border-b md:mt-4 md:gap-40 xl:grid-cols-3"
             >
               {row.getVisibleCells().map((cell, index) => (
                 <td
                   key={cell.id}
-                  className={`text-sm flex md:block md:text-xl pb-5 md:pb-0 items-center ${
-                    index === 2 ? "flex md:flex justify-end" : "text-left"
-                  } font-medium font-sans
-                `}
+                  className={`flex items-center pb-5 text-sm md:block md:pb-0 md:text-xl ${index === 2 ? "flex justify-end md:flex" : "text-left"}
+                  font-sans font-medium`}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>

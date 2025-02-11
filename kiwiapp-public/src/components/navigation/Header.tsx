@@ -7,34 +7,28 @@ import PhoneIcon from "public/assets/icons/phone-icon.svg";
 import { routes } from "@/constants/routes.constants";
 
 export const Header = () => (
-  <nav className="relative w-full pb-7 pt-15 border-b border-neutral-100 md:border-none md:pt-7">
+  <nav className="relative w-full border-b border-neutral-100 pb-7 pt-15 md:border-none md:pt-7">
     <Container>
-      <div className="flex bg-white justify-between  rounded-full  items-center px-5">
+      <div className="flex items-center justify-between rounded-full bg-white px-5">
         <div>
           <Link href={routes.home}>
-            <Image
-              src={RemLogo}
-              alt="RemLogo"
-              className="h-7 w-auto md:w-[150px] md:h-[50px] cursor-pointer"
-            />
+            <Image src={RemLogo} alt="RemLogo" className="h-7 w-auto cursor-pointer md:h-[50px] md:w-[150px]" />
           </Link>
         </div>
         <div className="flex">
-          <div className="gap-8 hidden lg:flex pl-4 text-xl font-medium" />
+          <div className="hidden gap-8 pl-4 text-xl font-medium lg:flex" />
         </div>
-        <div className="gap-x-2 flex items-center justify-center md:gap-x-5">
+        <div className="flex items-center justify-center gap-x-2 md:gap-x-5">
           <Button
             type="outline"
-            className="h-10 py-[10px] md:h-15 px-5 md:py-5 md:px-7 border border-solid border-neutral-100 align-middle rounded-full"
+            className="h-10 rounded-full border border-solid border-neutral-100 px-5 py-[10px] align-middle md:h-15 md:px-7 md:py-5"
           >
             <Image src={PhoneIcon} alt="Phone" className="mr-2" />
-            <span className="text-base font-sans leading-tight">
-              (623) 223-8884
-            </span>
+            <span className="font-sans text-base leading-tight">(623) 223-8884</span>
           </Button>
           <Button
             type="fill"
-            className="py-2 px-5 md:px-7 md:py-5 h-10 md:h-15 align-middle rounded-full max-10:text-sm text-base"
+            className="max-10:text-sm h-10 rounded-full px-5 py-2 align-middle text-base md:h-15 md:px-7 md:py-5"
           >
             Sign In
           </Button>
