@@ -1,8 +1,6 @@
 "use client";
-// hooks
 import { useSteps } from "@/hooks/use-steps";
 import { useCallback } from "react";
-// components
 import StepLine from "@/components/common/StepLine";
 import ExtrasStep from "@/components/steps/Step5";
 import MyDrugsStep from "@/components/steps/Step3";

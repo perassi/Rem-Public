@@ -1,4 +1,3 @@
-// assets
 import OtherImage1 from "public/assets/images/step5/direction1.png";
 import OtherImage2 from "public/assets/images/step5/direction2.png";
 import OtherImage3 from "public/assets/images/step5/direction3.png";
@@ -15,7 +14,6 @@ import DirectionImage5 from "public/assets/images/step5/direction5.png";
 import DirectionImage6 from "public/assets/images/step5/direction6.png";
 import DirectionImage7 from "public/assets/images/step5/direction7.png";
 import DirectionImage8 from "public/assets/images/step5/direction8.png";
-// types
 import type { ICard } from "@/types/card.types";
 
 export const ABOUT_YOU_CARDS: ICard[] = [

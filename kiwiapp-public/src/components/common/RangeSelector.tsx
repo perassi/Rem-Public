@@ -31,7 +31,7 @@ const RangeSelector = () => {
                 } h-10 md:w-15 md:h-15 rounded-full flex items-center justify-center text-sm font-medium transition-all ${
                   selected === option
                     ? "bg-plum text-white"
-                    : "bg-lightGrayishCyan text-gray-700"
+                    : "bg-neutral-100 text-gray-700"
                 }`}
                 onClick={handleSelect(option)}
               >
@@ -40,12 +40,12 @@ const RangeSelector = () => {
             </div>
           ))}
         </div>
-        <span className="text-black text-[16px] md:text-[20px] leading-5 font-semibold">
+        <span className="text-black text-sm md:text-xl leading-5 font-semibold">
           {selected} Times
         </span>
       </div>
 
-      <div className="relative mt-2 w-full h-2 bg-lightGrayishCyan rounded-full">
+      <div className="relative mt-2 w-full h-2 bg-neutral-100 rounded-full">
         <div
           className="absolute left-0 h-2 bg-plum rounded-full transition-all duration-300"
           style={{ width: getProgressWidth(selected) }}

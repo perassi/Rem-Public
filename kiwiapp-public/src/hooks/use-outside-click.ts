@@ -1,8 +1,14 @@
-// hooks
 import { useEffect, RefObject } from 'react';
 
 type Event = MouseEvent | TouchEvent;
 
+/**
+ * Custom hook that triggers a callback when a click or touch event 
+ * occurs outside the specified element.
+ *
+ * @param ref - A ref to the target element.
+ * @param handler - A function to execute when clicking outside the element.
+ */
 export const useOnClickOutside = (
   ref: RefObject<HTMLDivElement | null>,
   handler: (event: Event) => void

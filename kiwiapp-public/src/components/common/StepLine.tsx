@@ -7,11 +7,8 @@ import React, {
   useCallback,
   type FC,
 } from "react";
-// components
 import Image from "next/image";
-// constants
 import { STEPS } from "@/constants/steps-line.constants";
-// types
 import type { Step } from "@/types/steps.types";
 
 interface StepLineProps {
@@ -103,7 +100,7 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
                         />
                       </svg>
                     ) : (
-                      <span className="text-[20px] font-sans font-medium">
+                      <span className="text-xl font-sans font-medium">
                         {step.id}
                       </span>
                     )}
@@ -115,7 +112,7 @@ const StepLine: FC<StepLineProps> = ({ activeStep }) => {
                 <div
                   className={`${
                     step.id !== activeStep && "hidden"
-                  } md:block absolute bottom-[-40px] w-max text-[12px] py-1 px-4 rounded-full border border-lightGrayishCyan font-sans font-medium md:border-none md:text-[20px]  md:rounded-none md:py-0 md:px-0`}
+                  } md:block absolute bottom-[-40px] w-max text-xs py-1 px-4 rounded-full border border-neutral-100 font-sans font-medium md:border-none md:text-xl  md:rounded-none md:py-0 md:px-0`}
                 >
                   {step.label}
                 </div>

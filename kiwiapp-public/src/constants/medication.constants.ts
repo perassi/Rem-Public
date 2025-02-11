@@ -1,4 +1,3 @@
-// types
 import type { Medication } from "@/types/medication.types";
 
 export const DEFAULT_MEDICATION_DATA: Medication[] = [

@@ -1,14 +1,10 @@
 import React, { useState, Fragment, useCallback, type FC } from "react";
-// componets
 import Card from "@/components/common/Card";
 import Modal from "@/components/common/ModalWindow";
 import ActionButtons from "@/components/common/ActionButtons";
 import { H2 } from "@/components/common/Headers";
-// hooks
 import { useBoolean } from "@/hooks/use-boolean";
-// constants
 import { BENEFITS_CARDS } from "@/constants/cards.constants";
-// types
 import type { IStep } from "@/types/steps.types";
 
 const ExtrasStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
@@ -31,7 +27,7 @@ const ExtrasStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
           </div>
         )}
         <div className="flex flex-col  justify-center items-center w-full">
-          <H2 className="md:max-w-150 text-[30px] leading-normal md:!leading-tight md:text-[50px] font-normal text-center">
+          <H2 className="md:max-w-[600px] leading-normal md:!leading-tight font-normal text-center">
             Select The Benefits That Matter Most To You
           </H2>
         </div>

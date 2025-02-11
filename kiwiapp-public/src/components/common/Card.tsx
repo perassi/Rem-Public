@@ -1,6 +1,5 @@
 import { memo, type FC } from "react";
 import Image, { type StaticImageData } from "next/image";
-// utils
 import { cn } from "@/utils/common.utils";
 
 interface CardPropsProps {
@@ -23,7 +22,7 @@ const Card: FC<CardPropsProps> = ({
   const baseContainerStyles =
     "flex flex-col max-w-[190px] md:min-w-[310px] relative cursor-pointer";
 
-  const baseWrapperStyles = `relative w-full h-[190px] md:h-55 flex flex-col rounded-2xl items-center border-2 ${
+  const baseWrapperStyles = `relative w-full h-[190px] md:h-[220px] flex flex-col rounded-2xl items-center border-2 ${
     isActive ? "border-rem-green-400" : "border-gray-200"
   }`;
 
@@ -36,7 +35,7 @@ const Card: FC<CardPropsProps> = ({
         <Image src={image} alt={label} />
       </div>
       <div className="px-0 md:px-5 bg-white mt-5 md:mt-7 flex items-center justify-center">
-        <span className="text-[16px] md:text-[20px] leading-tight font-medium  text-center">
+        <span className="md:text-xl leading-tight font-medium  text-center">
           {label}
         </span>
         {isActive ? (

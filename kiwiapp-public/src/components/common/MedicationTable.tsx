@@ -6,11 +6,8 @@ import {
   useReactTable,
   getCoreRowModel,
 } from "@tanstack/react-table";
-// components
 import Button from "@/components/common/Button";
-// constants
 import { DEFAULT_MEDICATION_DATA } from "@/constants/medication.constants";
-// types
 import type { Medication } from "@/types/medication.types";
 
 const MedicationTable = () => {
@@ -124,7 +121,7 @@ const MedicationTable = () => {
                       header.column.getIndex() === 0
                         ? "text-left"
                         : "text-center"
-                    } text-[14px] md:text-[20px] font-semibold font-sans`}
+                    } text-sm md:text-xl font-semibold font-sans`}
                   >
                     {header.isPlaceholder
                       ? null
@@ -148,7 +145,7 @@ const MedicationTable = () => {
                 <td
                   key={cell.id}
                   className={` ${index === 0 ? "text-left" : "text-center"} 
-                  text-[14px] md:text-[20px] font-medium font-sans  
+                  text-sm md:text-xl font-medium font-sans  
                     ${index === 4 ? "flex justify-center" : ""} `}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}

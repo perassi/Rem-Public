@@ -1,10 +1,8 @@
-// assets
 import ExtraIcon from "public/assets/icons/extras-icon.svg";
 import MyDrugsIcon from "public/assets/icons/my-drugs-icon.svg";
 import NotebookIcon from "public/assets/icons/notebook-icon.svg";
 import AboutYouIcon from "public/assets/icons/about-you-icon.svg";
 import MyDoctorIcon from "public/assets/icons/my-doctor-icon.svg";
-// types
 import type { Step } from "@/types/steps.types";
 
 export const STEPS: Step[] = [

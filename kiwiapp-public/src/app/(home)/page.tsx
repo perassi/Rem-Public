@@ -1,4 +1,3 @@
-// components
 import Link from "next/link";
 import Button from "@/components/common/Button";
 

@@ -1,6 +1,4 @@
-// utils
 import { cn } from "@/utils/common.utils";
-// types
 import type { FC, ReactNode } from "react";
 
 interface ContainerProps {

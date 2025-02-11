@@ -9,13 +9,6 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        // "footer-bg": "url('../../public/assets/images/footer-bg.png')",
-        // "green-dots-bg":
-        //   "url('../../public/assets/images/green-dots-mobile.png')",
-        // "green-dots-bottom-mobile":
-        //   "url('../../public/assets/images/green-dots-bottom-mobile.png')",
-      },
       spacing: {
         10: "40px",
         11: "44px",
@@ -30,34 +23,6 @@ const config: Config = {
         32: "128px",
         36: "144px",
         40: "160px",
-        44: "176px",
-        48: "190px",
-        55: "220px",
-        56: "224px",
-        64: "256px",
-        72: "288px",
-        80: "320px",
-        96: "384px",
-        100: "400px",
-        112: "448px",
-        128: "512px",
-        144: "576px",
-        150: "600px",
-        160: "640px",
-        176: "704px",
-        192: "768px",
-        208: "832px",
-        224: "896px",
-        240: "960px",
-      },
-      screens: {
-        xs: "430px",
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
-        "2xl": "1536px",
-        "3xl": "1920px",
       },
       colors: {
         "rem-green": {
@@ -135,7 +100,6 @@ const config: Config = {
         },
         mintly: "#BBE8D7",
         plum: "#872B58",
-        lightGrayishCyan: "#DCE1E0",
         beige: {
           "400": "#F0EEEA",
           "500": "#E3E0D8",

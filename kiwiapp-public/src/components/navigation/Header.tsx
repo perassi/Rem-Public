@@ -1,16 +1,13 @@
-// components
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
-// assets
 import RemLogo from "public/assets/icons/rem-logo.png";
 import PhoneIcon from "public/assets/icons/phone-icon.svg";
-// constants
 import { routes } from "@/constants/routes.constants";
 
 export const Header = () => (
-  <nav className="relative w-full pb-7 pt-15 border-b border-lightGrayishCyan md:border-none md:pt-7">
+  <nav className="relative w-full pb-7 pt-15 border-b border-neutral-100 md:border-none md:pt-7">
     <Container>
       <div className="flex bg-white justify-between  rounded-full  items-center px-5">
         <div>
@@ -23,15 +20,15 @@ export const Header = () => (
           </Link>
         </div>
         <div className="flex">
-          <div className="gap-8 hidden lg:flex pl-4 text-[20px] font-medium" />
+          <div className="gap-8 hidden lg:flex pl-4 text-xl font-medium" />
         </div>
         <div className="gap-x-2 flex items-center justify-center md:gap-x-5">
           <Button
             type="outline"
-            className="h-10 py-[10px] md:h-15 px-5 md:py-5 md:px-7 border border-solid border-lightGrayishCyan align-middle rounded-full"
+            className="h-10 py-[10px] md:h-15 px-5 md:py-5 md:px-7 border border-solid border-neutral-100 align-middle rounded-full"
           >
             <Image src={PhoneIcon} alt="Phone" className="mr-2" />
-            <span className="text-[16px] font-sans leading-tight">
+            <span className="text-base font-sans leading-tight">
               (623) 223-8884
             </span>
           </Button>

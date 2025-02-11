@@ -1,4 +1,3 @@
-// type
 import type { Range } from "@/types/range.types";
 
 export const RANGE_LIST: Range[] = [

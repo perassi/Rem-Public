@@ -12,9 +12,13 @@ export const Sidebar = () => {
 
   return (
     <aside
-      className={`fixed left-0 top-0 h-screen min-w-[15%] bg-evergreen-800 text-beige transition-transform ${
-        collapsed ? "w-16 -translate-x-full transform" : "w-64 translate-x-0 transform" } border-divider bg-background relative
-        z-[202] flex flex-col overflow-y-auto border-r py-6`}
+      className={`fixed left-0 top-0 h-screen min-w-[15%] bg-evergreen-800 text-beige transition-transform
+        ${
+          collapsed
+            ? "w-16 -translate-x-full transform"
+            : "w-[256px] translate-x-0 transform"
+        } relative z-[202] flex flex-col
+        overflow-y-auto border-r border-divider bg-background py-6`}
     >
       {collapsed ? (
         <div

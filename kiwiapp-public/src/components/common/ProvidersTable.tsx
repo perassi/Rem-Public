@@ -6,11 +6,8 @@ import {
   useReactTable,
   getCoreRowModel,
 } from "@tanstack/react-table";
-// components
 import Button from "@/components/common/Button";
-// constants
 import { DEFAULT_PROVIDERS_DATA } from "@/constants/providers.constants";
-// types
 import type { Providers } from "@/types/providers-data.types";
 
 const ProvidersTable = () => {
@@ -102,7 +99,7 @@ const ProvidersTable = () => {
               {headerGroup.headers.map((header) => (
                 <th key={header.id}>
                   <div
-                    className={`text-left text-[14px] md:text-[20px] font-semibold font-sans`}
+                    className={`text-left text-sm md:text-xl font-semibold font-sans`}
                   >
                     {header.isPlaceholder
                       ? null
@@ -125,7 +122,7 @@ const ProvidersTable = () => {
               {row.getVisibleCells().map((cell, index) => (
                 <td
                   key={cell.id}
-                  className={`text-[14px] flex md:block md:text-[20px] pb-5 md:pb-0 items-center ${
+                  className={`text-sm flex md:block md:text-xl pb-5 md:pb-0 items-center ${
                     index === 2 ? "flex md:flex justify-end" : "text-left"
                   } font-medium font-sans
                 `}

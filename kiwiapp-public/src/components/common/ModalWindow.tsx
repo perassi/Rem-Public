@@ -1,14 +1,10 @@
 import { memo, useRef, useCallback, useState, Fragment, type FC } from "react";
-// hooks
 import { useOnClickOutside } from "@/hooks/use-outside-click";
-// components
 import Card from "@/components/common/Card";
 import Image from "next/image";
 import Button from "@/components/common/Button";
 import { H2 } from "@/components/common/Headers";
-// constants
 import { MODAL_CARDS } from "@/constants/cards.constants";
-// assets
 import CloseIcon from "public/assets/icons/close-icon.svg";
 import LargeCloseIcon from "public/assets/icons/large-close-icon.svg";
 
@@ -38,7 +34,7 @@ const Modal: FC<ModalProps> = ({ onSave, onClose }) => {
         className="overflow-auto w-full max-w-[1220px] max-h-[90vh] md:max-h-[calc(100vh-40px)] bg-white rounded-2xl py-5 md:py-15 relative shadow-lg"
       >
         <button
-          className="absolute w-10 h-10 md:h-15 md:w-15 top-5 md:top-13 bg-lightGrayishCyan rounded-full right-5 md:right-10"
+          className="absolute w-10 h-10 md:h-15 md:w-15 top-5 md:top-13 bg-neutral-100 rounded-full right-5 md:right-10"
           onClick={onClose}
         >
           <div className="md:hidden">
@@ -50,7 +46,7 @@ const Modal: FC<ModalProps> = ({ onSave, onClose }) => {
         </button>
 
         <div className="mt-15 md:mt-0 w-full border-b">
-          <H2 className="text-[30px] md:text-[50px] text-center mb-15">
+          <H2 className="text-center mb-15">
             Other Benefits
           </H2>
         </div>
@@ -72,7 +68,7 @@ const Modal: FC<ModalProps> = ({ onSave, onClose }) => {
         <div className="px-5 mt-15 w-full flex items-center justify-center">
           <Button
             type="fill"
-            className="rounded-full w-full md:w-[310px] text-[16px] leading-tight"
+            className="rounded-full w-full md:w-[310px] text-base leading-tight"
             onClick={onSave}
           >
             Save & Continue

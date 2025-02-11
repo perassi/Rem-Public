@@ -1,4 +1,3 @@
-// type
 import { Providers } from "@/types/providers-data.types";
 
 export const DEFAULT_PROVIDERS_DATA: Providers[] = [

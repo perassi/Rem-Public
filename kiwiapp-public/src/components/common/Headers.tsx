@@ -1,6 +1,4 @@
-// utils
 import { cn } from "@/utils/common.utils";
-// types
 import type { ReactNode } from "react";
 
 interface HeadersPropsInterface {
@@ -9,25 +7,14 @@ interface HeadersPropsInterface {
 }
 
 export const H1 = ({ children, className }: HeadersPropsInterface) => {
-  return <h1 className={cn("text-5xl md:text-6xl font-header font-normal !leading-[1]", className)}>{children}</h1>;
+  // Leading has to have !important marker to override the default line-height value from text size classes
+  return <h1 className={cn("font-header text-4xl font-light !leading-[1.25] md:text-5xl", className)}>{children}</h1>;
 };
 
 export const H2 = ({ children, className }: HeadersPropsInterface) => {
-  return <h2 className={cn("font-header text-6xl font-normal !leading-[1]", className)}>{children}</h2>;
+  return <h2 className={cn("font-header text-3xl font-light !leading-[1.25] md:text-4xl", className)}>{children}</h2>;
 };
 
 export const H3 = ({ children, className }: HeadersPropsInterface) => {
-  return <h3 className={cn("font-header text-4xl text-center font-normal !leading-[1]", className)}>{children}</h3>;
-};
-
-export const H4 = ({ children, className }: HeadersPropsInterface) => {
-  return <h4 className={cn("font-header text-3xl text-center font-normal !leading-[1]", className)}>{children}</h4>;
-};
-
-export const H5 = ({ children, className }: HeadersPropsInterface) => {
-  return <h5 className={cn("font-header text-3xl text-center font-normal !leading-[1]", className)}>{children}</h5>;
-};
-
-export const H6 = ({ children, className }: HeadersPropsInterface) => {
-  return <h6 className={cn("font-header text-4xl text-center font-normal !leading-[1]", className)}>{children}</h6>;
+  return <h3 className={cn("font-header text-2xl font-light !leading-[1.25] md:text-3xl", className)}>{children}</h3>;
 };
