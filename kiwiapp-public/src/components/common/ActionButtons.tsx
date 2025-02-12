@@ -17,7 +17,7 @@ const ActionButtons: FC<ActionButtonsProps> = ({
   onClickPrimaryButton,
   onClickSecondaryButton,
 }) => {
-  const baseStyles = `mt-15 flex w-full max-w-[640px] justify-center items-center gap-x-2  md:gap-x-5`;
+  const baseStyles = `mt-15 flex w-full max-w-160 justify-center items-center gap-x-2  md:gap-x-5`;
 
   return (
     <div className={cn(baseStyles, className)}>

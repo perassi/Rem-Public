@@ -18,13 +18,13 @@ const PlanTypeStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
           <Image src={StepImage1} alt="Plan type" className="py-11" />
           <div className="mt-11 flex w-full flex-col items-center justify-center px-5">
             <H2 className="font-normal">What’s Your ZIP Code?</H2>
-            <span className="mt-2 text-center text-base font-medium capitalize leading-tight md:mt-5">
+            <span className="mt-3 text-center text-base font-medium capitalize leading-tight md:mt-5">
               We need to know this in order to check which plans are available in your area.
             </span>
           </div>
           <div className="mt-7 flex w-full flex-col px-5 md:mt-10">
             <input
-              className="h-15 w-full rounded-md border-[1px] border-evergreen-800 bg-white px-5 placeholder-evergreen-800 md:w-full"
+              className="h-15 w-full rounded-md border border-evergreen-800 bg-white px-5 placeholder-evergreen-800 md:w-full"
               placeholder="Enter Zip Code"
               maxLength={5}
               inputMode="numeric"

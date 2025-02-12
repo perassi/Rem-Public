@@ -25,7 +25,7 @@ const SUPPLY_INPUTS = [
 
 const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
   const renderSupplyInputs = () => (
-    <div className="mt-5 flex gap-x-4 md:gap-x-5 lg:max-w-[640px]">
+    <div className="mt-5 flex gap-x-4 md:gap-x-5 lg:max-w-160">
       {SUPPLY_INPUTS.map((item) => (
         <input
           key={item.id}
@@ -46,7 +46,7 @@ const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
           <span className="mt-5 text-2xl font-medium">This Helps Us Find a Plan to Minimize Your Costs</span>
         </div>
       </div>
-      <div className="flex w-full flex-col items-start gap-y-7 overflow-hidden md:gap-y-[50px]">
+      <div className="flex w-full flex-col items-start gap-y-7 overflow-hidden md:gap-y-12">
         <span className="font-sans text-xl font-semibold md:text-2xl">Enrolled Drugs</span>
         <MedicationTable />
       </div>
@@ -62,11 +62,8 @@ const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
         <div className="flex flex-col">
           <span className="font-sans font-semibold md:pl-7">Quantity</span>
           <div className="mt-5 flex flex-col gap-y-7 md:flex-row md:gap-x-5">
-            <input className="h-15 w-full rounded-md border border-black p-2 lg:w-[310px]" placeholder="" />
-            <Button
-              type="fill"
-              className="flex h-15 w-full items-center justify-center rounded-full bg-black lg:w-[310px]"
-            >
+            <input className="h-15 w-full rounded-md border border-black p-2 lg:w-78" placeholder="" />
+            <Button type="fill" className="flex h-15 w-full items-center justify-center rounded-full bg-black lg:w-78">
               <span className="text-base leading-tight text-white">Add Medication</span>
             </Button>
           </div>

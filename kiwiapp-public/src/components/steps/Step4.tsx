@@ -12,9 +12,7 @@ const MyDoctorsStep: FC<IStep> = ({ onPrevStep, onNextStep }) => (
       <Image src={StepImage4} alt="My Doctors" />
       <div className="mt-16 flex w-full flex-col items-center justify-center">
         <H2 className="font-normal"> Add Your Providers</H2>
-        <span className="mt-[10px] font-normal md:mt-5 md:text-2xl">
-          This Helps Us Find a Plan to Minimize Your Costs
-        </span>
+        <span className="mt-2 font-normal md:mt-5 md:text-2xl">This Helps Us Find a Plan to Minimize Your Costs</span>
       </div>
     </div>
     <div className="mt-15 flex w-full flex-col items-start gap-y-7 overflow-hidden">

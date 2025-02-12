@@ -31,8 +31,7 @@ const Modal: FC<ModalProps> = ({ onSave, onClose }) => {
     <div className="inset-0 flex w-full items-center justify-center px-5 py-5">
       <div
         ref={ref}
-        className="relative max-h-[90vh] w-full max-w-[1220px] overflow-auto rounded-2xl bg-white py-5 shadow-lg
-          md:max-h-[calc(100vh-40px)] md:py-15"
+        className="relative max-h-90vh w-full max-w-7xl overflow-auto rounded-2xl bg-white py-5 shadow-lg md:max-h-screen-minus-40 md:py-15"
       >
         <button
           className="absolute right-5 top-5 h-10 w-10 rounded-full bg-neutral-100 md:right-10 md:top-13 md:h-15 md:w-15"
@@ -58,14 +57,14 @@ const Modal: FC<ModalProps> = ({ onSave, onClose }) => {
                 image={item.img}
                 isActive={selectedOption === index}
                 onClick={handleSelectOption(index)}
-                classNameContainer="max-w-[170px] md:min-w-[270px]"
-                classNameWrapper="h-[170px]"
+                classNameContainer="max-w-42 md:min-w-67"
+                classNameWrapper="h-42"
               />
             </Fragment>
           ))}
         </div>
         <div className="mt-15 flex w-full items-center justify-center px-5">
-          <Button type="fill" className="w-full rounded-full text-base leading-tight md:w-[310px]" onClick={onSave}>
+          <Button type="fill" className="w-full rounded-full text-base leading-tight md:w-77" onClick={onSave}>
             Save & Continue
           </Button>
         </div>

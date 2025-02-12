@@ -19,7 +19,7 @@ const AboutYouStep: FC<IStep> = ({ onPrevStep, onNextStep }) => {
     <div className="mt-10 px-5 md:mt-18">
       <div className="flex flex-col items-center justify-center">
         <div className="flex w-full flex-col items-center justify-center">
-          <H2 className="max-w-[350px] text-center font-normal !leading-normal md:max-w-[860px] md:!leading-tight">
+          <H2 className="max-w-87 text-center font-normal !leading-normal md:max-w-215 md:!leading-tight">
             Do You Know The Type Of Plan You Want To Sign Up For?
           </H2>
         </div>

@@ -12,10 +12,10 @@ const UsageFrequencyStep: FC<IStep> = ({ onPrevStep, onNextStep }) => (
     <div className="flex w-full flex-col items-center">
       <Image src={StepImage6} alt="Usage Frequency" className="mt-9" />
       <div className="mt-18 flex w-full flex-col items-center justify-center md:mt-10">
-        <H2 className="text-center font-normal leading-snug md:max-w-[840px] md:!leading-tight">
+        <H2 className="text-center font-normal leading-snug md:max-w-208 md:!leading-tight">
           Now All We Need To Know Is How Often You Visit Providers.
         </H2>
-        <span className="mt-2 max-w-[318px] text-center font-normal capitalize leading-6 md:max-w-[690px] md:text-2xl md:normal-case md:leading-9">
+        <span className="mt-2 max-w-79 text-center font-normal capitalize leading-6 md:max-w-172 md:text-2xl md:normal-case md:leading-9">
           This helps us ensure we get you a good level of coverage and potentially reduce out of pocket costs.
         </span>
       </div>

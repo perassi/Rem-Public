@@ -1,7 +1,9 @@
 "use client";
 import { memo, useMemo, useCallback, useState } from "react";
+import { cn } from "@/utils/common.utils";
 import { ColumnDef, flexRender, useReactTable, getCoreRowModel } from "@tanstack/react-table";
 import Button from "@/components/common/Button";
+import DeleteIcon from "@/components/icons/DeleteIcon";
 import { DEFAULT_MEDICATION_DATA } from "@/constants/medication.constants";
 import type { Medication } from "@/types/medication.types";
 
@@ -20,61 +22,51 @@ const MedicationTable = () => {
       {
         accessorKey: "name",
         header: () => "Medication Name",
-        cell: ({ getValue }) => <span className="text-left">{getValue<string>()}</span>,
+        meta: {
+          cellClassName: "col-span-3 text-left",
+          headerClassName: "col-span-3 text-left",
+        },
       },
       {
         accessorKey: "dosage",
         header: () => "Dosage",
         cell: ({ getValue }) => <span className="text-center">{getValue<string>()}</span>,
+        meta: {
+          cellClassName: "col-span-3",
+          headerClassName: "col-span-3",
+        },
       },
       {
         accessorKey: "quantity",
         header: () => "Quantity",
-        cell: ({ getValue }) => <span className="text-center">{getValue<number>()}</span>,
-        size: 70,
+        meta: {
+          cellClassName: "col-span-2",
+          headerClassName: "col-span-2",
+        },
       },
       {
         accessorKey: "daysSupply",
         header: () => "Days Supply",
-        cell: ({ getValue }) => <span className="text-center">{getValue<number>()}</span>,
+        meta: {
+          cellClassName: "col-span-3",
+          headerClassName: "col-span-3",
+        },
       },
       {
         id: "actions",
         header: () => "",
         cell: ({ row }) => (
           <Button
-            className="h-10 w-10 rounded-full bg-red-500 p-0 text-white hover:bg-red-700"
+            className="min-h-10 min-w-10 rounded-full bg-red-500 p-0 text-white hover:bg-red-700"
             onClick={handleDelete(row.index)}
           >
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g>
-                <g>
-                  <path
-                    d="M16.1032 7.89062C16.1032 7.89062 15.6507 13.5031 15.3882 15.8673C15.2632 16.9965 14.5657 17.6581 13.4232 17.679C11.249 17.7181 9.07234 17.7206 6.89901 17.6748C5.79984 17.6523 5.11401 16.9823 4.99151 15.8731C4.72734 13.4881 4.27734 7.89062 4.27734 7.89062"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M17.2567 5.19987H3.125"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M14.5335 5.19998C13.8793 5.19998 13.316 4.73748 13.1877 4.09665L12.9852 3.08331C12.8602 2.61581 12.4368 2.29248 11.9543 2.29248H8.42682C7.94432 2.29248 7.52099 2.61581 7.39599 3.08331L7.19349 4.09665C7.06516 4.73748 6.50182 5.19998 5.84766 5.19998"
-                    stroke="white"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </g>
-              </g>
-            </svg>
+            <DeleteIcon />
           </Button>
         ),
+        meta: {
+          cellClassName: "col-span-1 flex justify-end",
+          headerClassName: "col-span-1",
+        },
       },
     ],
     [handleDelete],
@@ -91,17 +83,16 @@ const MedicationTable = () => {
       <table className="w-full">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr
-              key={headerGroup.id}
-              className="grid grid-cols-[2.1fr_1fr_1.3fr_1.4fr_40px] md:grid-cols-[1.6fr_1fr_2.3fr_0.9fr_60px]"
-            >
+            <tr key={headerGroup.id} className="grid grid-cols-12">
               {headerGroup.headers.map((header) => (
-                <th key={header.id}>
-                  <div
-                    className={` ${header.column.getIndex() === 0 ? "text-left" : "text-center"} font-sans text-sm font-semibold md:text-xl`}
-                  >
-                    {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-                  </div>
+                <th
+                  key={header.id}
+                  className={cn(
+                    "font-sans text-sm font-semibold md:text-xl",
+                    header.column.columnDef.meta?.headerClassName,
+                  )}
+                >
+                  {header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
                 </th>
               ))}
             </tr>
@@ -109,16 +100,14 @@ const MedicationTable = () => {
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr
-              key={row.id}
-              className="mt-2 grid h-[70px] grid-cols-[2.1fr_1fr_1.3fr_1.4fr_40px] items-center border-b
-                md:grid-cols-[1.6fr_1fr_2.3fr_0.9fr_60px]"
-            >
-              {row.getVisibleCells().map((cell, index) => (
+            <tr key={row.id} className="mt-2 grid h-17 grid-cols-12 items-center border-b">
+              {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
-                  className={` ${index === 0 ? "text-left" : "text-center"} font-sans text-sm font-medium md:text-xl
-                  ${index === 4 ? "flex justify-center" : ""} `}
+                  className={cn(
+                    "text-center font-sans text-sm font-medium md:text-xl",
+                    cell.column.columnDef.meta?.cellClassName,
+                  )}
                 >
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>

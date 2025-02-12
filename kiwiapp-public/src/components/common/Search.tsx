@@ -23,10 +23,10 @@ const SearchComponent = () => {
         type="text"
         value={query}
         onChange={onChange}
-        className="mt-5 h-15 w-full rounded-[5px] border border-black px-4 font-sans text-base font-medium leading-tight"
+        className="mt-5 h-15 w-full rounded border border-black px-4 font-sans text-base font-medium leading-tight"
         placeholder="Search..."
       />
-      <div className="z-10 mt-5 w-full rounded-[5px] border border-neutral-100 bg-white p-2">
+      <div className="mt-5 w-full rounded border border-neutral-100 bg-white p-2">
         {SEARCH_OPTIONS.map((option, index) => (
           <div key={index} className="flex h-15 items-center border-b p-2" onClick={handleSelect(option)}>
             <button

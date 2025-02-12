@@ -12,7 +12,7 @@ export const Header = () => (
       <div className="flex items-center justify-between rounded-full bg-white px-5">
         <div>
           <Link href={routes.home}>
-            <Image src={RemLogo} alt="RemLogo" className="h-7 w-auto cursor-pointer md:h-[50px] md:w-[150px]" />
+            <Image src={RemLogo} alt="RemLogo" className="h-7 w-auto cursor-pointer md:h-12 md:w-37" />
           </Link>
         </div>
         <div className="flex">
@@ -21,7 +21,7 @@ export const Header = () => (
         <div className="flex items-center justify-center gap-x-2 md:gap-x-5">
           <Button
             type="outline"
-            className="h-10 rounded-full border border-solid border-neutral-100 px-5 py-[10px] align-middle md:h-15 md:px-7 md:py-5"
+            className="h-10 rounded-full border border-solid border-neutral-100 px-5 py-2 align-middle md:h-15 md:px-7 md:py-5"
           >
             <Image src={PhoneIcon} alt="Phone" className="mr-2" />
             <span className="font-sans text-base leading-tight">(623) 223-8884</span>

@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      maxHeight: {
+        "90vh": "90vh",
+        "screen-minus-40": "calc(100vh - 40px)",
+      },
       spacing: {
         10: "40px",
         11: "44px",
@@ -16,13 +20,29 @@ const config: Config = {
         13: "52px",
         15: "60px",
         16: "64px",
+        17: "68px",
         18: "72px",
         19: "76px",
         24: "96px",
         28: "112px",
         32: "128px",
         36: "144px",
+        37: "148px",
         40: "160px",
+        42: "168px",
+        44: "176px",
+        47: "188px",
+        55: "220px",
+        67: "268px",
+        77: "308px",
+        78: "312px",
+        79: "316px",
+        87: "348px",
+        150: "600px",
+        160: "640px",
+        172: "688px",
+        208: "832px",
+        215: "860px",
       },
       colors: {
         "rem-green": {
