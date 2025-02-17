@@ -1,12 +1,13 @@
+"use client";
 import { useCallback, type FC, type FormEvent } from "react";
 import Image from "next/image";
 import ActionButtons from "@/components/common/ActionButtons";
 import { H2 } from "@/components/common/Headers";
 import { Container } from "@/components/common/Container";
 import StepImage1 from "public/assets/images/step1Image.png";
-import type { IStep } from "@/types/steps.types";
+import { IStep } from "@/types/steps.types";
 
-const PlanTypeStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
+const PlanType: FC<IStep> = ({ onPrevStep, onNextStep }) => {
   const handleChange = useCallback((e: FormEvent<HTMLInputElement>) => {
     e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 5);
   }, []);
@@ -44,4 +45,4 @@ const PlanTypeStep: FC<IStep> = ({ onNextStep, onPrevStep }) => {
   );
 };
 
-export default PlanTypeStep;
+export default PlanType;

@@ -1,3 +1,4 @@
+"use client";
 import type { FC } from "react";
 import Image from "next/image";
 import ActionButtons from "@/components/common/ActionButtons";
@@ -7,7 +8,7 @@ import { RANGE_LIST } from "@/constants/usage-frequenc.constants";
 import StepImage6 from "public/assets/images/step6.png";
 import type { IStep } from "@/types/steps.types";
 
-const UsageFrequencyStep: FC<IStep> = ({ onPrevStep, onNextStep }) => (
+const UsageFrequency: FC<IStep> = ({ onPrevStep, onNextStep }) => (
   <div className="flex w-full flex-col items-center justify-center px-5">
     <div className="flex w-full flex-col items-center">
       <Image src={StepImage6} alt="Usage Frequency" className="mt-9" />
@@ -32,4 +33,4 @@ const UsageFrequencyStep: FC<IStep> = ({ onPrevStep, onNextStep }) => (
   </div>
 );
 
-export default UsageFrequencyStep;
+export default UsageFrequency;

@@ -4,6 +4,7 @@ export interface Step {
   id: number;
   icon: StaticImport;
   label: string;
+  query: string;
 }
 
 export interface IStep {

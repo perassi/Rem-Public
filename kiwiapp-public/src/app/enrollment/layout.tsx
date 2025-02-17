@@ -1,4 +1,6 @@
+import { Suspense } from "react";
 import { DefaultLayout } from "@/components/common/Layout";
+import Spinner from "@/components/common/Spinner";
 import "@/styles/globals.css";
 
 export const metadata = {
@@ -13,7 +15,9 @@ export default function Layout({
 }>) {
   return (
     <DefaultLayout>
-      <div>{children}</div>
+      <Suspense fallback={<Spinner />}>
+        <div>{children}</div>
+      </Suspense>
     </DefaultLayout>
   );
 }

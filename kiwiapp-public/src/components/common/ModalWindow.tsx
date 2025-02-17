@@ -16,15 +16,19 @@ interface ModalProps {
 const Modal: FC<ModalProps> = ({ onSave, onClose }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [selectedCards, setSelectedCards] = useState<number[]>([]);
 
   useOnClickOutside(ref, onClose);
 
-  const handleSelectOption = useCallback(
-    (index: number) => () => {
-      setSelectedOption(index);
+  const handleSelect = useCallback(
+    (id: number) => () => {
+      if (selectedCards.includes(id)) {
+        setSelectedCards((prev) => prev.filter((cardId) => cardId !== id));
+      } else {
+        setSelectedCards((prev) => [...prev, id]);
+      }
     },
-    [],
+    [selectedCards],
   );
 
   return (
@@ -50,13 +54,13 @@ const Modal: FC<ModalProps> = ({ onSave, onClose }) => {
         </div>
 
         <div className="mt-11 flex flex-wrap justify-center gap-x-2 gap-y-5 px-5 md:mt-19 md:gap-x-5">
-          {MODAL_CARDS.map((item, index) => (
+          {MODAL_CARDS.map((item) => (
             <Fragment key={item.id}>
               <Card
                 label={item.label}
                 image={item.img}
-                isActive={selectedOption === index}
-                onClick={handleSelectOption(index)}
+                isActive={selectedCards.includes(item.id)}
+                onClick={handleSelect(item.id)}
                 classNameContainer="max-w-42 md:min-w-67"
                 classNameWrapper="h-42"
               />

@@ -1,3 +1,4 @@
+"use client";
 import { Fragment, useState, useCallback, type FC } from "react";
 import Card from "@/components/common/Card";
 import ActionButtons from "@/components/common/ActionButtons";
@@ -5,14 +6,18 @@ import { H2 } from "@/components/common/Headers";
 import { ABOUT_YOU_CARDS } from "@/constants/cards.constants";
 import type { IStep } from "@/types/steps.types";
 
-const AboutYouStep: FC<IStep> = ({ onPrevStep, onNextStep }) => {
-  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+const AboutYou: FC<IStep> = ({ onNextStep, onPrevStep }) => {
+  const [selectedCards, setSelectedCards] = useState<number[]>([]);
 
-  const handleSelectOption = useCallback(
-    (index: number) => () => {
-      setSelectedOption(index);
+  const handleSelect = useCallback(
+    (id: number) => () => {
+      if (selectedCards.includes(id)) {
+        setSelectedCards((prev) => prev.filter((cardId) => cardId !== id));
+      } else {
+        setSelectedCards((prev) => [...prev, id]);
+      }
     },
-    [],
+    [selectedCards],
   );
 
   return (
@@ -24,12 +29,12 @@ const AboutYouStep: FC<IStep> = ({ onPrevStep, onNextStep }) => {
           </H2>
         </div>
         <div className="mt-11 flex w-full flex-wrap justify-center gap-x-2 gap-y-9 md:mt-19 md:gap-x-5 xl:flex-nowrap">
-          {ABOUT_YOU_CARDS.map((item, index) => (
+          {ABOUT_YOU_CARDS.map((item) => (
             <Fragment key={item.id}>
               <Card
                 image={item.img}
-                isActive={selectedOption === index}
-                onClick={handleSelectOption(index)}
+                isActive={selectedCards.includes(item.id)}
+                onClick={handleSelect(item.id)}
                 label={item.label}
               />
             </Fragment>
@@ -41,4 +46,4 @@ const AboutYouStep: FC<IStep> = ({ onPrevStep, onNextStep }) => {
   );
 };
 
-export default AboutYouStep;
+export default AboutYou;

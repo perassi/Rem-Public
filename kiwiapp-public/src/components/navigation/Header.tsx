@@ -4,14 +4,14 @@ import Button from "@/components/common/Button";
 import { Container } from "@/components/common/Container";
 import RemLogo from "public/assets/icons/rem-logo.png";
 import PhoneIcon from "public/assets/icons/phone-icon.svg";
-import { routes } from "@/constants/routes.constants";
+import { ROUTES } from "@/constants/routes.constants";
 
 export const Header = () => (
   <nav className="relative w-full border-b border-neutral-100 pb-7 pt-15 md:border-none md:pt-7">
     <Container>
       <div className="flex items-center justify-between rounded-full bg-white px-5">
         <div>
-          <Link href={routes.home}>
+          <Link href={ROUTES.home}>
             <Image src={RemLogo} alt="RemLogo" className="h-7 w-auto cursor-pointer md:h-12 md:w-37" />
           </Link>
         </div>

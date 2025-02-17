@@ -6,7 +6,7 @@ import ProvidersTable from "@/components/common/ProvidersTable";
 import type { FC } from "react";
 import type { IStep } from "@/types/steps.types";
 
-const MyDoctorsStep: FC<IStep> = ({ onPrevStep, onNextStep }) => (
+const MyDoctors: FC<IStep> = ({ onPrevStep, onNextStep }) => (
   <div className="mt-7 flex w-full flex-col items-center justify-center px-5 md:mt-12">
     <div className="flex w-full flex-col items-center">
       <Image src={StepImage4} alt="My Doctors" />
@@ -33,4 +33,4 @@ const MyDoctorsStep: FC<IStep> = ({ onPrevStep, onNextStep }) => (
   </div>
 );
 
-export default MyDoctorsStep;
+export default MyDoctors;

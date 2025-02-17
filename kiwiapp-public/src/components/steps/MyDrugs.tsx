@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Button from "@/components/common/Button";
 import ActionButtons from "@/components/common/ActionButtons";
@@ -23,7 +24,7 @@ const SUPPLY_INPUTS = [
   },
 ];
 
-const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
+const MyDrugs: FC<IStep> = ({ onPrevStep, onNextStep }) => {
   const renderSupplyInputs = () => (
     <div className="mt-5 flex gap-x-4 md:gap-x-5 lg:max-w-160">
       {SUPPLY_INPUTS.map((item) => (
@@ -73,4 +74,4 @@ const MyDrugsStep: FC<IStep> = ({ onPrevStep, onNextStep }: IStep) => {
     </div>
   );
 };
-export default MyDrugsStep;
+export default MyDrugs;

@@ -1,23 +1,29 @@
 "use client";
 import { useSteps } from "@/hooks/use-steps";
 import { useCallback } from "react";
+import { useRouter } from "next/navigation";
 import StepLine from "@/components/common/StepLine";
-import ExtrasStep from "@/components/steps/Step5";
-import MyDrugsStep from "@/components/steps/Step3";
-import PlanTypeStep from "@/components/steps/Step1";
-import AboutYouStep from "@/components/steps/Step2";
-import MyDoctorsStep from "@/components/steps/Step4";
-import UsageFrequencyStep from "@/components/steps/Step6";
+import ExtrasStep from "@/components/steps/Extras";
+import MyDrugsStep from "@/components/steps/MyDrugs";
+import PlanTypeStep from "@/components/steps/PlanType";
+import AboutYouStep from "@/components/steps/AboutYou";
+import MyDoctorsStep from "@/components/steps/MyDoctors";
+import UsageFrequencyStep from "@/components/steps/UsageFrequency";
 import { Container } from "@/components/common/Container";
+import { STEPS } from "@/constants/steps-line.constants";
+import { ROUTES } from "@/constants/routes.constants";
 
 const EnrollmentPage = () => {
-  const { activeStep, onPrevStep, onNextStep } = useSteps(1, 6);
+  const { activeStep, onNextStep, onPrevStep } = useSteps(STEPS, "tab");
+  const router = useRouter();
+
+  const handleNavigateHome = useCallback(() => router.push(ROUTES.home), [router]);
 
   const renderCurrentStepContent = useCallback(() => {
     if (activeStep)
       switch (activeStep) {
         case 1:
-          return <PlanTypeStep onNextStep={onNextStep} onPrevStep={onPrevStep} />;
+          return <PlanTypeStep onNextStep={onNextStep} onPrevStep={handleNavigateHome} />;
         case 2:
           return <AboutYouStep onNextStep={onNextStep} onPrevStep={onPrevStep} />;
         case 3:
@@ -31,7 +37,7 @@ const EnrollmentPage = () => {
         default:
           break;
       }
-  }, [activeStep, onNextStep, onPrevStep]);
+  }, [activeStep, handleNavigateHome, onNextStep, onPrevStep]);
 
   return (
     <Container>
